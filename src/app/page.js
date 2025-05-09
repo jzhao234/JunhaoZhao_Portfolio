@@ -16,7 +16,7 @@ export default function Home() {
           <div className = "m-10 p-3 border-2 border-[#1E90FF]/10 rounded-lg text-black bg-white dark:text-white dark:bg-[#151516]">
             <div className = "flex">
               <div className = "mr-3 mb-3 ml-1 mt-1 rounded-lg border-2 border-[#1E90FF]/10">
-                <Image src = "/profile.jpg" className = "rounded-lg bd-grey bd-1" width = {150} height = {150}/>
+                <Image src = "/profile.jpg" alt = "Profile Picture" className = "rounded-lg bd-grey bd-1" width = {150} height = {150}/>
               </div>
       
               <div>
@@ -77,7 +77,7 @@ export default function Home() {
               <p className = "font-medium text-lg"> Experience </p>
               {/* Experience 1 */}
               <Experience 
-                logo={<Image src = "/logo/Temple-Logo-T-Header.svg" width={50} height={50} />} 
+                logo={<Image src = "/logo/Temple-Logo-T-Header.svg" alt = "Temple"width={50} height={50} />} 
                 title="Lab Consultant Intern" 
                 location="Philadelphia, PA" 
                 date="SEP 2023 - Current" 
@@ -88,7 +88,7 @@ export default function Home() {
               />
               {/* Experience 2 */}
               <Experience 
-                logo={<Image src = "/logo/Temple-Logo-T-Header.svg" width={50} height={50} />} 
+                logo={<Image src = "/logo/Temple-Logo-T-Header.svg" alt = "Temple" width={50} height={50} />} 
                 title="STEM Leadership Fellows at Temple" 
                 location="Philadelphia, PA" 
                 date="SEP 2023 - May 2025" 
@@ -99,7 +99,7 @@ export default function Home() {
               />
               {/* Experience 3 */}
               <Experience 
-                logo={<Image src = "/logo/lavner.png" width={50} height={50} />} 
+                logo={<Image src = "/logo/lavner.png" alt = "Lavner" width={50} height={50} />} 
                 title="Instructing Intern at Lavner" 
                 location="Philadelphia, PA" 
                 date="SEP 2023 - May 2025" 
@@ -110,7 +110,7 @@ export default function Home() {
               />
               {/* Experience 4 */}
               <Experience 
-                logo={<Image src = "/logo/PCDC.jpg" width={50} height={50} />} 
+                logo={<Image src = "/logo/PCDC.jpg" alt = "PCDC" width={50} height={50} />} 
                 title="Intern and Volunteer at PCDC" 
                 location="Philadelphia, PA" 
                 date="AUG 2018 - DEC 2023" 
@@ -133,22 +133,22 @@ export default function Home() {
             </div>
 
             <Technology
-              logo = {<Image src = "/logo/javaLogo.svg" width={40} height={40}/>}
+              logo = {<Image src = "/logo/javaLogo.svg" alt = "Java" width={40} height={40}/>}
               name = "Java"
               version = "Version Java SE 24 (JDK 24)"
             />
             <Technology
-              logo = {<Image src = "/logo/cLogo.svg" width={40} height={40}/>}
+              logo = {<Image src = "/logo/cLogo.svg" alt = "Java" width={40} height={40}/>}
               name = "C"
               version = "Version C23"
             />
             <Technology
-              logo = {<Image src = "/logo/tailwindLogo.svg" width={40} height={40}/>}
+              logo = {<Image src = "/logo/tailwindLogo.svg" alt = "Tailwind CSS" width={40} height={40}/>}
               name = "Tailwind CSS"
               version = "Version 4.1"
             />
             <Technology
-              logo = {<Image src = "/logo/htmlLogo.svg" width={40} height={40}/>}
+              logo = {<Image src = "/logo/htmlLogo.svg" alt = "HTMl" width={40} height={40}/>}
               name = "HTML"
               version = "Version HTML5"
             />
@@ -161,7 +161,7 @@ export default function Home() {
               <h2 className = "font-medium text-lg"> Education </h2>
             </div>
             <Education
-            logo = {<Image src = "/logo/Temple-Logo-T-Header.svg" width={50} height={50} />}
+            logo = {<Image src = "/logo/Temple-Logo-T-Header.svg" alt = "Temple" width={50} height={50} />}
             name = "Temple University"
             location = "Philadelphia, PA"
             date = "2022-Current"
@@ -182,7 +182,7 @@ export default function Home() {
             class13 = "- Interpersonal Communciation"
             />
             <Education
-            logo = {<Image src = "/logo/CentralHS.gif" width={50} height={50}/>}
+            logo = {<Image src = "/logo/CentralHS.gif" alt = "Central" width={50} height={50}/>}
             name = "Central Highschool"
             location = "Philadelphia, PA"
             date = "2018-2022"
