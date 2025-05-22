@@ -15,8 +15,8 @@ export default function Home() {
           {/* Box 1 Profile */}
           <div className = "m-10 p-3 border-2 border-[#1E90FF]/10 rounded-lg text-black bg-white dark:text-white dark:bg-[#151516]">
             <div className = "flex">
-              <div className = "mr-3 mb-3 ml-1 mt-1 rounded-lg border-2 border-[#1E90FF]/10">
-                <Image src = "/profile.jpg" alt = "Profile Picture" className = "rounded-lg bd-grey bd-1" width = {150} height = {150}/>
+              <div>
+                <Image src = "/profile.jpg" alt = "Profile Picture" className = "rounded-lg bd-grey bd-1 mr-3 mb-3 ml-1 mt-1 rounded-lg border-2 border-[#1E90FF]/10" width = {150} height = {150}/>
               </div>
       
               <div>
@@ -78,11 +78,12 @@ export default function Home() {
               {/* Experience */}
               <Experience
                 logo={<Image src = "/logo/Temple-Logo-T-Header.svg" alt = "Temple"width={50} height={50} />} 
-                title="Researcher at Fox Chase Cancer Center"
+                title="Undergraduate Researcher at Fox Chase Cancer Center"
                 location="Philadelphia, PA"
                 date="MAY 2025 - Current"
-                description1={"- Participated in the ressearch of drug synergies in regards to inhibiting Leukemia cells"}
-                description2={"- Created full stack web application that calculates drug synergies and display graphs using D3"}
+                description1={"- Built a full-stack web application using Next.js, Tailwind CSS, and FastAPI to calculate and visualize drug synergies using interactive data visualizations for cancer treatment research"}
+                description2={"- Helped refine drug synergy models by contributing code, analyzing outputs, and proposing algorithmic improvements based on outputs using experimental data from research team"}
+                description3={"- Provided technical insights in journal talks and weekly lab meetings to improve research outcomes"}
               />
               {/* Experience */}
               <Experience 
