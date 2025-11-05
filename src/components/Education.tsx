@@ -1,8 +1,16 @@
 "use client";
 
-import {useState, useRef, useEffect} from "react"
+import {useState, useRef, useEffect, ReactNode} from "react"
 
-export default function Education({logo, name, location, date, icon, ...rest}){
+type EducationProps = {
+  logo: ReactNode;
+  name: string; 
+  location: string;
+  date: string; 
+  [key: string]: any;
+};
+
+export default function Education({logo, name, location, date, ...rest}: EducationProps){
   const [isOpen, setIsOpen] = useState(false);
   const [parentWidth, setParentWidth] = useState(0);
   const parentRef = useRef(null);
