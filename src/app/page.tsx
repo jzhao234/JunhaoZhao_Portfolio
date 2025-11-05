@@ -1,8 +1,8 @@
 import Image from "next/image";
-import Experience from "@/components/Experience";
-import Technology from "@/components/Technology";
-import Education from "@/components/Education"
-import DarkModeToggle from "@/components/DarkModeToggle";
+import Experience from "../components/Experience";
+import Technology from "../components/Technology";
+import Education from "../components/Education"
+import DarkModeToggle from "../components/DarkModeToggle";
 
 export default function Home() {
 

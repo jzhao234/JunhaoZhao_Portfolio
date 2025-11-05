@@ -1,9 +1,10 @@
 "use client";
 import Link from "next/link";
+import React from "react";
 
-export default function Navbar() {
+const Navbar: React.FC = () => {
     return(
-        <nav className = "flex sticky top-0 border-b-2 border-[#1E90FF]/20 text-black bg-white dark:text-white dark:bg-[#0f0f10] py-5 px-10 w-full pt-7">
+      <nav className = "flex sticky top-0 border-b-2 border-[#1E90FF]/20 text-black bg-white dark:text-white dark:bg-[#0f0f10] py-5 px-10 w-full pt-7">
 
         <div className = "flex justify-start ml-10 w-1/4">
           <div className = "hover:text-[#1E90FF]">
@@ -20,3 +21,5 @@ export default function Navbar() {
       </nav>
     );
 }
+
+export default Navbar;
