@@ -1,5 +1,5 @@
 'use client';
-import { useTheme } from '../app/context/ThemeContext';
+import { useTheme } from "../../app/context/ThemeContext";
 import Image from "next/image";
 
 export default function DarkModeToggle() {

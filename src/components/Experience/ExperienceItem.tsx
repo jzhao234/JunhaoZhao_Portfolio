@@ -1,7 +1,7 @@
 "use client";
 import {useState, useRef, useEffect, ReactNode} from "react";
 
-type ExperienceProps = {
+type ExperienceItemProps = {
     logo: ReactNode;
     title: string;
     location: string;
@@ -12,7 +12,7 @@ type ExperienceProps = {
     description4?: string;
 }
 
-export default function Experience({logo, title, location, date, description1, description2, description3, description4}: ExperienceProps){
+export default function ExperienceItem({logo, title, location, date, description1, description2, description3, description4}: ExperienceItemProps){
     
     const [isOpen, setIsOpen] = useState(false);
     const [parentWidth, setParentWidth] = useState(0);
