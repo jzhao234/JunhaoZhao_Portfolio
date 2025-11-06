@@ -2,7 +2,7 @@
 
 import {useState, useRef, useEffect, ReactNode} from "react"
 
-type EducationProps = {
+type ExperienceItemProps = {
   logo: ReactNode;
   name: string; 
   location: string;
@@ -10,7 +10,7 @@ type EducationProps = {
   [key: string]: any;
 };
 
-export default function Education({logo, name, location, date, ...rest}: EducationProps){
+export default function ExperienceItem({logo, name, location, date, ...rest}: ExperienceItemProps){
   const [isOpen, setIsOpen] = useState(false);
   const [parentWidth, setParentWidth] = useState(0);
   const parentRef = useRef(null);
