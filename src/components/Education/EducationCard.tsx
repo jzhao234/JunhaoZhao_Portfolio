@@ -3,9 +3,9 @@
 import Image from "next/image";
 import EducationItem from "./EducationItem"
 
-export default function ExperienceCard(){
+export default function EducationCard(){
     return(
-        <div className = "m-10 p-3 border-2 border-[#1E90FF]/10 rounded-lg text-black bg-white dark:text-white dark:bg-[#151516]">
+        <div className = "m-10 p-3 border-2 border-[#1E90FF]/20 rounded-lg text-black bg-white dark:text-white dark:bg-[#151516]">
             <div>
               <h2 className = "font-medium text-lg"> Education </h2>
             </div>

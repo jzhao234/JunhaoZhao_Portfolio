@@ -1,8 +1,8 @@
 import Image from "next/image";
 
 import ProfileCard from "../components/Profile/ProfileCard";
-import ExperienceCard from "../components/Experience/ExperienceCard";
-import SkillsCard from "../components/Skills/SkillsCard"
+import SkillsCard from "../components/Skills/SkillsCard";
+import EducationCard from "../components/Education/EducationCard";
 
 export default function Home() {
 
@@ -12,7 +12,7 @@ export default function Home() {
         <div className="flex flex-col">
           <ProfileCard/>
           <div className="hidden [@media(min-width:1119px)]:block">
-            <ExperienceCard/>
+            <EducationCard/>
           </div>
         </div>
         <SkillsCard/>

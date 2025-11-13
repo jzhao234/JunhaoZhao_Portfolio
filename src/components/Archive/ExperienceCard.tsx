@@ -1,6 +1,6 @@
 "use client";
 import Image from "next/image";
-import ExperienceItem from "./ExperienceItem";
+import ExperienceItem from "../Experience/ExperienceItem";
 
 export default function ExperienceCard(){
     return(
