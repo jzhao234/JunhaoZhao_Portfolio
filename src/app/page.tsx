@@ -8,35 +8,14 @@ export default function Home() {
 
   return (
     <div>
-
-      <div className = "flex flex-wrap justify-center">
-        {/* ME */}
-        <div className = "flex-col">
-          {/* Box 1 Profile */}
+      <div className = "flex flex-wrap justify-center align-items">
+        <div className="flex flex-col">
           <ProfileCard/>
-          {/* Experiences Start*/}
-          <ExperienceCard/>
-          {/* Experiences End */}
-        </div>
-        
-        <div className = "flex-col">
-          {/* Tech Stack Start*/}
-          <SkillsCard/>
-          {/* Tech Stack End*/}
-
-          {/* Education */}
-          
-          
-          {/* Certificates */}
-          <div className = "m-10 p-3 border-2 border-[#1E90FF]/10 rounded-lg text-black bg-white dark:text-white dark:bg-[#151516]">
-            <div>
-              <h2> Certificates </h2>
-              <p>n/a</p>
-            </div>
+          <div className="hidden [@media(min-width:1119px)]:block">
+            <ExperienceCard/>
           </div>
-
-
         </div>
+        <SkillsCard/>
       </div>
     </div>
   );

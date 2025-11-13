@@ -4,7 +4,7 @@ import ExperienceItem from "./ExperienceItem";
 
 export default function ExperienceCard(){
     return(
-        <div className="m-10 p-3 border-2 border-[#1E90FF]/10 rounded-lg bg-white text-black dark:bg-[#151516] dark:text-white">
+        <div className="w-150 m-10 p-3 border-2 border-[#1E90FF]/20 rounded-lg bg-white text-black dark:bg-[#151516] dark:text-white">
             <div>
                 <p className = "font-smedium text-lg"> Experience </p>
                 {/* Experience */}

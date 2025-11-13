@@ -5,8 +5,8 @@ import SkillsItem from "./SkillsItem";
 
 export default function Skills(){
     return(
-        <div className = "m-10 p-3 border-2 border-[#1E90FF]/10 rounded-lg text-black bg-white dark:text-white dark:bg-[#151516] flex-col">
-            <h1 className="text-2xl font-bold mb-2"> Skills </h1>
+        <div className = "w-90 sm:h-150 max-w-full m-10 p-3 border-2 border-[#1E90FF]/20 rounded-lg text-black bg-white dark:text-white dark:bg-[#151516] flex-col">
+            <h1 className="text-2xl font-bold my-2"> Skills </h1>
             {/* Languages */}
             <h2 className="text-xl font-semibold mb-2"> Languages </h2>
             <SkillsItem
