@@ -63,7 +63,7 @@ export default function ExperienceItem({logo, title, location, date, description
                 </div>
                 <div className = "flex flex-col">
                     <div className = "pr-1">
-                        <p className = "flex justify-end font-light hidden sm:block">{date}</p>
+                        <p className = "flex justify-end mt-2 text-sm hidden sm:block">{date}</p>
                     </div>
                     <div className = "flex justify-end text-[#1E90FF]">
                         <svg xmlns="http://www.w3.org/2000/svg" height="25px" viewBox="0 -960 960 960" width="25px" fill="currentColor" className = {`transform transition-transform duration-300 ${isOpen ? "rotate-180" : ""}`}>
