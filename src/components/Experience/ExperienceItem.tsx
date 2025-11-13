@@ -1,18 +1,22 @@
 "use client";
 import {useState, useRef, useEffect, ReactNode} from "react";
 
+import SkillsItem from "../Skills/SkillsItem";
+
 type ExperienceItemProps = {
     logo: ReactNode;
     title: string;
     location: string;
     date: string;
-    description1?: string; 
-    description2?: string; 
-    description3?: string;
-    description4?: string;
+    description1?: React.ReactNode; 
+    description2?: React.ReactNode; 
+    description3?: React.ReactNode;
+    description4?: React.ReactNode;
+    // skills used
+    [key: string]: any;
 }
 
-export default function ExperienceItem({logo, title, location, date, description1, description2, description3, description4}: ExperienceItemProps){
+export default function ExperienceItem({logo, title, location, date, description1, description2, description3, description4, ...rest}: ExperienceItemProps){
     
     const [isOpen, setIsOpen] = useState(false);
     const [parentWidth, setParentWidth] = useState(0);
@@ -28,10 +32,23 @@ export default function ExperienceItem({logo, title, location, date, description
         setIsOpen((prev) => !prev);
     };
 
+    const entries = Object.values(rest)
+    const skills = entries.filter((_, i) => i % 2 === 0);
+    const sections = entries.filter((_, i) => i % 2 !== 0);
+    function printSkills () {
+        return skills.map((skill, i) => (
+            <SkillsItem
+            key={i}
+            name={skill}
+            section={sections[i]}
+            />
+        ));
+    }
+
 
 
     return(
-        <div ref={parentRef} onClick={toggleDropdown} className = "flex-col cursor-pointer m-2 p-2 text-black bg-white dark:text-white dark:bg-[#131213] rounded-xl shadow-xs shadow-[#1E90FF]/25" >
+        <div ref={parentRef} onClick={toggleDropdown} className = "flex-col cursor-pointer m-2 p-2 text-black bg-white dark:text-white dark:bg-[#131213] border-2 border-[#1E90FF]/20 rounded-xl" >
             <div className = "flex justify-between items-center space-x-8">
                 <div className = "flex items-center space-x-2 px-1">
                     <div className = "w-10 h-10 mr-3">
@@ -59,8 +76,13 @@ export default function ExperienceItem({logo, title, location, date, description
                     </div>
                 </div>
             </div>
+            {!isOpen&&(
+                <div className="ml-14">
+                    {printSkills()}
+                </div>
+            )}
             {isOpen && (
-                <div className = "pl-5 pr-3 py-5" style = {{width: parentWidth}}>
+                <div className = "pl-14 pr-3 py-5" style = {{width: parentWidth}}>
                     <div>
                         <p>{description1}</p>
                         <p>{description2}</p>
