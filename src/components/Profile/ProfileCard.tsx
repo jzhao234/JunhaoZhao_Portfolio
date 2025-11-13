@@ -13,8 +13,8 @@ export default function ProfileCard(){
                     <div className = "mt-3 mb-3">
                         <h1 className = "text-2xl font-bold mb-2"> Junhao Zhao </h1>
                     </div>
-                    <div className="ml-3 mb-3 text-center">
-                        <p> Aspiring Full Stack Developer and Software Engineer </p>
+                    <div className="ml-3 mb-3 text-center w-98">
+                        <p> Full Stack Developer | Software Engineer | Building interactive, data-driven web apps </p>
                     </div> 
                     {/* Contact Me */}
                     <div className = "mt-auto mb-3 flex flex-wrap gap-3 justify-center">
