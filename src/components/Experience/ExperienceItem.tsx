@@ -46,22 +46,20 @@ export default function ExperienceItem({logo, title, location, date, description
 
 
     return(
-        <div ref={parentRef} onClick={toggleDropdown} className = "flex-col cursor-pointer sm:m-2 p-2 text-black bg-white dark:text-white dark:bg-[#131213] border-2 border-[#1E90FF]/20 rounded-xl" >
-            <div className = "flex justify-between items-center space-x-8">
-                <div className = "flex items-center space-x-2 px-1">
-                    <div className = "flex-shrink-0 w-10 h-10 mr-3">
+        <div ref={parentRef} onClick={toggleDropdown} className = "flex-col cursor-pointer my-3 p-2 text-black bg-white dark:text-white dark:bg-[#131213] border-2 border-[#1E90FF]/20 rounded-xl" >
+            <div className = "flex justify-between items-center">
+                <div className = "flex items-center pr-2 sm:pr-4">
+                    <div className = "flex-shrink-0 w-10 h-10 ml-1 mr-3">
                         {logo}
                     </div>
-                <div className = "flex flex-col">
                     <div className = "flex flex-col">
-                    <div>
-                        <p className = "font-medium">{title}</p>
+                        <div>
+                            <p className = "font-medium">{title}</p>
+                        </div>
+                        <div>
+                            <p className = "text-sm font-thin">{location}</p>
+                        </div>
                     </div>
-                    <div>
-                        <p className = "font-thin">{location}</p>
-                    </div>
-                    </div>
-                </div>
                 </div>
                 <div className = "flex flex-col">
                     <div className = "pr-1">
@@ -80,13 +78,11 @@ export default function ExperienceItem({logo, title, location, date, description
                 </div>
             )}
             {isOpen && (
-                <div className = "pl-14 pr-3 py-5" style = {{width: parentWidth}}>
-                    <div>
-                        <p>{description1}</p>
-                        <p>{description2}</p>
-                        <p>{description3}</p>
-                        <p>{description4}</p>
-                    </div>
+                <div className = "px-2 sm:pl-14 pr-3 py-3" style = {{width: parentWidth}}>
+                    <p className="pb-1 mr-1">{description1}</p>
+                    <p className="pb-1 mr-1">{description2}</p>
+                    <p className="pb-1 mr-1">{description3}</p>
+                    <p className="mr-1">{description4}</p>
                 </div>
             )}
             
