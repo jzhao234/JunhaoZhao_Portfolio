@@ -5,7 +5,7 @@ import ExperienceItem from "../../components/Experience/ExperienceItem";
 export default function ExperiencePage() {
 
   return (
-    <div className="max-w-[70vw] mx-auto mt-5 p-8 border-2 border-[#1E90FF]/20 rounded-lg bg-white text-black dark:bg-[#151516] dark:text-white flex flex-col justify-center">
+    <div className="max-w-[95vw] mx-auto mt-5 p-5 border-2 border-[#1E90FF]/20 rounded-lg bg-white text-black dark:bg-[#151516] dark:text-white flex flex-col justify-center">
       <h1 className="text-2xl mb-5 font-bold"> Experiences </h1>
       <div>
         {/* Experience */}
@@ -14,11 +14,12 @@ export default function ExperiencePage() {
         title="Undergraduate Researcher at Fox Chase Cancer Center"
         location="Philadelphia, PA"
         date="MAY 2025 - Current"
-        description1={<>- Built a full-stack web application using <span className="text-green-500 font-semibold">Next.js</span>, Tailwind CSS, and FastAPI to calculate and visualize drug synergies using interactive data visualizations for cancer treatment research</>}
+        description1={<>- Built a full-stack web application using <span className="text-green-500 font-semibold">Next.js</span>, <span className="text-green-500 font-semibold">Tailwind CSS</span>, and <span className="text-purple-500 font-semibold">FastAPI</span> to calculate and visualize drug synergies using interactive data visualizations for cancer treatment research</>}
         description2={"- Helped refine drug synergy models by contributing code, analyzing outputs, and proposing algorithmic improvements based on outputs using experimental data from research team"}
         description3={"- Provided technical insights in journal talks and weekly lab meetings to improve research outcomes"}
-        skill1="Next.js"
-        section1="Frontend"
+        skills={["Next.js", "TypeScript", "Python", "Plotly", "FastAPI"]}
+        sections={["Frontend", "Language", "Language", "Frontend", "Backend"]}
+
         />
         {/* Experience */}
         <ExperienceItem 
