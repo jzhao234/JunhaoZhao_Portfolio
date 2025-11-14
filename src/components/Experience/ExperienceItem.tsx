@@ -84,7 +84,7 @@ export default function ExperienceItem({logo, title, location, date, description
                 </div>
             </div>
             {!isOpen&&(
-                <div className="ml-14">
+                <div className="sm:ml-14 flex flex-wrap justify-center items-center">
                     {createSkillBubbles()}
                 </div>
             )}
