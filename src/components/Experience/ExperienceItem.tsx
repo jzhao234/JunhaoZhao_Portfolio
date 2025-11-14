@@ -73,11 +73,13 @@ export default function ExperienceItem({logo, title, location, date, description
                     <div className = "pr-1">
                         <p className = "flex justify-end mt-2 text-sm hidden sm:block">{date}</p>
                     </div>
-                    <div onClick={toggleDropdown} className = "cursor-pointer flex justify-end text-[#1E90FF]">
-                        <p> details </p>
-                        <svg xmlns="http://www.w3.org/2000/svg" height="25px" viewBox="0 -960 960 960" width="25px" fill="currentColor" className = {`transform transition-transform duration-300 ${isOpen ? "rotate-180" : ""}`}>
+                    <div onClick={toggleDropdown} className = "cursor-pointer srelative group flex justify-end items-center text-[#1E90FF]">
+                        <svg xmlns="http://www.w3.org/2000/svg" height="30px" viewBox="0 -960 960 960" width="30px" fill="currentColor" className = {`bg-white dark:bg-[#171718] rounded-xl p-1/2 transform transition-transform duration-300 ${isOpen ? "rotate-180" : ""}`}>
                             <path d="M480-344 240-584l56-56 184 184 184-184 56 56-240 240Z"/>
                         </svg>
+                        <span className="w-fit whitespace-nowrap bg-white dark:bg-[#171718] p-1 px-2 rounded-2xl absolute hidden group-hover:block -translate-y-8 translate-x-18">
+                            More Details
+                        </span>
                     </div>
                 </div>
             </div>
