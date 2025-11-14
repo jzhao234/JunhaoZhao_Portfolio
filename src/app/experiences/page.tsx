@@ -19,6 +19,7 @@ export default function ExperiencePage() {
         description3={"- Provided technical insights in journal talks and weekly lab meetings to improve research outcomes"}
         skills={["Next.js", "TypeScript", "Python", "Plotly", "FastAPI"]}
         sections={["Frontend", "Language", "Language", "Frontend", "Backend"]}
+        link = "/projects#synergy"
 
         />
         {/* Experience */}

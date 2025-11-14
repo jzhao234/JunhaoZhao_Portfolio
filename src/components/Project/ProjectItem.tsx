@@ -4,10 +4,9 @@ import {useState, useRef, useEffect, ReactNode} from "react";
 import SkillsItem from "../Skills/SkillsItem";
 
 type ProjectItemProps = {
-    logo: ReactNode;
-    title: string;
-    location: string;
-    date: string;
+    id: string;
+    image?: ReactNode;
+    name: string;
     description1?: React.ReactNode; 
     description2?: React.ReactNode; 
     description3?: React.ReactNode;
@@ -16,7 +15,7 @@ type ProjectItemProps = {
     sections?: string[];
 }
 
-export default function ProjectItem({logo, title, location, date, description1, description2, description3, description4, skills, sections}: ProjectItemProps){
+export default function ProjectItem({id, image, name, description1, description2, description3, description4, skills, sections}: ProjectItemProps){
     
     const [isOpen, setIsOpen] = useState(false);
     const [parentWidth, setParentWidth] = useState(0);
@@ -46,14 +45,14 @@ export default function ProjectItem({logo, title, location, date, description1, 
 
 
     return(
-        <div ref={parentRef} onClick={toggleDropdown} className = "w-80 flex-col cursor-pointer my-3 p-2 text-black bg-white dark:text-white dark:bg-[#131213] border-2 border-[#1E90FF]/20 rounded-xl" >
+        <div ref={parentRef} onClick={toggleDropdown} id={id} className = "w-80 flex-col cursor-pointer my-3 p-2 text-black bg-white dark:text-white dark:bg-[#131213] border-2 border-[#1E90FF]/20 rounded-xl" >
             <div className = "flex flex-col justify-between items-center">
                 <div className = "flex-shrink-0 w-60 h-40 ml-1 mr-3 my-2">
-                    {logo}
+                    {image}
                 </div>
                 <div className="flex items-center adjust-center">
                     <div className = "flex flex-col">
-                        <p className = "font-medium text-center">{title}</p>
+                        <p className = "font-medium text-center">{name}</p>
                     </div>
                     <div className = "flex justify-end text-[#1E90FF]">
                         <svg xmlns="http://www.w3.org/2000/svg" height="25px" viewBox="0 -960 960 960" width="25px" fill="currentColor" className = {`transform transition-transform duration-300 ${isOpen ? "rotate-180" : ""}`}>
