@@ -48,10 +48,10 @@ export default function ProjectItem({logo, title, location, date, description1, 
     return(
         <div ref={parentRef} onClick={toggleDropdown} className = "w-80 flex-col cursor-pointer my-3 p-2 text-black bg-white dark:text-white dark:bg-[#131213] border-2 border-[#1E90FF]/20 rounded-xl" >
             <div className = "flex flex-col justify-between items-center">
-                <div className = "flex-shrink-0 w-10 h-10 ml-1 mr-3">
+                <div className = "flex-shrink-0 w-60 h-40 ml-1 mr-3 my-2">
                     {logo}
                 </div>
-                <div className="flex">
+                <div className="flex items-center adjust-center">
                     <div className = "flex flex-col">
                         <p className = "font-medium text-center">{title}</p>
                     </div>
