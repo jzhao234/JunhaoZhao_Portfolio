@@ -27,8 +27,8 @@ export default function ExperienceItem({logo, name, location, date, ...rest}: Ex
 
   return(
     <div ref={parentRef} onClick={toggleDropdown} className = "m-2 p-2 text-black bg-white dark:text-white dark:bg-[#131213] rounded-xl border-2 border-[#1E90FF]/20 flex-col cursor-pointer">
-      <div className = "flex justify-between items-center space-x-8">
-        <div className = "flex items-center space-x-2 px-1">
+      <div className = "flex justify-between items-center">
+        <div className = "flex items-center px-1">
           <div className = "w-10 h-10 mr-3">
             {logo}
           </div>
@@ -38,14 +38,14 @@ export default function ExperienceItem({logo, name, location, date, ...rest}: Ex
                 <p className = "font-medium">{name}</p>
               </div>
               <div>
-                <p className = "font-thin"> {location} </p>
+                <p className = "text-sm font-thin"> {location} </p>
               </div>
             </div>
           </div>
         </div>
         <div className = "flex-col items-center">
           <div className = "pr-1">
-            <p className = "flex justify-end font-light">{date}</p>
+            <p className = "text-sm flex justify-end font-light">{date}</p>
           </div>
           <div className = "flex justify-end text-[#1E90FF]">
             <svg xmlns="http://www.w3.org/2000/svg" height="25px" viewBox="0 -960 960 960" width="25px" fill="currentColor" className = {`transform transition-transform duration-300 ${isOpen ? "rotate-180" : ""}`}>
@@ -55,7 +55,7 @@ export default function ExperienceItem({logo, name, location, date, ...rest}: Ex
         </div>
       </div>
       {isOpen && (
-        <div className = "pl-5 pr-3 py-5" style = {{width: parentWidth}}>
+        <div className = "pl-1 pr-4 py-5" style = {{width: parentWidth}}>
           <div>
             <p> {rest.title} </p>
           </div>

@@ -11,11 +11,12 @@ export default function Home() {
       <div className = "flex flex-wrap justify-center align-items">
         <div className="flex flex-col">
           <ProfileCard/>
-          <div className="hidden [@media(min-width:1119px)]:block">
-            <EducationCard/>
-          </div>
+          {/*  */}
         </div>
-        <SkillsCard/>
+        <div className="flex flex-col">
+          <SkillsCard/>
+          <EducationCard/>
+        </div>
       </div>
     </div>
   );

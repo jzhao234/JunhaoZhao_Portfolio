@@ -5,9 +5,9 @@ import EducationItem from "./EducationItem"
 
 export default function EducationCard(){
     return(
-        <div className = "m-10 p-3 border-2 border-[#1E90FF]/20 rounded-lg text-black bg-white dark:text-white dark:bg-[#151516]">
+        <div className = "max-w-100 m-10 p-3 border-2 border-[#1E90FF]/20 rounded-lg text-black bg-white dark:text-white dark:bg-[#151516]">
             <div>
-              <h2 className = "font-medium text-lg"> Education </h2>
+              <h1 className = "text-2xl font-bold my-2"> Education </h1>
             </div>
             <EducationItem
                 logo = {<Image src = "/logo/Temple-Logo-T-Header.svg" alt = "Temple" width={50} height={50} />}
