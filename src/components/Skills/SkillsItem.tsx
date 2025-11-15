@@ -19,7 +19,7 @@ export default function SkillsItem({logo, name, section, version}: SkillsItemPro
     return(
         <div className={`
             flex justify-between items-center inline-block p-1 px-3 my-2 mx-2
-            font-semibold rounded-2xl shadow-xs shadow-[#1E90FF]/25
+            font-semibold rounded-2xl 
             ${colors[section].text} ${colors[section].bg}`}
         >
             <div>
