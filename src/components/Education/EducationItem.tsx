@@ -10,7 +10,7 @@ type ExperienceItemProps = {
   [key: string]: any;
 };
 
-export default function ExperienceItem({logo, name, location, date, ...rest}: ExperienceItemProps){
+export default function EducationCard({logo, name, location, date, ...rest}: ExperienceItemProps){
   const [isOpen, setIsOpen] = useState(false);
   const [parentWidth, setParentWidth] = useState(0);
   const parentRef = useRef(null);

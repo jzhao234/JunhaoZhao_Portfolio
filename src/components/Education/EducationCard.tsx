@@ -5,7 +5,7 @@ import EducationItem from "./EducationItem"
 
 export default function EducationCard(){
     return(
-        <div className = "flex flex-col m-10 p-3 border-2 border-[#1E90FF]/20 rounded-lg text-black bg-white dark:text-white dark:bg-[#151516]">
+        <div className = "flex flex-col m-10 p-3 pl-5 border-2 border-[#1E90FF]/20 rounded-lg text-black bg-white dark:text-white dark:bg-[#151516]">
             <div>
               <h1 className = "text-2xl font-bold my-2"> Education </h1>
             </div>
