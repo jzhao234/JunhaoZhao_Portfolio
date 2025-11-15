@@ -54,7 +54,7 @@ export default function ExperienceItem({logo, title, location, date, description
 
 
     return(
-        <div ref={parentRef} className = "flex-col my-3 p-2 text-black bg-white dark:text-white dark:bg-[#131213] border-2 border-[#1E90FF]/20 rounded-xl" >
+        <div ref={parentRef} className = "flex-col my-3 p-1 text-black bg-white dark:text-white dark:bg-[#131213] border-2 border-[#1E90FF]/20 rounded-xl" >
             <div className = "flex justify-between items-center">
                 <div className = "flex items-center pr-2 sm:pr-4">
                     <div className = "flex-shrink-0 w-10 h-10 ml-1 mr-3">
@@ -71,7 +71,7 @@ export default function ExperienceItem({logo, title, location, date, description
                 </div>
                 <div className = "flex flex-col">
                     <div className = "pr-1">
-                        <p className = "flex justify-end mt-2 text-sm hidden sm:block">{date}</p>
+                        <p className = "flex justify-end mt-3 text-sm hidden sm:block font-thin">{date}</p>
                     </div>
                     <div onClick={toggleDropdown} className = "cursor-pointer srelative group flex justify-end items-center text-[#1E90FF]">
                         <svg xmlns="http://www.w3.org/2000/svg" height="30px" viewBox="0 -960 960 960" width="30px" fill="currentColor" className = {`bg-white dark:bg-[#171718] rounded-xl p-1/2 transform transition-transform duration-300 ${isOpen ? "rotate-180" : ""}`}>
