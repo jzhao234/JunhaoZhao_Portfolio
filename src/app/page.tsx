@@ -10,10 +10,10 @@ export default function Home() {
   return (
     <div>
       <div className = "flex flex-wrap justify-center align-items">
-        <div className="flex flex-col max-w-200">
+        <div className="flex flex-col min-w-94 sm:min-w-156 max-w-fit lg:max-w-175 flex-1">
           <ProfileCard/>
         </div>
-        <div className="flex flex-col min-w-90 max-w-150 sm:max-w-100 flex-1">
+        <div className="flex flex-col min-w-90 max-w-fit lg:max-w-130 flex-1">
           <SkillsCard/>
           <EducationCard/>
         </div>
