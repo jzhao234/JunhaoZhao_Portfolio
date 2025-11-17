@@ -6,9 +6,10 @@ type SkillsItemProps = {
     name: string;
     section: string;
     version?: string; 
+    isHighlighted,
 }
 
-export default function SkillsItem({logo, name, section, version}: SkillsItemProps){
+export default function SkillsItem({logo, name, section, version, isHighlighted}: SkillsItemProps){
     const colors = {
         Language: { text: "text-blue-500", bg: "bg-blue-500/20" },
         Frontend: { text: "text-green-500", bg: "bg-green-500/20" },
@@ -20,7 +21,12 @@ export default function SkillsItem({logo, name, section, version}: SkillsItemPro
         <div className={`
             flex justify-between items-center inline-block p-1 px-3 my-2 mx-2
             font-semibold rounded-2xl 
-            ${colors[section].text} ${colors[section].bg}`}
+            ${colors[section].text} ${colors[section].bg}
+            ${
+                isHighlighted
+                    ? "border-[#1E90FF] shadow-md shadow-[#1E90FF]/30 scale-105"
+                    : "border-transparent"
+            }`}
         >
             <div>
                 {logo}

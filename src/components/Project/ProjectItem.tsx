@@ -16,9 +16,10 @@ type ProjectItemProps = {
     sections?: string[];
     githubLink?: string;
     demoLink?: string;
+    selectedSkills?: string[];
 }
 
-export default function ProjectItem({id, image, name, description1, description2, description3, description4, skills, sections, githubLink, demoLink}: ProjectItemProps){
+export default function ProjectItem({id, image, name, description1, description2, description3, description4, skills, sections, githubLink, demoLink, selectedSkills}: ProjectItemProps){
     
     const [isOpen, setIsOpen] = useState(false);
     const [parentWidth, setParentWidth] = useState(0);
@@ -36,12 +37,24 @@ export default function ProjectItem({id, image, name, description1, description2
 
     function createSkillBubbles () {
         if (!skills || !sections) return null;
-        return skills.map((skill, i) => (
+
+        const combined = skills.map((skill, i) => ({
+            skill,
+            section: sections[i],
+            isHighlighted: selectedSkills?.includes(skill),
+        }));
+        const sorted = combined.sort((a, b) => {
+            if (a.isHighlighted === b.isHighlighted) return 0;
+            return a.isHighlighted ? -1 : 1;
+        });
+
+        return sorted.map(({ skill, section, isHighlighted }, i) => (
             <SkillsItem
-            key={i}
-            name={skill}
-            section={sections[i]}
-            />
+                key={i}
+                name={skill}
+                section={section}
+                isHighlighted={isHighlighted}
+                />
         ));
     }
 
