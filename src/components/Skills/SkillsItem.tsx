@@ -25,7 +25,7 @@ export default function SkillsItem({logo, name, section, version, isHighlighted}
             ${colors[section].text} ${colors[section].bg}
             ${
                 isHighlighted
-                    ? "border-[#1E90FF] shadow-md shadow-[#1E90FF]/30 scale-105"
+                    ? `border-1 border-${colors[section]}`
                     : "border-transparent"
             }`}
         >

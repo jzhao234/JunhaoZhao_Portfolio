@@ -36,7 +36,7 @@ export default function ProjectsPage() {
 
   const allSkills = Array.from(
     new Set(projects.flatMap((project) => project.skills))
-  );
+  ).sort();
 
   function toggleSkill(skill: string) {
     setSelectedSkills(prev =>
@@ -51,24 +51,68 @@ export default function ProjectsPage() {
     return bMatches - aMatches;
   });
 
+  const [isOpen, setIsOpen] = useState(false);
+  
+  const toggleMenu = () => setIsOpen(!isOpen);
+
   return (
     <div className="max-w-[95vw] mx-auto mt-5 p-5 border-2 border-[#1E90FF]/20 rounded-lg bg-white text-black dark:bg-[#151516] dark:text-white flex flex-col justify-center">
       <h1 className="text-2xl mb-3 font-bold"> Projects </h1>
 
-      <div className="flex flex-wrap gap-3 mb-6">
+      <button onClick={toggleMenu} className="md:hidden max-w-fit flex items-center p-2 rounded hover:bg-[#1E90FF]/10">
+        {isOpen ? (
+          <Image
+            src="/icons/closeButton.svg"
+            alt="Close menu"
+            width={28}
+            height={28}
+            className="cursor-pointer"
+          />
+        ) : (
+          <Image
+            src="/icons/hamburgerMenu.svg"
+            alt="Open menu"
+            width={28}
+            height={28}
+            className="cursor-pointer"
+          />
+        )}
+        <p className="ml-3 font-semibold"> Sort Projects </p> 
+      </button>
+
+      <div className="hidden md:flex flex-wrap mt-3 gap-3 mb-6">
         {allSkills.map(skill => (
           <button
             key={skill}
             onClick={() => toggleSkill(skill)}
             className={`px-3 py-1 rounded-lg border-2 
               ${selectedSkills.includes(skill)
-                ? "bg-[#1E90FF] text-white border-[#1E90FF]"
-                : "bg-gray-100 dark:bg-[#1E1E1E] border-gray-300 dark:border-gray-700"}`}
+                ? "bg-[#1E90FF] text-white border-[#1E90FF] font-bold"
+                : "bg-[1E90FF] dark:bg-[#1E1E1E] border-[#1E90FF]/20 dark:border-[#1E90FF]/20"}`}
           >
             {skill}
           </button>
         ))}
       </div>
+
+      {isOpen && (
+        <div className="top-16 left-0 w-full bg-white dark:bg-[#151516] flex flex-col items-center space-y-4 py-6 md:hidden">
+          <div className="flex flex-wrap gap-3 mb-6">
+            {allSkills.map(skill => (
+              <button
+                key={skill}
+                onClick={() => toggleSkill(skill)}
+                className={`px-3 py-1 rounded-lg border-2 
+                  ${selectedSkills.includes(skill)
+                    ? "bg-[#1E90FF] text-white border-[#1E90FF] font-bold"
+                    : "bg-[1E90FF] dark:bg-[#1E1E1E] border-[#1E90FF]/20 dark:border-[#1E90FF]/20"}`}
+              >
+                {skill}
+              </button>
+            ))}
+          </div>
+        </div>
+      )}
 
       <div className="flex flex-wrap justify-center gap-6">
         {displayOrder.map((project) => (
