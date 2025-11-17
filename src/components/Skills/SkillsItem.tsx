@@ -6,7 +6,7 @@ type SkillsItemProps = {
     name: string;
     section: string;
     version?: string; 
-    isHighlighted,
+    isHighlighted?: boolean;
 }
 
 export default function SkillsItem({logo, name, section, version, isHighlighted}: SkillsItemProps){
