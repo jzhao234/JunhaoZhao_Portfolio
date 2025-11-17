@@ -16,9 +16,10 @@ type ExperienceItemProps = {
     skills?: string[];
     sections?: string[];
     link?: string;
+    selectedSkills?: string[];
 }
 
-export default function ExperienceItem({logo, title, location, date, description1, description2, description3, description4, skills, sections, link}: ExperienceItemProps){
+export default function ExperienceItem({logo, title, location, date, description1, description2, description3, description4, skills, sections, link, selectedSkills}: ExperienceItemProps){
     
     const [isOpen, setIsOpen] = useState(false);
     const [parentWidth, setParentWidth] = useState(0);
@@ -35,7 +36,7 @@ export default function ExperienceItem({logo, title, location, date, description
     };
 
     function createSkillBubbles () {
-        if (!skills || !sections) return null;
+        if (!skills || skills.length === 0 || !sections) return null;
         return skills.map((skill, i) => (
             <SkillsItem
             key={i}

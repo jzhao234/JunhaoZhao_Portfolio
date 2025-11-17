@@ -27,15 +27,15 @@ export default function ProjectsPage() {
     {
       id: "practice2",
       name: "practice2",
-      skills: ["practice2", "practice3"],
-      sections: ["Frontend", "Frontend"]
     }
   ]
 
   const [selectedSkills, setSelectedSkills] = useState<string[]>([]);
 
   const allSkills = Array.from(
-    new Set(projects.flatMap((project) => project.skills))
+    new Set(
+      projects.flatMap(exp => (exp.skills || []).filter(s => s && s.trim() !== ""))
+    )
   ).sort();
 
   function toggleSkill(skill: string) {
@@ -46,8 +46,8 @@ export default function ProjectsPage() {
     );
   }
   const displayOrder = [...projects].sort((a, b) => {
-    const aMatches = a.skills.filter((s) => selectedSkills.includes(s)).length;
-    const bMatches = b.skills.filter((s) => selectedSkills.includes(s)).length;
+    const aMatches = (a.skills || []).filter((s) => selectedSkills.includes(s)).length;
+    const bMatches = (b.skills || []).filter((s) => selectedSkills.includes(s)).length;
     return bMatches - aMatches;
   });
 

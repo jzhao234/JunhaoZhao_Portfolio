@@ -36,7 +36,7 @@ export default function ProjectItem({id, image, name, description1, description2
     };
 
     function createSkillBubbles () {
-        if (!skills || !sections) return null;
+        if (!skills || skills.length === 0 || !sections) return null;
 
         const combined = skills.map((skill, i) => ({
             skill,
