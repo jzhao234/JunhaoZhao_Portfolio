@@ -43,10 +43,14 @@ export default function ProjectItem({id, image, name, description1, description2
             section: sections[i],
             isHighlighted: selectedSkills?.includes(skill),
         }));
-        const sorted = combined.sort((a, b) => {
-            if (a.isHighlighted === b.isHighlighted) return 0;
-            return a.isHighlighted ? -1 : 1;
-        });
+        const sorted =
+            selectedSkills && selectedSkills.length > 0
+                ? combined.sort((a, b) => {
+                    if (a.isHighlighted && !b.isHighlighted) return -1;
+                    if (!a.isHighlighted && b.isHighlighted) return 1;
+                    return a.skill.localeCompare(b.skill);
+                })
+                : combined.sort((a, b) => a.skill.localeCompare(b.skill));
 
         return sorted.map(({ skill, section, isHighlighted }, i) => (
             <SkillsItem
