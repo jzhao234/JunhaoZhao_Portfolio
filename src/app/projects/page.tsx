@@ -34,6 +34,10 @@ export default function ProjectsPage() {
 
   const [selectedSkills, setSelectedSkills] = useState<string[]>([]);
 
+  const allSkills = Array.from(
+    new Set(projects.flatMap((project) => project.skills))
+  );
+
   function toggleSkill(skill: string) {
     setSelectedSkills(prev =>
       prev.includes(skill)
@@ -52,7 +56,7 @@ export default function ProjectsPage() {
       <h1 className="text-2xl mb-3 font-bold"> Projects </h1>
 
       <div className="flex flex-wrap gap-3 mb-6">
-        {["Next.js", "FastAPI", "Python", "Plotly", "practice2", "practice3"].map(skill => (
+        {allSkills.map(skill => (
           <button
             key={skill}
             onClick={() => toggleSkill(skill)}
