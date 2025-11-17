@@ -16,6 +16,7 @@ export default function SkillsItem({logo, name, section, version, isHighlighted}
         Backend: { text: "text-purple-500", bg: "bg-purple-500/20" },
         "Database-Cloud": { text: "text-red-500", bg: "bg-red-500/20" },
         Practice: { text: "text-yellow-500", bg: "bg-yellow-500/20" },
+        Other: { text: "text-gray-500", bg: "bg-gray-500/20 "}
     };
     return(
         <div className={`
