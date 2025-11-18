@@ -4,7 +4,7 @@ import Image from "next/image";
 
 export default function ProfileCard(){
     return(
-        <div className = "flex flex-wrap md:flex-nowrap justify-center m-3 sm:m-10 p-3 border-2 border-[#1E90FF]/20 rounded-lg text-black bg-white dark:text-white dark:bg-[#151516]">
+        <div className = "card flex flex-wrap md:flex-nowrap justify-center m-3 sm:m-10 p-3">
             <div className="flex-shrink-0">
                 <Image src = "/profile.jpg" alt = "Profile Picture" className = "rounded-lg bd-grey bd-1 mr-3 mb-3 ml-1 mt-1 border-2 border-[#1E90FF]/20" width = {150} height = {150}/>
             </div>

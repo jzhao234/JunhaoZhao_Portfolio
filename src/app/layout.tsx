@@ -26,7 +26,7 @@ export default function RootLayout({ children }) {
       <body className={`${geistSans.variable} ${geistMono.variable} antialiased`}>
         <ThemeProvider>
           <Navbar/>
-          <main className="min-h-screen flex flex-col bg-white dark:bg-[#151516]"> {children} </main>
+          <main className="min-h-screen flex flex-col bg-white dark:bg-[#151516] text-black dark:text-white"> {children} </main>
           <Footer/>
         </ThemeProvider>
       </body>

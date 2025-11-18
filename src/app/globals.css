@@ -3,7 +3,7 @@
 
 :root {
   --background: #ffffff;
-  --foreground: #171717;
+  --foreground: #131213;
 }
 
 @theme inline {
@@ -17,6 +17,15 @@
   :root {
     --background: #0a0a0a;
     --foreground: #ededed;
+  }
+}
+
+@layer components {
+  .card {
+    @apply border-2 border-[#1E90FF]/20 rounded-lg bg-white text-black dark:bg-[#151516] dark:text-white;
+  }
+  .blueBorder {
+    @apply border-2 border-[#1E90FF]/20
   }
 }
 

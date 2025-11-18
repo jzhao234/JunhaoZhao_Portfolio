@@ -26,7 +26,7 @@ export default function EducationCard({logo, name, location, date, ...rest}: Exp
   }
 
   return(
-    <div ref={parentRef} onClick={toggleDropdown} className = "m-2 p-2 text-black bg-white dark:text-white dark:bg-[#131213] rounded-xl border-2 border-[#1E90FF]/20 flex-col cursor-pointer">
+    <div ref={parentRef} onClick={toggleDropdown} className = "blueBorder m-2 p-2 text-black bg-white dark:text-white dark:bg-[#131213] flex-col cursor-pointer">
       <div className = "flex justify-between items-center">
         <div className = "flex items-center px-1">
           <div className = "w-10 h-10 mr-3">

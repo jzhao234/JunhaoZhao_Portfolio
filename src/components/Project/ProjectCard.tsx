@@ -57,7 +57,7 @@ export default function ProjectCard() {
   const toggleMenu = () => setIsOpen(!isOpen);
 
   return (
-    <div className="max-w-[95vw] mx-auto mt-5 p-5 border-2 border-[#1E90FF]/20 rounded-lg bg-white text-black dark:bg-[#151516] dark:text-white flex flex-col justify-center">
+    <div className="card max-w-[95vw] mx-auto mt-5 p-5 flex flex-col justify-center">
       <h1 className="text-2xl mb-3 font-bold"> Projects </h1>
 
       <button onClick={toggleMenu} className="md:hidden max-w-fit flex items-center p-2 rounded hover:bg-[#1E90FF]/10">
