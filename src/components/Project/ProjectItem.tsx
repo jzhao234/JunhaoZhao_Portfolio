@@ -56,7 +56,6 @@ export default function ProjectItem({id, image, name, description1, description2
             <SkillsItem
                 key={i}
                 name={skill}
-                section={section}
                 isHighlighted={isHighlighted}
                 />
         ));

@@ -55,7 +55,6 @@ export default function ExperienceItem({logo, title, location, date, description
                 <SkillsItem
                     key={i}
                     name={skill}
-                    section={section}
                     isHighlighted={isHighlighted}
                     />
             ));
@@ -68,6 +67,9 @@ export default function ExperienceItem({logo, title, location, date, description
         );
     }
 
+    function seperateString (description: string){
+        const words = description.split(" ");
+    }
 
     return(
         <div ref={parentRef} className = "flex-col my-3 p-1 text-black bg-white dark:text-white dark:bg-[#131213] border-2 border-[#1E90FF]/20 rounded-xl" >
