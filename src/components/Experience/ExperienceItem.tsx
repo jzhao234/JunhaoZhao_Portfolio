@@ -2,6 +2,7 @@
 import {useState, useRef, useEffect, ReactNode} from "react";
 
 import SkillsItem from "../Skills/SkillsItem";
+import highlightSkillsInText from "../Utilities/HighlightSkillsInText";
 import Link from "next/link";
 
 type ExperienceItemProps = {
@@ -9,10 +10,10 @@ type ExperienceItemProps = {
     title: string;
     location: string;
     date: string;
-    description1?: React.ReactNode; 
-    description2?: React.ReactNode; 
-    description3?: React.ReactNode;
-    description4?: React.ReactNode;
+    description1?: string; 
+    description2?: string; 
+    description3?: string;
+    description4?: string;
     skills?: string[];
     sections?: string[];
     link?: string;
@@ -67,10 +68,6 @@ export default function ExperienceItem({logo, title, location, date, description
         );
     }
 
-    function seperateString (description: string){
-        const words = description.split(" ");
-    }
-
     return(
         <div ref={parentRef} className = "flex-col my-3 p-1 text-black bg-white dark:text-white dark:bg-[#131213] border-2 border-[#1E90FF]/20 rounded-xl" >
             <div className = "flex justify-between items-center">
@@ -109,10 +106,10 @@ export default function ExperienceItem({logo, title, location, date, description
             {isOpen && (
                 <div className = "px-2 sm:pl-14 pr-3 py-3" style = {{width: parentWidth}}>
                     {projectLink()}
-                    <p className="pb-1 mr-1">{description1}</p>
-                    <p className="pb-1 mr-1">{description2}</p>
-                    <p className="pb-1 mr-1">{description3}</p>
-                    <p className="mr-1">{description4}</p>
+                    <p className="pb-1 mr-1">{highlightSkillsInText(description1)}</p>
+                    <p className="pb-1 mr-1">{highlightSkillsInText(description2)}</p>
+                    <p className="pb-1 mr-1">{highlightSkillsInText(description3)}</p>
+                    <p className="mr-1">{highlightSkillsInText(description4)}</p>
                 </div>
             )}
             

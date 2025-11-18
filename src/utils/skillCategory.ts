@@ -38,6 +38,6 @@ export default function skillCategory(skill: string){
     } else if (Others.map(s => s.toLowerCase()).includes(inputSkill)) {
         return "Others";
     } else {
-        return "Unknown";
+        return false;
     }
 }

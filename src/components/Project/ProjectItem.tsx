@@ -3,15 +3,16 @@ import Image from "next/image";
 import {useState, useRef, useEffect, ReactNode} from "react";
 
 import SkillsItem from "../Skills/SkillsItem";
+import highlightSkillsInText from "../Utilities/HighlightSkillsInText";
 
 type ProjectItemProps = {
     id: string;
     image?: ReactNode;
     name: string;
-    description1?: React.ReactNode; 
-    description2?: React.ReactNode; 
-    description3?: React.ReactNode;
-    description4?: React.ReactNode;
+    description1?: string; 
+    description2?: string; 
+    description3?: string;
+    description4?: string;
     skills?: string[];
     sections?: string[];
     githubLink?: string;
@@ -129,10 +130,10 @@ export default function ProjectItem({id, image, name, description1, description2
             )}
             {isOpen && (
                 <div className = "px-2 pr-4 py-3" style = {{width: parentWidth}}>
-                    <p className="pb-1 mr-1">{description1}</p>
-                    <p className="pb-1 mr-1">{description2}</p>
-                    <p className="pb-1 mr-1">{description3}</p>
-                    <p className="mr-1">{description4}</p>
+                    <p className="pb-1 mr-1">{highlightSkillsInText(description1)}</p>
+                    <p className="pb-1 mr-1">{highlightSkillsInText(description2)}</p>
+                    <p className="pb-1 mr-1">{highlightSkillsInText(description3)}</p>
+                    <p className="mr-1">{highlightSkillsInText(description4)}</p>
                 </div>
             )}
             

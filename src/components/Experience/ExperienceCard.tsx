@@ -10,7 +10,7 @@ export default function EducationCard(){
       title:"Undergraduate Researcher at Fox Chase Cancer Center",
       location:"Philadelphia, PA",
       date:"MAY 2025 - Current",
-      description1:(<>- Built a full-stack web application using <span className="text-green-500 font-semibold">Next.js</span>, <span className="text-green-500 font-semibold">Tailwind CSS</span>, and <span className="text-purple-500 font-semibold">FastAPI</span> to calculate and visualize drug synergies using interactive data visualizations for cancer treatment research</>),
+      description1:("- Built a full-stack web application using Next.js, Tailwind CSS, and FastAPI to calculate and visualize drug synergies using interactive data visualizations for cancer treatment research"),
       description2:("- Helped refine drug synergy models by contributing code, analyzing outputs, and proposing algorithmic improvements based on outputs using experimental data from research team"),
       description3:("- Provided technical insights in journal talks and weekly lab meetings to improve research outcomes"),
       skills:(["Next.js", "TypeScript", "Python", "Plotly", "FastAPI"]),
