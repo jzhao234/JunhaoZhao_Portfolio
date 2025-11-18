@@ -12,14 +12,16 @@ type SkillsItemProps = {
 }
 
 export default function SkillsItem({logo, name, version, isHighlighted}: SkillsItemProps){
+    const isSkillCategory = skillCategory(name);
+    const categoryColor = SkillCategoryColor(isSkillCategory);
     return(
         <div className={`
             flex justify-between items-center inline-block p-1 px-3 my-2 mx-2
             font-semibold rounded-2xl 
-            ${SkillCategoryColor(skillCategory(name)).text} ${SkillCategoryColor(skillCategory(name)).bg}
+            ${categoryColor.text} ${categoryColor.bg}
             ${
                 isHighlighted
-                    ? `border-1 border-${SkillCategoryColor(skillCategory(name))}`
+                    ? `border-1 border-${categoryColor}`
                     : "border-transparent"
             }`}
         >
