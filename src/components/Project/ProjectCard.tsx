@@ -8,16 +8,16 @@ import ProjectItem from "../../components/Project/ProjectItem";
 export default function ProjectCard() {
   const projects = [
     {
-      id: "synergy",
-      image: (<Image src = "/logo/Temple-Logo-T-Header.svg" alt = "Temple"width={50} height={50} />),
-      name: "Drug Synergy Finder",
-      description1: "- Built a full-stack web application using Next.js, Tailwind CSS, and FastAPI to calculate and visualize drug synergies using interactive data visualizations for cancer treatment research",
-      description2: "- Helped refine drug synergy models by contributing code, analyzing outputs, and proposing algorithmic improvements based on outputs using experimental data from research team",
-      description3: "- Provided technical insights in journal talks and weekly lab meetings to improve research outcomes",
-      skills: ["Next.js", "TypeScript", "Python", "Plotly", "FastAPI"],
-      sections: ["Frontend", "Language", "Language", "Frontend", "Backend"],
+      id: "JunhaoPortfolio",
+      image: (<Image src = "/projects/Junhao_Portfolio.png" alt = "Junhao's Portfolio" width={300} height={100} />),
+      name: "Junhao's Portfolio",
+      description1: "- Built a personal portfolio using Next.js, TypeScript, and Tailwind CSS",
+      description2: "- Deployed project using vercel",
+      description3: "- Learned to adapt application to different display sizes",
+      skills: ["Next.js", "TypeScript", "Tailwind CSS"],
+      sections: ["Frontend", "Language", "Tailwind CSS"],
       githubLink: "https://github.com/jzhao234/JunhaoZhao_Portfolio",
-      demoLink: "https://junhao-zhao-portfolio.vercel.app/experiences",
+      demoLink: "https://junhao-zhao-portfolio.vercel.app",
     },
     {
       id: "practice1", 
