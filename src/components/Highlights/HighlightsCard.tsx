@@ -16,7 +16,6 @@ export default function Highlights(){
                     description2={"- Helped refine drug synergy models by contributing code, analyzing outputs, and proposing algorithmic improvements based on outputs using experimental data from research team"}
                     description3={"- Provided technical insights in journal talks and weekly lab meetings to improve research outcomes"}
                     skills={["Next.js", "TypeScript", "Python", "Plotly", "FastAPI"]}
-                    sections={["Frontend", "Language", "Language", "Frontend", "Backend"]}
                     githubLink={"https://github.com/jzhao234/JunhaoZhao_Portfolio"}
                     demoLink={"https://junhao-zhao-portfolio.vercel.app/experiences"}
                 />
