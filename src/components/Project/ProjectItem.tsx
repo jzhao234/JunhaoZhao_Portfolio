@@ -3,6 +3,7 @@ import Image from "next/image";
 import {useState, useRef, useEffect, ReactNode} from "react";
 
 import SkillsItem from "../Skills/SkillsItem";
+import skillCategory from "../../utils/skillCategory";
 import highlightSkillsInText from "../Utilities/HighlightSkillsInText";
 
 type ProjectItemProps = {
@@ -14,13 +15,12 @@ type ProjectItemProps = {
     description3?: string;
     description4?: string;
     skills?: string[];
-    sections?: string[];
     githubLink?: string;
     demoLink?: string;
     selectedSkills?: string[];
 }
 
-export default function ProjectItem({id, image, name, description1, description2, description3, description4, skills, sections, githubLink, demoLink, selectedSkills}: ProjectItemProps){
+export default function ProjectItem({id, image, name, description1, description2, description3, description4, skills, githubLink, demoLink, selectedSkills}: ProjectItemProps){
     
     const [isOpen, setIsOpen] = useState(false);
     const [parentWidth, setParentWidth] = useState(0);
@@ -37,11 +37,11 @@ export default function ProjectItem({id, image, name, description1, description2
     };
 
     function createSkillBubbles () {
-        if (!skills || skills.length === 0 || !sections) return null;
+        if (!skills || skills.length === 0) return null;
 
         const combined = skills.map((skill, i) => ({
             skill,
-            section: sections[i],
+            section: skillCategory(skills[i]),
             isHighlighted: selectedSkills?.includes(skill),
         }));
         const sorted =
