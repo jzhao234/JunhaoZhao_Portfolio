@@ -10,14 +10,12 @@ export default function Highlights(){
             <div className="flex justify-center"> 
                 <ProjectItem
                     id = "synergy"
-                    image={<Image src = "/logo/Temple-Logo-T-Header.svg" alt = "Temple"width={50} height={50} />} 
+                    image={<Image src = "/projects/Drug_Synergy_Finder.png" alt = "Drug Synergy Finder Photo" width={300} height={100}/>} 
                     name="Drug Synergy Finder"
-                    description1={"- Built a full-stack web application using Next.js, Tailwind CSS, and FastAPI to calculate and visualize drug synergies using interactive data visualizations for cancer treatment research"}
-                    description2={"- Helped refine drug synergy models by contributing code, analyzing outputs, and proposing algorithmic improvements based on outputs using experimental data from research team"}
-                    description3={"- Provided technical insights in journal talks and weekly lab meetings to improve research outcomes"}
-                    skills={["Next.js", "TypeScript", "Python", "Plotly", "FastAPI"]}
-                    githubLink={"https://github.com/jzhao234/JunhaoZhao_Portfolio"}
-                    demoLink={"https://junhao-zhao-portfolio.vercel.app/experiences"}
+                    description1={"- Built a full-stack web application to calculate and visualize drug synergies for cancer treatment research"}
+                    description2={"- Used Next.js, TypeScript and Tailwind CSS to build the frontend and FastAPI and Python for the backend"}
+                    description3={"- Visualize results using Plotly and D3.js for researchers to quickly analyze results with a comprehensive SAPE score for a subjective overview"}
+                    skills={["Next.js", "Python", "TypeScript", "Tailwind CSS", "Plotly", "D3.js", "FastAPI"]}
                 />
             </div>
             

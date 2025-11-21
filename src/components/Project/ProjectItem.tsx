@@ -80,7 +80,7 @@ export default function ProjectItem({id, image, name, description1, description2
     function availableDemoLink(){
         if (!demoLink) return null;
         return (
-            <a href={`${demoLink}`} target = "_blank"   rel="noopener noreferrer" className = "hover:text-[#1E90FF]">
+            <a href={`${demoLink}`} target = "_blank"   rel="noopener noreferrer" className = "hover:text-[#1E90FF] hover:pointer">
                 <div className="relative group">
                     <svg xmlns="http://www.w3.org/2000/svg" height="40px" viewBox="0 -960 960 960" width="40px" fill="currentColor" className="p-1 bg-white dark:bg-[#171718] rounded-xl fill-current text-[#1E90FF] h-8 w-8">
                         <path d="M320-202v-560l440 280-440 280Zm66.67-280Zm0 158.67L636-482 386.67-640.67v317.34Z"/>
@@ -98,21 +98,15 @@ export default function ProjectItem({id, image, name, description1, description2
     return(
         <div ref={parentRef} onClick={toggleDropdown} id={id} className = "w-80 flex-col cursor-pointer my-3 p-2 text-black bg-white dark:text-white dark:bg-[#131213] border-2 border-[#1E90FF]/20 rounded-xl" >
             <div className = "flex flex-col justify-between items-center">
+                <div className = "flex flex-col">
+                    <p className = "py-1 font-bold text-center">{name}</p>
+                </div>
                 <div className = "flex-shrink-0 w-60 h-40 ml-1 mr-3 my-2">
                     {image}
                 </div>
-                <div className="flex items-center adjust-center">
-                    <div className = "flex flex-col">
-                        <p className = "font-medium text-center">{name}</p>
-                    </div>
-                </div>
                 <div className="border-2 border-[#1E90FF]/20 rounded-xl py-1 px-2 flex space-x-10 my-2 px-10"> 
-                    <div>
-                        {availableGithubLink()}
-                    </div>
-                    <div> 
-                        {availableDemoLink()}
-                    </div>
+                    {availableGithubLink()}
+                    {availableDemoLink()}
                     <div className = "relative group flex justify-end items-center text-[#1E90FF] bg-white dark:bg-[#171718] rounded-xl p-1">
                         <svg xmlns="http://www.w3.org/2000/svg" height="25px" viewBox="0 -960 960 960" width="25px" fill="currentColor" className = {`transform transition-transform duration-300 ${isOpen ? "rotate-180" : ""}`}>
                             <path d="M480-344 240-584l56-56 184 184 184-184 56 56-240 240Z"/>
