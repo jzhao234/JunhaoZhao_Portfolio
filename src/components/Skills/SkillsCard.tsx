@@ -56,10 +56,18 @@ export default function Skills(){
             {/* Databases & Cloud */}
             <h2 className="text-xl font-semibold mb-2"> Database & Cloud </h2>
             <SkillsItem
-                name = "PostgreSQL"
+                name = "SQL"
+            />
+            <SkillsItem
+                name = "SQLite"
             />
             <SkillsItem
                 name = "AWS"
+            />
+            {/* Others */}
+            <h2 className="text-xl font-semibold mb-2"> Others </h2>
+            <SkillsItem
+                name = "Bcrypt"
             />
         </div>
     );

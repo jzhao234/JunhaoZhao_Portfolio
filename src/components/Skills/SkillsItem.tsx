@@ -1,6 +1,5 @@
 "use client";
 import { ReactNode } from "react";
-import skillCategories from "../../utils/skillCategory";
 import SkillCategoryColor from "../../utils/SkillCategoryColor";
 import skillCategory from "../../utils/skillCategory";
 

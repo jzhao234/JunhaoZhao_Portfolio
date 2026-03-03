@@ -19,11 +19,12 @@ export default function skillCategory(skill: string){
         "Flask"
     ]
     const DatabaseCloud = [
-        "PostgreSQL",
+        "SQL",
+        "SQLite",
         "AWS"
     ]
     const Others = [
-        "Google Suite"
+        "Bcrypt",
     ]
 
     const inputSkill = skill.toLowerCase();
