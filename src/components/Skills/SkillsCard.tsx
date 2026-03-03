@@ -5,7 +5,7 @@ import SkillsItem from "./SkillsItem";
 
 export default function Skills(){
     return(
-        <div className = "card h-auto m-3 sm:m-10 p-3">
+        <div className = "card h-auto m-3 sm:m-10 p-5">
             <h1 className="text-2xl font-bold my-2"> Skills </h1>
             {/* Languages */}
             <h2 className="text-xl font-semibold mb-2"> Languages </h2>
