@@ -1,5 +1,6 @@
 import { Geist, Geist_Mono, Luckiest_Guy } from "next/font/google";
 import "./globals.css";
+import type { Metadata } from "next";
 
 import Navbar from "../components/Layout/Navbar"
 import Footer from "../components/Layout/Footer"
@@ -21,9 +22,32 @@ const luckiest = Luckiest_Guy({
   subsets: ["latin"],
 })
 
-export const metadata = {
-  title: "Junhao's Portfolio Website",
-  description: "Welcome!",
+export const metadata: Metadata = {
+  metadataBase: new URL("https://junhaozhao.com"),
+  title: {
+    default: "Junhao's Portfolio | Software Engineer ",
+    template: "%s | Junhao Zhao"
+  },
+  description: "Full Stack Software Engineer Building Modern Applications",
+  openGraph: {
+    title: "Junhao's Portfolio | Software Engineer",
+    description: "Projects, Experience, and Contact Info",
+    url: "https://junhaozhao.com",
+    siteName: "Junhao Zhao Portfolio",
+    type: "website",
+    images: [{ url: "/og.png", width: 1200, height: 630, alt: "Junhao Zhao" }],
+  },
+  robots: {
+    index: true, 
+    follow: true,
+    googleBot: {
+      index: true,
+      follow: true,
+      "max-image-preview": "large",
+      "max-snippet": -1, 
+      "max-video-preview": -1,
+    }
+  }
 };
 
 export default function RootLayout({ children }) {
