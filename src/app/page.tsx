@@ -9,7 +9,7 @@ export default function Home() {
 
   return (
     <div>
-      <div className = "flex flex-wrap justify-center align-items">
+      <div className = "flex flex-wrap justify-center align-items mx-5">
         <div className="flex flex-col min-w-94 sm:min-w-156 max-w-full md:max-w-175 flex-1">
           <div>
             <ProfileCard/>

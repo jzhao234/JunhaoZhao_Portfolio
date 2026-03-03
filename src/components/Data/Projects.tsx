@@ -10,7 +10,7 @@ export const projects = [
       description3: "- Learned to adapt application to different display sizes",
       skills: ["Next.js", "TypeScript", "Tailwind CSS"],
       githubLink: "https://github.com/jzhao234/JunhaoZhao_Portfolio",
-      demoLink: "https://junhao-zhao-portfolio.vercel.app",
+      demoLink: "https://JunhaoZhao.com",
     },
     {
       id: "DrugSynergy", 

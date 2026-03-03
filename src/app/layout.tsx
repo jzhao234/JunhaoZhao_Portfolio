@@ -1,4 +1,4 @@
-import { Geist, Geist_Mono } from "next/font/google";
+import { Geist, Geist_Mono, Luckiest_Guy } from "next/font/google";
 import "./globals.css";
 
 import Navbar from "../components/Layout/Navbar"
@@ -15,6 +15,12 @@ const geistMono = Geist_Mono({
   subsets: ["latin"],
 });
 
+const luckiest = Luckiest_Guy({
+  variable: "--font-luckiest",
+  weight: "400",
+  subsets: ["latin"],
+})
+
 export const metadata = {
   title: "Junhao's Portfolio Website",
   description: "Welcome!",
@@ -23,7 +29,7 @@ export const metadata = {
 export default function RootLayout({ children }) {
   return (
     <html lang="en">
-      <body className={`${geistSans.variable} ${geistMono.variable} antialiased`}>
+      <body className={`${geistSans.variable} ${geistMono.variable} ${luckiest.variable} antialiased`}>
         <ThemeProvider>
           <Navbar/>
           <main className="min-h-screen flex flex-col bg-white dark:bg-[#151516] text-black dark:text-white"> {children} </main>
