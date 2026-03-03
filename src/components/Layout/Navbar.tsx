@@ -14,9 +14,9 @@ export default function Navbar(){
     <nav className = "flex items-center sticky top-0 text-black bg-white dark:text-white dark:bg-[#151516] px-10 w-full py-3 justify-between">
       <Link href="/" className="hover:text-[#1E90FF] justify-center text-2xl font-bold my-2 py-1 mx-2 sm:mx-10 font-semibold"> Junhao </Link>
       <div className = "hidden md:flex w-full">
-          <Link href="/" className="hover:text-[#1E90FF] border-y-2 border-[#1E90FF]/30 px-2 py-1 mx-2 sm:mx-10 font-semibold"> Home </Link>
-          <Link href="/projects" className="hover:text-[#1E90FF] border-y-2 border-[#1E90FF]/30 px-2 py-1 mx-2 sm:mx-10 font-semibold"> Projects </Link>
-          <Link href="/experiences" className="hover:text-[#1E90FF] border-y-2 border-[#1E90FF]/30 px-2 py-1 mx-2 sm:mx-10 font-semibold"> Experiences </Link>
+          <Link href="/" className="hover:text-[#1E90FF] px-2 py-1 mx-2 sm:mx-10 font-semibold"> Home </Link>
+          <Link href="/projects" className="hover:text-[#1E90FF] px-2 py-1 mx-2 sm:mx-10 font-semibold"> Projects </Link>
+          <Link href="/experiences" className="hover:text-[#1E90FF] px-2 py-1 mx-2 sm:mx-10 font-semibold"> Experiences </Link>
           <DarkModeToggle/>
       </div>
       <button onClick={toggleMenu} className="md:hidden p-2 rounded hover:bg-[#1E90FF]/10">
