@@ -7,7 +7,7 @@ export default function EducationCard(){
     return(
         <div className = "card flex flex-col m-3 sm:m-10 p-3 pl-5">
             <div>
-              <h1 className = "text-2xl font-bold my-2"> Education </h1>
+              <h2 className = "text-2xl font-bold my-2"> Education </h2>
             </div>
             <EducationItem
                 logo = {<Image src = "/logo/Temple-Logo-T-Header.svg" alt = "Temple" width={50} height={50} />}

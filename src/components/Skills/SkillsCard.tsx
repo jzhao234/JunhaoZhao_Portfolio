@@ -6,9 +6,9 @@ import SkillsItem from "./SkillsItem";
 export default function Skills(){
     return(
         <div className = "card h-auto m-3 sm:m-10 p-5">
-            <h1 className="text-2xl font-bold my-2"> Skills </h1>
+            <h2 className="text-2xl font-bold my-2"> Skills </h2>
             {/* Languages */}
-            <h2 className="text-xl font-semibold mb-2"> Languages </h2>
+            <h3 className="text-xl font-semibold mb-2"> Languages </h3>
             <SkillsItem
                 name = "Python"
             />
@@ -26,7 +26,7 @@ export default function Skills(){
             <SkillsItem
                 name = "HTML5"
             />
-            <h2 className="text-xl font-semibold mb-2"> Frameworks </h2>
+            <h3 className="text-xl font-semibold mb-2"> Frameworks </h3>
             {/* Frameworks */}
             <h3 className="text-l font-medium mb-2 ml-2"> Frontend </h3>
             {/* Frontends */}
@@ -54,7 +54,7 @@ export default function Skills(){
                 name = "Flask"
             />
             {/* Databases & Cloud */}
-            <h2 className="text-xl font-semibold mb-2"> Database & Cloud </h2>
+            <h3 className="text-xl font-semibold mb-2"> Database & Cloud </h3>
             <SkillsItem
                 name = "SQL"
             />
@@ -65,7 +65,7 @@ export default function Skills(){
                 name = "AWS"
             />
             {/* Others */}
-            <h2 className="text-xl font-semibold mb-2"> Others </h2>
+            <h3 className="text-xl font-semibold mb-2"> Others </h3>
             <SkillsItem
                 name = "Bcrypt"
             />
