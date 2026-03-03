@@ -59,6 +59,16 @@ export default function ProjectCard() {
       </button>
 
       <div className="hidden md:flex flex-wrap mt-3 gap-3 mb-6">
+        <div className="flex items-center">
+          <Image
+              src="/icons/hamburgerMenu.svg"
+              alt="Open menu"
+              width={28}
+              height={28}
+              className="cursor-pointer"
+            />
+          <p className="ml-3 font-semibold"> Sort Projects </p>
+        </div>
         {allSkills.map(skill => (
           <button
             key={skill}
