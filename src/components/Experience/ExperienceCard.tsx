@@ -124,7 +124,7 @@ export default function EducationCard(){
           <button
             key={skill}
             onClick={() => toggleSkill(skill)}
-            className={`px-3 py-1 rounded-lg border-2 
+            className={`px-3 py-1 rounded-2xl border-2 
               ${selectedSkills.includes(skill)
                 ? "bg-[#1E90FF] text-white border-[#1E90FF] font-bold"
                 : "bg-[1E90FF] dark:bg-[#1E1E1E] border-[#1E90FF]/20 dark:border-[#1E90FF]/20"}`}
@@ -141,7 +141,7 @@ export default function EducationCard(){
               <button
                 key={skill}
                 onClick={() => toggleSkill(skill)}
-                className={`px-3 py-1 rounded-lg border-2 
+                className={`px-3 py-1 rounded-2xl border-2 
                   ${selectedSkills.includes(skill)
                     ? "bg-[#1E90FF] text-white border-[#1E90FF] font-bold"
                     : "bg-[#1E90FF] dark:bg-[#1E1E1E] border-[#1E90FF]/20 dark:border-[#1E90FF]/20"}`}
