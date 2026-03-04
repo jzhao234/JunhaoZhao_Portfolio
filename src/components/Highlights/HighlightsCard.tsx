@@ -8,7 +8,7 @@ export default function Highlights(){
     const project = projects.find((p) => p.id === "DrugSynergy");
     return(
         <div className = "card flex flex-col m-3 sm:m-10 p-3">
-            <h1 className="text-2xl font-bold my-2 ml-4"> Highlights </h1>
+            <h2 className="text-2xl font-bold my-2 ml-4"> Highlights </h2>
             <div className="flex justify-center"> 
                 <ProjectItem {...project} />
             </div>
