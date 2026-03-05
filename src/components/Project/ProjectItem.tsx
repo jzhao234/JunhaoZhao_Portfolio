@@ -99,7 +99,7 @@ export default function ProjectItem({id, image, name, description1, description2
         <div ref={parentRef} onClick={toggleDropdown} id={id} className = "w-80 flex-col cursor-pointer my-3 p-2 text-black bg-white dark:text-white dark:bg-[#131213] border-2 border-[#1E90FF]/20 rounded-xl" >
             <div className = "flex flex-col justify-between items-center">
                 <div className = "flex flex-col">
-                    <p className = "py-1 font-bold text-center">{name}</p>
+                    <h2 className = "py-1 font-bold text-center">{name}</h2>
                 </div>
                 <div className = "flex-shrink-0 w-60 h-40 ml-1 mr-3 my-2">
                     {image}
