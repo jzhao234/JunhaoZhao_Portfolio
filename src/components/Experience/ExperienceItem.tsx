@@ -77,7 +77,7 @@ export default function ExperienceItem({logo, title, location, date, description
                     </div>
                     <div className = "flex flex-col">
                         <div>
-                            <p className = "font-medium">{title}</p>
+                            <h2 className = "font-medium">{title}</h2>
                         </div>
                         <div>
                             <p className = "text-sm font-thin">{location}</p>
