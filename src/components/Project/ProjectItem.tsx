@@ -52,7 +52,7 @@ export default function ProjectItem({id, slug, images, name, description1, descr
     }
 
     return(
-        <Link href={`/projects/${slug}`} className = "cursor-pointer hover:text-[#1E90FF] w-80 flex-col my-3 p-2 text-black bg-white dark:text-white dark:bg-[#131213] border-2 border-[#1E90FF]/20 rounded-xl" >
+        <Link href={`/projects/${slug}`} className = "blueBorder cursor-pointer hover:text-[#1E90FF] w-80 flex-col my-3 p-2 text-black bg-white dark:text-white dark:bg-[#131213] rounded-xl" >
             <div className = "flex flex-col justify-between items-center">
                 <div className = "flex flex-col flex-shrink-0 w-60 h-40 ml-1 mr-3 my-2">
                     <h2 className = "py-1 font-bold text-center">{name}</h2>
@@ -63,7 +63,7 @@ export default function ProjectItem({id, slug, images, name, description1, descr
                         height={100}
                     />
                 </div>
-                <div className="border-2 border-[#1E90FF]/20 rounded-xl py-1 px-2 flex space-x-10 my-2 px-10"> 
+                <div className="blueBorder rounded-xl py-1 px-2 flex space-x-10 my-2 px-10"> 
                     <div onClick={(e) => e.stopPropagation()}>
                         <AvailableGithubLink
                             githubLink={githubLink}
