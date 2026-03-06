@@ -94,14 +94,13 @@ export default function EducationCard(){
       <h1 className="text-2xl mb-3 font-bold"> Experiences </h1>
       {/* Display Sorting Options Mobile */}
       <div className="flex flex-wrap gap-3 mb-6 mt-3">
-        <button onClick={toggleMenuMobile} className="md:hidden flex items-center">
+        <button onClick={toggleMenuMobile} className="md:hidden flex items-center cursor-pointer hover:text-[#1E90FF] hover:bg-[#1E90FF]/10 rounded-2xl p-2">
           {isOpenMobile ? (
             <Image
               src="/icons/closeButton.svg"
               alt="Close menu"
               width={28}
               height={28}
-              className="cursor-pointer hover:bg-[#1E90FF]/10"
             />
           ) : (
             <Image
@@ -109,10 +108,9 @@ export default function EducationCard(){
               alt="Open menu"
               width={28}
               height={28}
-              className="cursor-pointer hover:bg-[#1E90FF]/10"
             />
           )}
-          <p className="ml-3 font-semibold"> Sort Projects </p>
+          <p className="ml-3 font-semibold"> Sort Experiences </p>
         </button>
         {isOpenMobile && (
           <div className="flex flex-wrap bg-white dark:bg-[#151516] gap-3 md:hidden">
@@ -122,8 +120,8 @@ export default function EducationCard(){
                 onClick={() => toggleSkill(skill)}
                 className={`px-3 py-1 rounded-2xl border-2
                   ${selectedSkills.includes(skill)
-                    ? "bg-[#1E90FF] text-white border-[#1E90FF] font-bold"
-                    : "bg-[1E90FF] dark:bg-[#1E1E1E] border-[#1E90FF]/20 dark:border-[#1E90FF]/20"}`}
+                    ? "bg-[#1E90FF] text-white border-[#1E90FF] cursor-pointer font-bold"
+                    : "bg-[1E90FF] dark:bg-[#1E1E1E] hover:text-[#1E90FF] cursor-pointer border-[#1E90FF]/20"}`}
               >
                 {skill}
               </button>
@@ -134,14 +132,13 @@ export default function EducationCard(){
 
       {/* Display Sorting Desktop */}
       <div className="hidden md:flex flex-wrap gap-3 mb-6">
-        <button onClick={toggleMenu} className="flex items-center"> 
+        <button onClick={toggleMenu} className="flex items-center cursor-pointer hover:text-[#1E90FF] hover:bg-[#1E90FF]/10 rounded-2xl p-2"> 
           {isOpen ? (
             <Image
               src="/icons/closeButton.svg"
               alt="Close menu"
               width={28}
               height={28}
-              className="cursor-pointer hover:bg-[#1E90FF]/10"
             />
           ) : (
             <Image
@@ -149,10 +146,9 @@ export default function EducationCard(){
               alt="Open menu"
               width={28}
               height={28}
-              className="cursor-pointer hover:bg-[#1E90FF]/10"
             />
           )}
-          <p className="ml-3 font-semibold"> Sort Projects </p>
+          <p className="ml-3 font-semibold"> Sort Experiences </p>
         </button>
         {isOpen && (
           <div className="flex flex-wrap bg-white dark:bg-[#151516] gap-3">
@@ -162,8 +158,8 @@ export default function EducationCard(){
                 onClick={() => toggleSkill(skill)}
                 className={`px-3 py-1 rounded-2xl border-2 
                   ${selectedSkills.includes(skill)
-                    ? "bg-[#1E90FF] text-white border-[#1E90FF] font-bold"
-                    : "bg-[1E90FF] dark:bg-[#1E1E1E] border-[#1E90FF]/20 dark:border-[#1E90FF]/20"}`}
+                    ? "bg-[#1E90FF] text-white border-[#1E90FF] cursor-pointer font-bold"
+                    : "bg-[1E90FF] dark:bg-[#1E1E1E] hover:text-[#1E90FF] cursor-pointer border-[#1E90FF]/20"}`}
               >
                 {skill}
               </button>
