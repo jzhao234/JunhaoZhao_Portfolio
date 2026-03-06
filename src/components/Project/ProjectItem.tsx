@@ -25,20 +25,6 @@ type ProjectItemProps = {
 
 export default function ProjectItem({id, slug, images, name, description1, description2, description3, description4, skills, githubLink, demoLink, selectedSkills}: ProjectItemProps){
     
-    const [isOpen, setIsOpen] = useState(false);
-    const [parentWidth, setParentWidth] = useState(0);
-    const parentRef = useRef(null);
-
-    useEffect(() => {
-        if (parentRef.current){
-            setParentWidth(parentRef.current.offsetWidth);
-        }
-    }, []);
-
-    const toggleDropdown = () => {
-        setIsOpen((prev) => !prev);
-    };
-
     function createSkillBubbles () {
         if (!skills || skills.length === 0) return null;
 
@@ -66,9 +52,9 @@ export default function ProjectItem({id, slug, images, name, description1, descr
     }
 
     return(
-        <div ref={parentRef} onClick={toggleDropdown} id={id} className = "w-80 flex-col my-3 p-2 text-black bg-white dark:text-white dark:bg-[#131213] border-2 border-[#1E90FF]/20 rounded-xl" >
+        <Link href={`/projects/${slug}`} className = "cursor-pointer hover:text-[#1E90FF] w-80 flex-col my-3 p-2 text-black bg-white dark:text-white dark:bg-[#131213] border-2 border-[#1E90FF]/20 rounded-xl" >
             <div className = "flex flex-col justify-between items-center">
-                <Link href={`/projects/${slug}`} className = "flex flex-col flex-shrink-0 w-60 h-40 ml-1 mr-3 my-2 cursor-pointer ">
+                <div className = "flex flex-col flex-shrink-0 w-60 h-40 ml-1 mr-3 my-2">
                     <h2 className = "py-1 font-bold text-center">{name}</h2>
                     <Image
                         src={images[0]}
@@ -76,16 +62,20 @@ export default function ProjectItem({id, slug, images, name, description1, descr
                         width={300}
                         height={100}
                     />
-                </Link>
+                </div>
                 <div className="border-2 border-[#1E90FF]/20 rounded-xl py-1 px-2 flex space-x-10 my-2 px-10"> 
-                    <AvailableGithubLink
-                        githubLink={githubLink}
-                    />
-                    <AvailableDemoLink
-                        demoLink={demoLink}
-                    />
+                    <div onClick={(e) => e.stopPropagation()}>
+                        <AvailableGithubLink
+                            githubLink={githubLink}
+                        />
+                    </div>
+                    <div onClick={(e) => e.stopPropagation()}>
+                        <AvailableDemoLink
+                            demoLink={demoLink}
+                        />
+                    </div>
                     <div className = "relative group flex justify-end items-center text-[#1E90FF] bg-white dark:bg-[#171718] rounded-xl p-1">
-                        <svg xmlns="http://www.w3.org/2000/svg" height="25px" viewBox="0 -960 960 960" width="25px" fill="currentColor" className = {`transform transition-transform duration-300 ${isOpen ? "rotate-180" : ""}`}>
+                        <svg xmlns="http://www.w3.org/2000/svg" height="25px" viewBox="0 -960 960 960" width="25px" fill="currentColor" className = {`transform transition-transform duration-300`}>
                             <path d="M480-344 240-584l56-56 184 184 184-184 56 56-240 240Z"/>
                         </svg>
                         <span className="w-fit whitespace-nowrap bg-white dark:bg-[#171718] p-1 px-2 rounded-2xl absolute hidden group-hover:block -translate-y-8 translate-x-18">
@@ -94,20 +84,9 @@ export default function ProjectItem({id, slug, images, name, description1, descr
                     </div>
                 </div>
             </div>
-            {!isOpen&&(
-                <div className="flex flex-wrap justify-center">
-                    {createSkillBubbles()}
-                </div>
-            )}
-            {isOpen && (
-                <div className = "px-2 pr-4 py-3" style = {{width: parentWidth}}>
-                    <p className="pb-1 mr-1">{highlightSkillsInText(description1)}</p>
-                    <p className="pb-1 mr-1">{highlightSkillsInText(description2)}</p>
-                    <p className="pb-1 mr-1">{highlightSkillsInText(description3)}</p>
-                    <p className="mr-1">{highlightSkillsInText(description4)}</p>
-                </div>
-            )}
-            
-        </div>
+            <div className="flex flex-wrap justify-center">
+                {createSkillBubbles()}
+            </div>
+        </Link>
     );
 }
