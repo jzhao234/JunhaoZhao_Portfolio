@@ -57,8 +57,9 @@ export default async function selectedProjectPage ({params}: Props) {
                 <div className = "card h-auto m-3 sm:m-10 p-5">
                     <h2 className="text-xl font-bold my-2"> Skills </h2>
                     {
-                        project.skills.map((skill) => (
+                        project.skills.map((skill, i) => (
                             <SkillsItem
+                                key = {i}
                                 name = {skill}
                             />
                         ))
