@@ -3,7 +3,8 @@ import { ReactNode } from "react";
 
 export type ProjectTypes = {
   id: string,
-  image: ReactNode,
+  slug: string,
+  images: string[],
   name:  string;
   description1?: string;
   description2?: string;
@@ -17,7 +18,8 @@ export type ProjectTypes = {
 export const projects: ProjectTypes[] = [
     {
       id: "JunhaoPortfolio",
-      image: (<Image src = "/projects/Junhao_Portfolio.png" alt = "Junhao's Portfolio" width={300} height={100} />),
+      slug: "junhao-portfolio",
+      images: ["/projects/Junhao_Portfolio.png"],
       name: "Junhao's Portfolio",
       description1: "- Built a personal portfolio using Next.js, TypeScript, and Tailwind CSS",
       description2: "- Deployed project using vercel",
@@ -28,7 +30,8 @@ export const projects: ProjectTypes[] = [
     },
     {
       id: "DrugSynergy", 
-      image: (<Image src = "/projects/Drug_Synergy_Finder.png" alt = "Drug Synergy Finder Photo" width={300} height={100}/>),
+      slug: "drug-synergy-finder",
+      images: ["/projects/Drug_Synergy_Finder.png"],
       name: "Drug Synergy Finder",
       description1: "- Built a full-stack web application to calculate and visualize drug synergies for cancer treatment research",
       description2: "- Used Next.js, TypeScript and Tailwind CSS to build the frontend and FastAPI and Python for the backend",
@@ -37,7 +40,8 @@ export const projects: ProjectTypes[] = [
     },
     {
       id: "Baketsu",
-      image: (<Image src="/projects/home page.png" alt="Baketsu Screenshot" width={300} height={300} />),
+      slug: "baketsu-cloud-storage",
+      images: ["/projects/home page.png"],
       name: "Baketsu",
       description1: "- Developed a full-stack cloud storage platform for scalable file storage utilizing AWS S3",
       description2: "- Implemented user authentication flows including registration, login, JWT handling, password hashing using bcrypt, protected routes, and backend-generated email verification tokens",
