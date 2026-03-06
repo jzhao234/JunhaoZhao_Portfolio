@@ -26,7 +26,7 @@ export function generateMetadata({ params }: Props): Metadata {
     
 }
 
-export default async function selectedProjectPage ({params}: Props) {
+export default function selectedProjectPage ({params}: Props) {
 
     const project = projects.find((p) => p.slug === params.selectedProject);
     if (!project) return notFound();

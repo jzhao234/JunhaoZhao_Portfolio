@@ -66,19 +66,17 @@ export default function ProjectItem({id, slug, images, name, description1, descr
     }
 
     return(
-        <Link href={`/projects/${slug}`} ref={parentRef} onClick={toggleDropdown} id={id} className = "w-80 flex-col cursor-pointer my-3 p-2 text-black bg-white dark:text-white dark:bg-[#131213] border-2 border-[#1E90FF]/20 rounded-xl" >
+        <div ref={parentRef} onClick={toggleDropdown} id={id} className = "w-80 flex-col my-3 p-2 text-black bg-white dark:text-white dark:bg-[#131213] border-2 border-[#1E90FF]/20 rounded-xl" >
             <div className = "flex flex-col justify-between items-center">
-                <div className = "flex flex-col">
+                <Link href={`/projects/${slug}`} className = "flex flex-col flex-shrink-0 w-60 h-40 ml-1 mr-3 my-2 cursor-pointer ">
                     <h2 className = "py-1 font-bold text-center">{name}</h2>
-                </div>
-                <div className = "flex-shrink-0 w-60 h-40 ml-1 mr-3 my-2">
                     <Image
                         src={images[0]}
                         alt="screenshot"
                         width={300}
                         height={100}
                     />
-                </div>
+                </Link>
                 <div className="border-2 border-[#1E90FF]/20 rounded-xl py-1 px-2 flex space-x-10 my-2 px-10"> 
                     <AvailableGithubLink
                         githubLink={githubLink}
@@ -110,6 +108,6 @@ export default function ProjectItem({id, slug, images, name, description1, descr
                 </div>
             )}
             
-        </Link>
+        </div>
     );
 }
