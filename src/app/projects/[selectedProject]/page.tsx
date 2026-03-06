@@ -1,17 +1,18 @@
-import Image from "next/image";
 import { notFound } from "next/navigation";
 import type { Metadata } from "next";
-import { projects } from "../../../components/Data/Projects";
 import SkillsItem from "../../../components/Skills/SkillsItem";
+import { projects } from "../../../components/Data/Projects";
 import { AvailableDemoLink, AvailableGithubLink } from "../../../components/Utilities/AvailableLink";
 import ImageGallery from "../../../components/Utilities/ImageGallery";
 
-export function generateMetadata({
-  params,
-}: {
-  params: { selectedProject: string };
-}): Metadata {
-    const project = projects.find((p) => p.slug === params.selectedProject);
+type SelectedProjectProps = {
+    params: Promise<{ selectedProject : string }>;
+};
+
+export async function generateMetadata ({ params }: SelectedProjectProps): Promise<Metadata> {
+
+    const { selectedProject } = await params;
+    const project = projects.find((p) => p.slug === selectedProject);
     if (!project) return {title: "Project not found" };
 
     return {
@@ -26,12 +27,9 @@ export function generateMetadata({
     
 }
 
-export default function SelectedProjectPage({
-params,
-}: {
-  params: { selectedProject: string };
-}) {
-    const project = projects.find((p) => p.slug === params.selectedProject);
+export default async function SelectedProjectPage ({ params }: SelectedProjectProps) {
+    const { selectedProject } = await params;
+    const project = projects.find((p) => p.slug === selectedProject);
     if (!project) return notFound();
 
     return(
