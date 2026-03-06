@@ -6,11 +6,11 @@ import SkillsItem from "../../../components/Skills/SkillsItem";
 import { AvailableDemoLink, AvailableGithubLink } from "../../../components/Utilities/AvailableLink";
 import ImageGallery from "../../../components/Utilities/ImageGallery";
 
-type Props = {
-    params: { selectedProject: string };
-};
-
-export function generateMetadata({ params }: Props): Metadata {
+export function generateMetadata({
+  params,
+}: {
+  params: { selectedProject: string };
+}): Metadata {
     const project = projects.find((p) => p.slug === params.selectedProject);
     if (!project) return {title: "Project not found" };
 
@@ -26,8 +26,11 @@ export function generateMetadata({ params }: Props): Metadata {
     
 }
 
-export default function SelectedProjectPage ({params}: Props) {
-
+export default function SelectedProjectPage({
+params,
+}: {
+  params: { selectedProject: string };
+}) {
     const project = projects.find((p) => p.slug === params.selectedProject);
     if (!project) return notFound();
 
