@@ -1,6 +1,20 @@
 import Image from "next/image";
+import { ReactNode } from "react";
 
-export const projects = [
+export type ProjectTypes = {
+  id: string,
+  image: ReactNode,
+  name:  string;
+  description1?: string;
+  description2?: string;
+  description3?: string;
+  description4?: string; 
+  skills: string[];
+  githubLink?: string;
+  demoLink?: string;
+}
+
+export const projects: ProjectTypes[] = [
     {
       id: "JunhaoPortfolio",
       image: (<Image src = "/projects/Junhao_Portfolio.png" alt = "Junhao's Portfolio" width={300} height={100} />),
