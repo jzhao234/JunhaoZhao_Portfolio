@@ -1,5 +1,6 @@
 import Image from "next/image";
 
+// in the works 
 export const skills = [
     {
       id: "JunhaoPortfolio",
