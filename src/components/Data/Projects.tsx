@@ -6,6 +6,7 @@ export type ProjectTypes = {
   slug: string,
   images?: string[],
   name:  string;
+  description?: string;
   features?: string[],
   overview?: string;
   problem?: string;

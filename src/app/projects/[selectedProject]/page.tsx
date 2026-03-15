@@ -18,11 +18,11 @@ export async function generateMetadata ({ params }: SelectedProjectProps): Promi
 
     return {
         title: project.name,
-        description: project.description ?? project.description2 ?? "Project Details",
+        description: project.description ?? "Project Details",
         openGraph: {
             title: project.name,
-            description: project.description ?? project.description2 ?? "Project details",
-            images: project.images ? project.images[1] : undefined,
+            description: project.description ?? "Project details",
+            images: project.images[0] ? project.images[1] : undefined,
         },
     };
     

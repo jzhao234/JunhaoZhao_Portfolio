@@ -13,17 +13,13 @@ type ProjectItemProps = {
     slug: string;
     images?: string[];
     name: string;
-    description1?: string; 
-    description2?: string; 
-    description3?: string;
-    description4?: string;
     skills?: string[];
     githubLink?: string;
     demoLink?: string;
     selectedSkills?: string[];
 }
 
-export default function ProjectItem({id, slug, images, name, description1, description2, description3, description4, skills, githubLink, demoLink, selectedSkills}: ProjectItemProps){
+export default function ProjectItem({id, slug, images, name, skills, githubLink, demoLink, selectedSkills}: ProjectItemProps){
     
     function createSkillBubbles () {
         if (!skills || skills.length === 0) return null;
