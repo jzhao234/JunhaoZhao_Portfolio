@@ -6,7 +6,7 @@ import {useState, useRef, useEffect, ReactNode} from "react";
 import SkillsItem from "../Skills/SkillsItem";
 import skillCategory from "../../utils/skillCategory";
 import highlightSkillsInText from "../Utilities/HighlightSkillsInText";
-import { AvailableDemoLink, AvailableGithubLink } from "../Utilities/AvailableLink";
+import { DemoLink, GithubLink } from "../Utilities/AvailableLink";
 
 type ProjectItemProps = {
     id: string;
@@ -65,12 +65,12 @@ export default function ProjectItem({id, slug, images, name, description1, descr
                 </div>
                 <div className="blueBorder rounded-xl py-1 px-2 flex space-x-10 my-2 px-10"> 
                     <div onClick={(e) => e.stopPropagation()}>
-                        <AvailableGithubLink
+                        <GithubLink
                             githubLink={githubLink}
                         />
                     </div>
                     <div onClick={(e) => e.stopPropagation()}>
-                        <AvailableDemoLink
+                        <DemoLink
                             demoLink={demoLink}
                         />
                     </div>

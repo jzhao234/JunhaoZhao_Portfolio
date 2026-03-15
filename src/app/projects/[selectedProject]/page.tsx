@@ -2,7 +2,7 @@ import { notFound } from "next/navigation";
 import type { Metadata } from "next";
 import SkillsItem from "../../../components/Skills/SkillsItem";
 import { projects } from "../../../components/Data/Projects";
-import { AvailableDemoLink, AvailableGithubLink } from "../../../components/Utilities/AvailableLink";
+import { DemoLink, GithubLink } from "../../../components/Utilities/AvailableLink";
 import ImageGallery from "../../../components/Utilities/ImageGallery";
 import {Overview, Problem, Solution, Architecture, Challenges, Improvements, Features} from "../../../components/Project/ProjectValues";
 
@@ -40,10 +40,10 @@ export default async function SelectedProjectPage ({ params }: SelectedProjectPr
                     <h1 className="text-xl font-bold"> {project.name} </h1>
                     <div className="flex gap-5">
                         <div className="blueBorder rounded-xl">
-                            <AvailableGithubLink githubLink={project.githubLink}/>
+                            <GithubLink githubLink={project.githubLink}/>
                         </div>
                         <div className="blueBorder rounded-xl">
-                            <AvailableDemoLink demoLink={project.demoLink}/>
+                            <DemoLink demoLink={project.demoLink}/>
                         </div>
                     </div>
                 </div>
