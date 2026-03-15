@@ -4,6 +4,7 @@ import SkillsItem from "../../../components/Skills/SkillsItem";
 import { projects } from "../../../components/Data/Projects";
 import { AvailableDemoLink, AvailableGithubLink } from "../../../components/Utilities/AvailableLink";
 import ImageGallery from "../../../components/Utilities/ImageGallery";
+import {Overview, Problem, Solution, Architecture, Challenges, Improvements, Features} from "../../../components/Project/ProjectValues";
 
 type SelectedProjectProps = {
     params: Promise<{ selectedProject : string }>;
@@ -17,10 +18,10 @@ export async function generateMetadata ({ params }: SelectedProjectProps): Promi
 
     return {
         title: project.name,
-        description: project.description1 ?? project.description2 ?? "Project Details",
+        description: project.description ?? project.description2 ?? "Project Details",
         openGraph: {
             title: project.name,
-            description: project.description1 ?? project.description2 ?? "Project details",
+            description: project.description ?? project.description2 ?? "Project details",
             images: project.images ? project.images[1] : undefined,
         },
     };
@@ -35,9 +36,6 @@ export default async function SelectedProjectPage ({ params }: SelectedProjectPr
     return(
         <div className="flex flex-wrap justify-center">
             <div className="flex flex-col flex-2 w-full sm:min-w-2xl max-w-4xl">
-                <ImageGallery
-                    images={project.images}
-                />
                 <div className="flex mt-10 mt-3 sm:mt-10 mx-3 sm:mx-10 justify-between">
                     <h1 className="text-xl font-bold"> {project.name} </h1>
                     <div className="flex gap-5">
@@ -49,8 +47,17 @@ export default async function SelectedProjectPage ({ params }: SelectedProjectPr
                         </div>
                     </div>
                 </div>
+
+                <ImageGallery
+                    images={project.images}
+                />
                 <div className="blueBorder rounded-xl mt-3 mx-3 sm:mx-10 p-5"> 
-                    <h2 className="text-xl font-bold"> Description </h2>
+                    <Overview overview={project.overview}/>
+                    <Problem problem={project.problem}/>
+                    <Solution solution={project.solution}/>
+                    <Architecture architecture={project.architechture}/>
+                    <Challenges challenges={project.challenges}/>
+                    <Improvements improvements={project.improvements}/>
                 </div>
             </div>
             
@@ -67,10 +74,7 @@ export default async function SelectedProjectPage ({ params }: SelectedProjectPr
                     }
                 
                 </div>
-                <div className="card flex gap-5 flex flex-col">
-                    <h2 className="text-xl font-bold my-2"> Bullet Points </h2>
-                    
-                </div>
+                <Features features={project.features}/>
             </div>
         </div>
     )
