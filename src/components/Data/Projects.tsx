@@ -5,6 +5,7 @@ export type ProjectTypes = {
   id: string,
   slug: string,
   images?: string[],
+  alt?: string[],
   name:  string;
   description?: string;
   features?: string[],
@@ -24,6 +25,7 @@ export const projects: ProjectTypes[] = [
       id: "JunhaoPortfolio",
       slug: "junhao-portfolio",
       images: ["/projects/Junhao_Portfolio.png"],
+      alt: ["Junhao's Portfolio | Homepage"],
       name: "Junhao's Portfolio",
       skills: ["Next.js", "TypeScript", "Tailwind CSS"],
       githubLink: "https://github.com/jzhao234/JunhaoZhao_Portfolio",
@@ -33,6 +35,7 @@ export const projects: ProjectTypes[] = [
       id: "DrugSynergy", 
       slug: "drug-synergy-finder",
       images: ["/projects/Drug_Synergy_Finder.png"],
+      alt: ["Drug Synergy Finder | Homepage"],
       name: "Drug Synergy Finder",
       features: [
         "Upload CSV or XLSX dose-response datasets",
@@ -81,6 +84,7 @@ export const projects: ProjectTypes[] = [
       id: "Baketsu",
       slug: "baketsu-cloud-storage",
       images: ["/projects/baketsu/home.png", "/projects/baketsu/dashboard.png", "/projects/baketsu/files.png"],
+      alt: ["Baketsu | Homepage", "Baketsu | Dashboard", "Baketsu | File Manager"],
       name: "Baketsu",
       skills: ["Next.js", "Python", "FastAPI", "Tailwind CSS", "SQLite", "Bcrypt", "AWS Amazon S3"],
       githubLink: "https://github.com/jzhao234/Baketsu-CloudStorage",

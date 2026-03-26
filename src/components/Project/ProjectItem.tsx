@@ -12,6 +12,7 @@ type ProjectItemProps = {
     id: string;
     slug: string;
     images?: string[];
+    alt?: string[];
     name: string;
     skills?: string[];
     githubLink?: string;
@@ -19,7 +20,7 @@ type ProjectItemProps = {
     selectedSkills?: string[];
 }
 
-export default function ProjectItem({id, slug, images, name, skills, githubLink, demoLink, selectedSkills}: ProjectItemProps){
+export default function ProjectItem({id, slug, images, alt, name, skills, githubLink, demoLink, selectedSkills}: ProjectItemProps){
     
     function createSkillBubbles () {
         if (!skills || skills.length === 0) return null;
@@ -54,7 +55,7 @@ export default function ProjectItem({id, slug, images, name, skills, githubLink,
                     <h2 className = "py-1 font-bold text-center">{name}</h2>
                     <Image
                         src={images[0]}
-                        alt="screenshot"
+                        alt={alt[0]}
                         width={300}
                         height={100}
                     />

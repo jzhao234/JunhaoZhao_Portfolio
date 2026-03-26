@@ -50,6 +50,7 @@ export default async function SelectedProjectPage ({ params }: SelectedProjectPr
 
                 <ImageGallery
                     images={project.images}
+                    alt={project.alt}
                 />
                 <div className="blueBorder rounded-xl mt-3 mx-3 sm:mx-10 p-5"> 
                     <Overview overview={project.overview}/>

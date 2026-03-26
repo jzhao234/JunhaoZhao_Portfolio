@@ -3,7 +3,7 @@
 import { useState } from "react";
 import Image from "next/image";
 
-export default function ImageGallery({ images }: { images: string[] }) {
+export default function ImageGallery({ images, alt}: { images: string[], alt: string[] }) {
     const [selectedImage, setSelectedImage] = useState(0);
 
     return(
