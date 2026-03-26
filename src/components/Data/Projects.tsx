@@ -80,7 +80,7 @@ export const projects: ProjectTypes[] = [
     {
       id: "Baketsu",
       slug: "baketsu-cloud-storage",
-      images: ["/projects/home page.png"],
+      images: ["/projects/baketsu/home.png", "/projects/baketsu/dashboard.png", "/projects/baketsu/files.png"],
       name: "Baketsu",
       skills: ["Next.js", "Python", "FastAPI", "Tailwind CSS", "SQLite", "Bcrypt", "AWS Amazon S3"],
       githubLink: "https://github.com/jzhao234/Baketsu-CloudStorage",
