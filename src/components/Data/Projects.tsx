@@ -93,15 +93,6 @@ export const projects: ProjectTypes[] = [
       images: ["/projects/baketsu/home.png", "/projects/baketsu/dashboard.png", "/projects/baketsu/files.png"],
       alt: ["Baketsu | Homepage", "Baketsu | Dashboard", "Baketsu | File Manager"],
       name: "Baketsu",
-      skills: ["Next.js", "Python", "FastAPI", "Tailwind CSS", "SQLite", "Bcrypt", "AWS Amazon S3"],
-      githubLink: "https://github.com/jzhao234/Baketsu-CloudStorage",
-    },
-    {
-      id: "Baketsu",
-      slug: "baketsu-cloud-storage",
-      images: ["/projects/baketsu/home.png", "/projects/baketsu/dashboard.png", "/projects/baketsu/files.png"],
-      alt: ["Baketsu | Homepage", "Baketsu | Dashboard", "Baketsu | File Manager"],
-      name: "Baketsu",
       features: [
         "Authenticated file uploads with upload verification",
         "Store files in AWS S3 and track upload metadata in SQLite",
