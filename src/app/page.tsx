@@ -131,7 +131,7 @@ export default function Home() {
                 </div>
               )}
               <div className="p-5 flex flex-col flex-1">
-                <h3 className="font-bold">{project.name}</h3>
+                <h3 className="text-base font-bold text-gray-900 dark:text-white">{project.name}</h3>
                 <div className="mt-2 h-[7.1rem] overflow-hidden">
                   <p className="text-sm text-gray-600 dark:text-gray-400 group-hover:text-gray-800 dark:group-hover:text-gray-200 leading-relaxed line-clamp-5 transition-colors">
                     {projectDescriptions[project.id]}
@@ -185,22 +185,32 @@ export default function Home() {
       {/* ── Experience ── */}
       <section>
         <SectionLabel>Experience</SectionLabel>
-        <div className="space-y-8">
+        <div>
           {featuredExperiences.map((exp, i) => (
-            <div key={i}>
-              <div className="flex flex-col sm:flex-row sm:items-baseline sm:justify-between gap-1">
-                <h3 className="font-semibold">{exp.title}</h3>
-                <span className="text-sm text-gray-400 dark:text-gray-500 flex-shrink-0">{exp.date}</span>
+            <div key={i} className="flex gap-5">
+              {/* Timeline column */}
+              <div className="flex flex-col items-center flex-shrink-0 pt-1.5">
+                <div className="w-2.5 h-2.5 rounded-full border-2 border-gray-300 dark:border-white/25 bg-white dark:bg-[#151516]" />
+                {i < featuredExperiences.length - 1 && (
+                  <div className="w-px flex-1 mt-1.5 bg-gray-200 dark:bg-white/10" />
+                )}
               </div>
-              <p className="text-sm text-gray-500 dark:text-gray-500 mt-0.5">{exp.org}</p>
-              <ul className="mt-2 space-y-1">
-                {exp.bullets.map((b, j) => (
-                  <li key={j} className="text-sm text-gray-600 dark:text-gray-400 leading-relaxed flex gap-2">
-                    <span className="text-gray-400 flex-shrink-0 mt-0.5">–</span>
-                    <span>{b}</span>
-                  </li>
-                ))}
-              </ul>
+              {/* Content */}
+              <div className={`flex-1 ${i < featuredExperiences.length - 1 ? "pb-8" : ""}`}>
+                <div className="flex flex-col sm:flex-row sm:items-baseline sm:justify-between gap-1">
+                  <h3 className="text-base font-semibold text-gray-900 dark:text-white">{exp.title}</h3>
+                  <span className="text-sm text-gray-400 dark:text-gray-500 flex-shrink-0">{exp.date}</span>
+                </div>
+                <p className="text-sm text-gray-500 dark:text-gray-500 mt-0.5">{exp.org}</p>
+                <ul className="mt-2 space-y-1">
+                  {exp.bullets.map((b, j) => (
+                    <li key={j} className="text-sm text-gray-600 dark:text-gray-400 leading-relaxed flex gap-2">
+                      <span className="text-gray-400 flex-shrink-0 mt-0.5">–</span>
+                      <span>{b}</span>
+                    </li>
+                  ))}
+                </ul>
+              </div>
             </div>
           ))}
         </div>
@@ -243,7 +253,7 @@ export default function Home() {
               className="flex-shrink-0 mt-0.5"
             />
             <div>
-              <h3 className="font-semibold">Temple University</h3>
+              <h3 className="text-base font-semibold text-gray-900 dark:text-white">Temple University</h3>
               <p className="text-sm text-gray-600 dark:text-gray-400">
                 B.S. Computer Science · Philadelphia, PA · 2022 – Present
               </p>
@@ -269,7 +279,7 @@ export default function Home() {
           <span className="w-2 h-2 rounded-full bg-green-400 dark:bg-green-500" />
           Available for summer 2026 internships and full-time roles
         </div>
-        <h2 className="text-2xl font-bold">Open to software engineering opportunities</h2>
+        <h2 className="text-2xl font-bold text-gray-900 dark:text-white">Open to software engineering opportunities</h2>
         <p className="mt-2 text-sm text-gray-500 dark:text-gray-500 max-w-sm mx-auto">
           Reach out on LinkedIn, view my projects on GitHub, or download my resume.
         </p>
@@ -309,8 +319,8 @@ export default function Home() {
 
 function SectionLabel({ children }: { children: ReactNode }) {
   return (
-    <div className="flex items-center gap-4 mb-8">
-      <h2 className="text-xs font-semibold uppercase tracking-widest text-gray-500 dark:text-gray-400 whitespace-nowrap">
+    <div className="flex items-center gap-3 mb-8">
+      <h2 className="text-base font-semibold text-gray-900 dark:text-white whitespace-nowrap">
         {children}
       </h2>
       <div className="flex-1 h-px bg-gray-200 dark:bg-white/10" />
