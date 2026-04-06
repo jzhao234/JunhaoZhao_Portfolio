@@ -9,14 +9,13 @@ export default function ImageGallery({ images }: { images: string[] }) {
   if (!images || images.length === 0) return null;
 
   return (
-    <div className="flex flex-col gap-3">
-      <div className="border border-gray-200 dark:border-white/10 rounded-xl overflow-hidden bg-gray-50 dark:bg-white/5">
+    <div className="flex flex-col gap-3 w-full">
+      <div className="border border-gray-200 dark:border-white/10 rounded-xl overflow-hidden bg-gray-50 dark:bg-white/5 relative w-full aspect-[16/9]">
         <Image
           src={images[selectedImage]}
           alt="selected project image"
-          width={1200}
-          height={900}
-          className="w-full h-auto"
+          fill
+          className="object-contain"
         />
       </div>
 
@@ -26,7 +25,7 @@ export default function ImageGallery({ images }: { images: string[] }) {
             <button
               key={i}
               onClick={() => setSelectedImage(i)}
-              className={`flex-shrink-0 border rounded-md overflow-hidden transition-colors ${
+              className={`flex-shrink-0 border rounded-md overflow-hidden transition-colors bg-gray-50 dark:bg-white/5 relative w-32 h-16 ${
                 selectedImage === i
                   ? "border-[#2196F3]"
                   : "border-gray-200 dark:border-white/10 hover:border-gray-400 dark:hover:border-white/20"
@@ -35,9 +34,8 @@ export default function ImageGallery({ images }: { images: string[] }) {
               <Image
                 src={src}
                 alt="project image"
-                width={300}
-                height={100}
-                className="object-cover w-full h-16"
+                fill
+                className="object-cover object-top"
               />
             </button>
           ))}

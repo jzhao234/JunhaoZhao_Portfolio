@@ -1,6 +1,6 @@
 function SectionLabel({ children }: { children: string }) {
   return (
-    <h2 className="text-xs font-semibold uppercase tracking-widest text-gray-500 dark:text-gray-400 mb-2">
+    <h2 className="text-sm font-semibold text-gray-800 dark:text-gray-200 mb-3">
       {children}
     </h2>
   );
@@ -90,7 +90,9 @@ export function Features({ features }: FeaturesProp) {
   if (!features || features.length === 0) return null;
   return (
     <div>
-      <SectionLabel>Key Features</SectionLabel>
+      <h2 className="text-xs font-semibold uppercase tracking-widest text-gray-500 dark:text-gray-300 mb-3">
+        Key Features
+      </h2>
       <DashList items={features} />
     </div>
   );

@@ -34,7 +34,7 @@ export default async function SelectedProjectPage({ params }: SelectedProjectPro
   if (!project) return notFound();
 
   return (
-    <div className="max-w-5xl mx-auto px-6 py-8">
+    <div className="w-full max-w-5xl mx-auto px-6 py-8">
 
       {/* Back link */}
       <Link
@@ -46,7 +46,7 @@ export default async function SelectedProjectPage({ params }: SelectedProjectPro
 
       {/* Title + actions */}
       <div className="flex flex-col sm:flex-row sm:items-center sm:justify-between gap-3 mb-6">
-        <h1 className="text-xl font-bold">{project.name}</h1>
+        <h1 className="text-2xl font-bold tracking-tight text-gray-900 dark:text-white">{project.name}</h1>
         <div className="flex gap-2 flex-shrink-0">
           <DemoLink demoLink={project.demoLink} />
           <GithubLink githubLink={project.githubLink} />
@@ -75,7 +75,7 @@ export default async function SelectedProjectPage({ params }: SelectedProjectPro
           {/* Skills */}
           {project.skills.length > 0 && (
             <div>
-              <h2 className="text-xs font-semibold uppercase tracking-widest text-gray-500 dark:text-gray-400 mb-3">
+              <h2 className="text-xs font-semibold uppercase tracking-widest text-gray-500 dark:text-gray-300 mb-3">
                 Skills
               </h2>
               <div className="flex flex-wrap gap-1.5">
