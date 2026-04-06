@@ -15,6 +15,7 @@ export type ProjectTypes = {
   challenges?: string[];
   improvements?: string[];
   skills: string[];
+  cardSkills?: string[];
   githubLink?: string;
   demoLink?: string;
 }

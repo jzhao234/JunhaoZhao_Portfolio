@@ -1,118 +1,93 @@
 "use client";
-import {useState, useRef, useEffect, ReactNode} from "react";
 
-import SkillsItem from "../Skills/SkillsItem";
-import highlightSkillsInText from "../Utilities/HighlightSkillsInText";
+import { ReactNode } from "react";
 import Link from "next/link";
 
+import skillCategory from "../../utils/skillCategory";
+import SkillCategoryColor from "../../utils/SkillCategoryColor";
+
 type ExperienceItemProps = {
-    logo: ReactNode;
-    title: string;
-    location: string;
-    date: string;
-    description1?: string; 
-    description2?: string; 
-    description3?: string;
-    description4?: string;
-    skills?: string[];
-    sections?: string[];
-    link?: string;
-    selectedSkills?: string[];
+  logo: ReactNode;
+  title: string;
+  location: string;
+  date: string;
+  description1?: string;
+  description2?: string;
+  description3?: string;
+  description4?: string;
+  skills?: string[];
+  sections?: string[];
+  link?: string;
+  selectedSkills?: string[];
 }
 
-export default function ExperienceItem({logo, title, location, date, description1, description2, description3, description4, skills, sections, link, selectedSkills}: ExperienceItemProps){
-    
-    const [isOpen, setIsOpen] = useState(false);
-    const [parentWidth, setParentWidth] = useState(0);
-    const parentRef = useRef(null);
+export default function ExperienceItem({
+  title, location, date,
+  description1, description2, description3, description4,
+  skills, sections, link, selectedSkills,
+}: ExperienceItemProps) {
 
-    useEffect(() => {
-        if (parentRef.current){
-            setParentWidth(parentRef.current.offsetWidth);
-        }
-    }, []);
+  const matchCount = (skills || []).filter((s) => selectedSkills?.includes(s)).length;
+  const isDimmed = selectedSkills && selectedSkills.length > 0 && matchCount === 0;
 
-    const toggleDropdown = () => {
-        setIsOpen((prev) => !prev);
-    };
+  function skillBubbles() {
+    if (!skills || skills.length === 0 || !sections) return null;
+    const combined = skills.map((skill, i) => ({
+      skill,
+      isHighlighted: selectedSkills?.includes(skill),
+    }));
+    const sorted =
+      selectedSkills && selectedSkills.length > 0
+        ? combined.sort((a, b) => {
+            if (a.isHighlighted && !b.isHighlighted) return -1;
+            if (!a.isHighlighted && b.isHighlighted) return 1;
+            return a.skill.localeCompare(b.skill);
+          })
+        : combined.sort((a, b) => a.skill.localeCompare(b.skill));
 
-    function createSkillBubbles () {
-        if (!skills || skills.length === 0 || !sections) return null;
-            const combined = skills.map((skill, i) => ({
-                skill,
-                section: sections[i],
-                isHighlighted: selectedSkills?.includes(skill),
-            }));
-            const sorted =
-                selectedSkills && selectedSkills.length > 0
-                    ? combined.sort((a, b) => {
-                        if (a.isHighlighted && !b.isHighlighted) return -1;
-                        if (!a.isHighlighted && b.isHighlighted) return 1;
-                        return a.skill.localeCompare(b.skill);
-                    })
-                    : combined.sort((a, b) => a.skill.localeCompare(b.skill));
+    return sorted.map(({ skill, isHighlighted }, i) => {
+      const category = skillCategory(skill);
+      const colors = SkillCategoryColor(category);
+      return (
+        <span
+          key={i}
+          className={`px-2.5 py-0.5 text-xs rounded-full transition-colors ${colors.bg} ${colors.text} ${
+            isHighlighted ? "ring-1 ring-current ring-offset-1 dark:ring-offset-transparent font-medium" : ""
+          }`}
+        >
+          {skill}
+        </span>
+      );
+    });
+  }
 
-            return sorted.map(({ skill, section, isHighlighted }, i) => (
-                <SkillsItem
-                    key={i}
-                    name={skill}
-                    isHighlighted={isHighlighted}
-                    />
-            ));
-    }
-
-    function projectLink () {
-        if (!link) return null;
-        return(
-            <Link href={link} className="cursor-pointer text-[#1E90FF]"> Project Link </Link>
-        );
-    }
-
-    return(
-        <div ref={parentRef} className = "flex-col my-3 p-1 text-black bg-white dark:text-white dark:bg-[#131213] border-2 border-[#1E90FF]/20 rounded-xl" >
-            <div className = "flex justify-between items-center">
-                <div className = "flex items-center pr-2 sm:pr-4">
-                    <div className = "flex-shrink-0 w-10 h-10 ml-1 mr-3">
-                        {logo}
-                    </div>
-                    <div className = "flex flex-col">
-                        <div>
-                            <h2 className = "font-medium">{title}</h2>
-                        </div>
-                        <div>
-                            <p className = "text-sm font-thin">{location}</p>
-                        </div>
-                    </div>
-                </div>
-                <div className = "flex flex-col">
-                    <div className = "pr-1">
-                        <p className = "flex justify-end mt-3 text-sm hidden sm:block font-thin">{date}</p>
-                    </div>
-                    <div onClick={toggleDropdown} className = "cursor-pointer srelative group flex justify-end items-center text-[#1E90FF]">
-                        <svg xmlns="http://www.w3.org/2000/svg" height="30px" viewBox="0 -960 960 960" width="30px" fill="currentColor" className = {`bg-white dark:bg-[#171718] rounded-xl p-1/2 transform transition-transform duration-300 ${isOpen ? "rotate-180" : ""}`}>
-                            <path d="M480-344 240-584l56-56 184 184 184-184 56 56-240 240Z"/>
-                        </svg>
-                        <span className="w-fit whitespace-nowrap bg-white dark:bg-[#171718] p-1 px-2 rounded-2xl absolute hidden group-hover:block -translate-y-8 translate-x-18">
-                            More Details
-                        </span>
-                    </div>
-                </div>
-            </div>
-            {!isOpen&&(
-                <div className="sm:ml-14 flex flex-wrap justify-center items-center">
-                    {createSkillBubbles()}
-                </div>
-            )}
-            {isOpen && (
-                <div className = "px-2 sm:pl-14 pr-3 py-3" style = {{width: parentWidth}}>
-                    {projectLink()}
-                    <p className="pb-1 mr-1">{highlightSkillsInText(description1)}</p>
-                    <p className="pb-1 mr-1">{highlightSkillsInText(description2)}</p>
-                    <p className="pb-1 mr-1">{highlightSkillsInText(description3)}</p>
-                    <p className="mr-1">{highlightSkillsInText(description4)}</p>
-                </div>
-            )}
-            
+  return (
+    <div className={`transition-opacity ${isDimmed ? "opacity-40" : "opacity-100"}`}>
+      <div className="flex flex-col sm:flex-row sm:items-baseline sm:justify-between gap-1">
+        <h3 className="font-semibold text-sm">{title}</h3>
+        <span className="text-xs text-gray-400 dark:text-gray-500 flex-shrink-0 whitespace-nowrap">{date}</span>
+      </div>
+      <p className="text-xs text-gray-500 dark:text-gray-500 mt-0.5">{location}</p>
+      {link && (
+        <Link href={link} className="text-xs text-[#2196F3] hover:underline mt-1 inline-block">
+          View project →
+        </Link>
+      )}
+      <ul className="mt-2 space-y-1">
+        {[description1, description2, description3, description4]
+          .filter(Boolean)
+          .map((desc, i) => (
+            <li key={i} className="text-sm text-gray-600 dark:text-gray-400 leading-relaxed flex gap-2">
+              <span className="text-gray-400 flex-shrink-0 mt-0.5">–</span>
+              <span>{desc}</span>
+            </li>
+          ))}
+      </ul>
+      {skills && skills.length > 0 && (
+        <div className="flex flex-wrap gap-1.5 mt-3">
+          {skillBubbles()}
         </div>
-    );
+      )}
+    </div>
+  );
 }

@@ -9,7 +9,7 @@ export default function Navbar() {
   const [isOpen, setIsOpen] = useState(false);
 
   return (
-    <nav className="sticky top-0 z-50 bg-white dark:bg-[#151516] border-b border-gray-200 dark:border-white/10">
+    <nav className="sticky top-0 z-50 bg-white dark:bg-[#151516] text-black dark:text-white border-b border-gray-200 dark:border-white/10">
       <div className="max-w-5xl mx-auto px-6 flex items-center justify-between py-3">
 
         <Link

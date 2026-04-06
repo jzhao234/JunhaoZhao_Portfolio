@@ -99,49 +99,54 @@ export default function ProjectCard() {
           return (
             <div
               key={project.id}
-              className={`relative flex flex-col border border-gray-200 dark:border-white/10 border-t-2 border-t-[#2196F3] rounded-xl overflow-hidden transition-opacity ${
+              className={`group relative flex flex-col border border-gray-200 dark:border-white/10 border-t-2 border-t-[#2196F3] rounded-xl overflow-hidden transition-all duration-200 hover:border-[#2196F3]/50 dark:hover:border-[#2196F3]/50 hover:shadow-lg dark:hover:shadow-[0_4px_24px_rgba(33,150,243,0.08)] ${
                 isDimmed ? "opacity-40" : "opacity-100"
               }`}
             >
+              {/* Stretched link — z-10 covers image area too */}
               <Link
                 href={`/projects/${project.slug}`}
-                className="absolute inset-0"
+                className="absolute inset-0 z-10"
                 aria-label={`View ${project.name} details`}
               />
+
               {project.images?.[0] && (
                 <div className="bg-gray-50 dark:bg-white/5 p-4">
-                  <Image
-                    src={project.images[0]}
-                    alt={project.name}
-                    width={500}
-                    height={280}
-                    className="rounded w-full object-cover"
-                  />
+                  <div className="relative h-44 rounded overflow-hidden">
+                    <Image
+                      src={project.images[0]}
+                      alt={project.name}
+                      fill
+                      className="object-cover transition-transform duration-300 group-hover:scale-[1.03]"
+                    />
+                  </div>
                 </div>
               )}
+
               <div className="p-5 flex flex-col flex-1">
                 <h2 className="font-bold">{project.name}</h2>
-                <p className="mt-2 text-sm text-gray-600 dark:text-gray-400 leading-relaxed flex-1">
-                  {projectDescriptions[project.id]}
-                </p>
-                <div className="flex flex-wrap gap-2 mt-3">
-                  {project.skills.slice(0, 5).map((s) => (
-                    <ColoredSkillTag
-                      key={s}
-                      skill={s}
-                      isHighlighted={selectedSkills.includes(s)}
-                    />
-                  ))}
-                </div>
+
+                {/* Description — clamped to 5 lines, ... glows on hover */}
+                <ClampedDescription text={projectDescriptions[project.id] ?? ""} />
+
+                {/* Skill pills — immediately after description, clamped to 2 rows */}
+                <ClampedPills
+                  skills={project.skills}
+                  cardSkills={project.cardSkills}
+                  selectedSkills={selectedSkills}
+                />
+
+                {/* Buttons — pushed to bottom */}
                 {(project.githubLink || project.demoLink) && (
-                  <div className="relative z-10 flex gap-2 mt-4">
+                  <div className="relative z-20 flex gap-2 mt-4 pt-3 border-t border-gray-100 dark:border-white/5">
                     {project.demoLink && (
                       <a
                         href={project.demoLink}
                         target="_blank"
                         rel="noopener noreferrer"
-                        className="inline-flex items-center px-3 py-1 text-xs font-medium rounded-md bg-[#2196F3]/10 text-[#2196F3] hover:bg-[#2196F3]/20 transition-colors"
+                        className="inline-flex items-center gap-1.5 px-3 py-1.5 text-xs font-medium rounded-md bg-[#2196F3] text-white hover:bg-[#1976D2] transition-colors"
                       >
+                        <ExternalLinkIcon />
                         Live Demo
                       </a>
                     )}
@@ -150,8 +155,9 @@ export default function ProjectCard() {
                         href={project.githubLink}
                         target="_blank"
                         rel="noopener noreferrer"
-                        className="inline-flex items-center px-3 py-1 text-xs font-medium rounded-md border border-gray-200 dark:border-white/15 text-gray-500 dark:text-gray-400 hover:border-[#2196F3] hover:text-[#2196F3] transition-colors"
+                        className="inline-flex items-center gap-1.5 px-3 py-1.5 text-xs font-medium rounded-md border border-gray-200 dark:border-white/15 text-gray-500 dark:text-gray-400 hover:border-[#2196F3] hover:text-[#2196F3] transition-colors"
                       >
+                        <GitHubIcon />
                         GitHub
                       </a>
                     )}
@@ -166,22 +172,73 @@ export default function ProjectCard() {
   );
 }
 
-function ColoredSkillTag({
-  skill,
-  isHighlighted,
+// Pill height: text-xs (16px line-height) + py-0.5 (4px padding) = 20px
+// gap-1.5 = 6px between rows → 2 rows = 46px
+const TWO_ROW_HEIGHT = 46;
+
+function ClampedPills({
+  skills,
+  cardSkills,
+  selectedSkills,
 }: {
-  skill: string;
-  isHighlighted: boolean;
+  skills: string[];
+  cardSkills?: string[];
+  selectedSkills: string[];
 }) {
-  const category = skillCategory(skill);
-  const colors = SkillCategoryColor(category);
+  // cardSkills controls what's displayed; skills always drives filtering
+  const pillsToRender = cardSkills ?? skills;
+
   return (
-    <span
-      className={`px-2.5 py-0.5 text-xs rounded-full transition-colors ${colors.bg} ${colors.text} ${
-        isHighlighted ? "ring-1 ring-current ring-offset-1 dark:ring-offset-transparent font-medium" : ""
-      }`}
+    <div
+      className="flex flex-wrap items-start gap-1.5 overflow-hidden mt-3"
+      style={{ height: TWO_ROW_HEIGHT }}
     >
-      {skill}
-    </span>
+      {pillsToRender.map((skill, i) => {
+        const category = skillCategory(skill);
+        const colors = SkillCategoryColor(category);
+        const isHighlighted = selectedSkills.includes(skill);
+        return (
+          <span
+            key={i}
+            className={`px-2.5 py-0.5 text-xs rounded-full transition-colors ${colors.bg} ${colors.text} ${
+              isHighlighted
+                ? "ring-1 ring-current ring-offset-1 dark:ring-offset-transparent font-medium"
+                : ""
+            }`}
+          >
+            {skill}
+          </span>
+        );
+      })}
+    </div>
+  );
+}
+
+// text-sm leading-relaxed = 0.875rem * 1.625 ≈ 1.422rem per line; 5 lines ≈ 7.1rem
+function ClampedDescription({ text }: { text: string }) {
+  return (
+    <div className="mt-2 h-[7.1rem] overflow-hidden">
+      <p className="text-sm text-gray-600 dark:text-gray-400 group-hover:text-gray-800 dark:group-hover:text-gray-200 leading-relaxed line-clamp-5 transition-colors">
+        {text}
+      </p>
+    </div>
+  );
+}
+
+function GitHubIcon() {
+  return (
+    <svg viewBox="0 0 16 16" width="13" height="13" fill="currentColor" aria-hidden="true">
+      <path d="M8 0C3.58 0 0 3.58 0 8c0 3.54 2.29 6.53 5.47 7.59.4.07.55-.17.55-.38 0-.19-.01-.82-.01-1.49-2.01.37-2.53-.49-2.69-.94-.09-.23-.48-.94-.82-1.13-.28-.15-.68-.52-.01-.53.63-.01 1.08.58 1.23.82.72 1.21 1.87.87 2.33.66.07-.52.28-.87.51-1.07-1.78-.2-3.64-.89-3.64-3.95 0-.87.31-1.59.82-2.15-.08-.2-.36-1.02.08-2.12 0 0 .67-.21 2.2.82.64-.18 1.32-.27 2-.27.68 0 1.36.09 2 .27 1.53-1.04 2.2-.82 2.2-.82.44 1.1.16 1.92.08 2.12.51.56.82 1.27.82 2.15 0 3.07-1.87 3.75-3.65 3.95.29.25.54.73.54 1.48 0 1.07-.01 1.93-.01 2.2 0 .21.15.46.55.38A8.013 8.013 0 0016 8c0-4.42-3.58-8-8-8z" />
+    </svg>
+  );
+}
+
+function ExternalLinkIcon() {
+  return (
+    <svg viewBox="0 0 24 24" width="13" height="13" fill="none" stroke="currentColor" strokeWidth="2.5" strokeLinecap="round" strokeLinejoin="round" aria-hidden="true">
+      <path d="M18 13v6a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2V8a2 2 0 0 1 2-2h6" />
+      <polyline points="15 3 21 3 21 9" />
+      <line x1="10" y1="14" x2="21" y2="3" />
+    </svg>
   );
 }
