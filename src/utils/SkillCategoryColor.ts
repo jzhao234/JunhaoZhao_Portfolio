@@ -1,5 +1,3 @@
-"use client"; 
-
 export default function SkillCategoryColor(category: string){
     const colors = {
         Language: {text: "text-blue-500", bg: "bg-blue-500/20" },

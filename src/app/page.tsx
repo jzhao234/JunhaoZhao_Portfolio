@@ -2,6 +2,8 @@ import { ReactNode } from "react";
 import Image from "next/image";
 import Link from "next/link";
 import { projects } from "../components/Data/Projects";
+import skillCategory from "../utils/skillCategory";
+import SkillCategoryColor from "../utils/SkillCategoryColor";
 
 const featuredExperiences = [
   {
@@ -131,7 +133,7 @@ export default function Home() {
                 </p>
                 <div className="flex flex-wrap gap-2 mt-3">
                   {project.skills.slice(0, 5).map((s) => (
-                    <SkillTag key={s}>{s}</SkillTag>
+                    <ColoredSkillTag key={s}>{s}</ColoredSkillTag>
                   ))}
                 </div>
                 {(project.githubLink || project.demoLink) && (
@@ -209,7 +211,7 @@ export default function Home() {
               </span>
               <div className="flex flex-wrap gap-2">
                 {skills.map((skill) => (
-                  <SkillTag key={skill}>{skill}</SkillTag>
+                  <ColoredSkillTag key={skill}>{skill}</ColoredSkillTag>
                 ))}
               </div>
             </div>
@@ -302,9 +304,12 @@ function SectionLabel({ children }: { children: ReactNode }) {
   );
 }
 
-function SkillTag({ children }: { children: ReactNode }) {
+
+function ColoredSkillTag({ children }: { children: ReactNode }) {
+  const category = skillCategory(String(children));
+  const colors = SkillCategoryColor(category);
   return (
-    <span className="px-2.5 py-0.5 text-xs rounded-full bg-gray-100 dark:bg-white/10 text-gray-600 dark:text-gray-300">
+    <span className={`px-2.5 py-0.5 text-xs rounded-full ${colors.bg} ${colors.text}`}>
       {children}
     </span>
   );
