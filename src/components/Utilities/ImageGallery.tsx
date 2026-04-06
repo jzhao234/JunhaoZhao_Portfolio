@@ -4,37 +4,45 @@ import { useState } from "react";
 import Image from "next/image";
 
 export default function ImageGallery({ images }: { images: string[] }) {
-    const [selectedImage, setSelectedImage] = useState(0);
+  const [selectedImage, setSelectedImage] = useState(0);
 
-    return(
-        <div className="flex flex-col gap-4 mt-3 sm:mt-10 mx-3 sm:mx-10"> 
+  if (!images || images.length === 0) return null;
 
-            <div className="blueBorder relative w-full max-w-4xl aspect-[16/9] rounded-xl overflow-hidden"> 
-                <Image
-                    src={images[selectedImage]}
-                    alt="selected project image"
-                    fill
-                    className="object-cover"
-                />
-            </div>
+  return (
+    <div className="flex flex-col gap-3">
+      <div className="border border-gray-200 dark:border-white/10 rounded-xl overflow-hidden bg-gray-50 dark:bg-white/5">
+        <Image
+          src={images[selectedImage]}
+          alt="selected project image"
+          width={1200}
+          height={900}
+          className="w-full h-auto"
+        />
+      </div>
 
-            <div className="flex gap-2 overflow-x-auto">
-                {images.map((src, i) => (
-                    <button
-                        key={i}
-                        onClick={() => setSelectedImage(i)}
-                        className={`border rounded-md overflow-hidden ${selectedImage === i ? "border-blue-500" : "border-gray-300"}`}
-                    >
-                        <Image
-                            src={src}
-                            alt="project image"
-                            width={300}
-                            height={100}
-                            className="object-cover w-full h-16"
-                        />
-                    </button>
-                ))} 
-            </div>
+      {images.length > 1 && (
+        <div className="flex gap-2 overflow-x-auto">
+          {images.map((src, i) => (
+            <button
+              key={i}
+              onClick={() => setSelectedImage(i)}
+              className={`flex-shrink-0 border rounded-md overflow-hidden transition-colors ${
+                selectedImage === i
+                  ? "border-[#2196F3]"
+                  : "border-gray-200 dark:border-white/10 hover:border-gray-400 dark:hover:border-white/20"
+              }`}
+            >
+              <Image
+                src={src}
+                alt="project image"
+                width={300}
+                height={100}
+                className="object-cover w-full h-16"
+              />
+            </button>
+          ))}
         </div>
-    )
+      )}
+    </div>
+  );
 }
