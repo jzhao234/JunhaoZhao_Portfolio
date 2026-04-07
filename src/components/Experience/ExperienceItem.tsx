@@ -51,7 +51,7 @@ export default function ExperienceItem({
       return (
         <span
           key={i}
-          className={`px-2.5 py-0.5 text-xs rounded-full transition-colors ${colors.bg} ${colors.text} ${
+          className={`px-2.5 py-0.5 text-[14px] rounded-full transition-colors ${colors.bg} ${colors.text} ${
             isHighlighted ? "ring-1 ring-current ring-offset-1 dark:ring-offset-transparent font-medium" : ""
           }`}
         >
@@ -64,12 +64,12 @@ export default function ExperienceItem({
   return (
     <div className={`transition-opacity ${isDimmed ? "opacity-40" : "opacity-100"}`}>
       <div className="flex flex-col sm:flex-row sm:items-baseline sm:justify-between gap-1">
-        <h3 className="font-semibold text-sm">{title}</h3>
-        <span className="text-xs text-gray-400 dark:text-gray-500 flex-shrink-0 whitespace-nowrap">{date}</span>
+        <h3 className="font-semibold text-[16px]">{title}</h3>
+        <span className="text-[14px] text-gray-400 dark:text-gray-500 flex-shrink-0 whitespace-nowrap">{date}</span>
       </div>
-      <p className="text-xs text-gray-500 dark:text-gray-500 mt-0.5">{location}</p>
+      <p className="text-[14px] text-gray-500 dark:text-gray-500 mt-0.5">{location}</p>
       {link && (
-        <Link href={link} className="text-xs text-[#2196F3] hover:underline mt-1 inline-block">
+        <Link href={link} className="text-[14px] text-[#2196F3] hover:underline mt-1 inline-block">
           View project →
         </Link>
       )}
@@ -77,7 +77,7 @@ export default function ExperienceItem({
         {[description1, description2, description3, description4]
           .filter(Boolean)
           .map((desc, i) => (
-            <li key={i} className="text-sm text-gray-600 dark:text-gray-400 leading-relaxed flex gap-2">
+            <li key={i} className="text-[16px] text-gray-600 dark:text-gray-400 leading-relaxed flex gap-2">
               <span className="text-gray-400 flex-shrink-0 mt-0.5">–</span>
               <span>{desc}</span>
             </li>

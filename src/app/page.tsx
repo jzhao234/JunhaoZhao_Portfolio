@@ -21,7 +21,9 @@ const featuredExperiences = [
     org: "Temple University",
     date: "Sep 2024 – May 2025",
     bullets: [
-      "Supported students learning Python and data science in a university course lab",
+      "Assisted students in mastering the Jupyter Lab environment and programming in Python",
+      "Hosted office hours, providing tailored support to students and addressing individual learning needs",
+      "Collaborated with faculty to develop and implement effective teaching strategies",
     ],
   },
 ];
@@ -57,17 +59,14 @@ export default function Home() {
         <Image
           src="/profile.jpg"
           alt="Junhao Zhao"
-          width={160}
-          height={160}
+          width={184}
+          height={184}
           className="rounded-2xl flex-shrink-0 border border-gray-200 dark:border-white/10"
         />
         <div>
           <h1 className="text-4xl sm:text-5xl font-bold tracking-tight">Junhao Zhao</h1>
           <p className="mt-3 text-base sm:text-lg text-gray-600 dark:text-gray-300 leading-relaxed max-w-lg">
-            CS student at Temple University. I build full-stack web applications — most recently a drug synergy analysis platform for oncology research at Fox Chase Cancer Center.
-          </p>
-          <p className="mt-2 text-xs text-gray-400 dark:text-gray-500 tracking-wide">
-            Next.js · Python · TypeScript · FastAPI · React
+            Computer Science student at Temple University building full-stack web applications, most recently a drug synergy analysis platform for oncology research at Fox Chase Cancer Center.
           </p>
           <div className="mt-3 flex items-center gap-2 text-sm text-gray-500 dark:text-gray-400">
             <span className="w-2 h-2 rounded-full bg-green-400 dark:bg-green-500 flex-shrink-0" />
@@ -101,6 +100,25 @@ export default function Home() {
               Resume
             </a>
           </div>
+        </div>
+      </section>
+
+      {/* ── Tech Stack ── */}
+      <section>
+        <SectionLabel>Tech Stack</SectionLabel>
+        <div className="space-y-3">
+          {techStack.map(({ category, skills }) => (
+            <div key={category} className="flex flex-wrap items-baseline gap-x-4 gap-y-2">
+              <span className="text-[16px] text-gray-600 dark:text-gray-400 w-32 flex-shrink-0">
+                {category}
+              </span>
+              <div className="flex flex-wrap gap-2">
+                {skills.map((skill) => (
+                  <ColoredSkillTag key={skill}>{skill}</ColoredSkillTag>
+                ))}
+              </div>
+            </div>
+          ))}
         </div>
       </section>
 
@@ -187,29 +205,31 @@ export default function Home() {
         <SectionLabel>Experience</SectionLabel>
         <div>
           {featuredExperiences.map((exp, i) => (
-            <div key={i} className="flex gap-5">
+            <div key={i} className="flex gap-5 group">
               {/* Timeline column */}
               <div className="flex flex-col items-center flex-shrink-0 pt-1.5">
-                <div className="w-2.5 h-2.5 rounded-full border-2 border-gray-300 dark:border-white/25 bg-white dark:bg-[#151516]" />
+                <div className="w-2.5 h-2.5 rounded-full border-2 border-gray-300 dark:border-white/25 bg-white dark:bg-[#151516] transition-transform duration-200 group-hover:scale-[1.4]" />
                 {i < featuredExperiences.length - 1 && (
                   <div className="w-px flex-1 mt-1.5 bg-gray-200 dark:bg-white/10" />
                 )}
               </div>
               {/* Content */}
               <div className={`flex-1 ${i < featuredExperiences.length - 1 ? "pb-8" : ""}`}>
-                <div className="flex flex-col sm:flex-row sm:items-baseline sm:justify-between gap-1">
-                  <h3 className="text-[18px] font-semibold text-gray-900 dark:text-white">{exp.title}</h3>
-                  <span className="text-[16px] text-gray-400 dark:text-gray-500 flex-shrink-0">{exp.date}</span>
+                <div className="rounded-xl px-3 py-2 -mx-3 -my-2 transition-colors duration-200 group-hover:bg-gray-50 dark:group-hover:bg-white/[0.03]">
+                  <div className="flex flex-col sm:flex-row sm:items-baseline sm:justify-between gap-1">
+                    <h3 className="text-[18px] font-semibold text-gray-900 dark:text-white">{exp.title}</h3>
+                    <span className="text-[16px] text-gray-400 dark:text-gray-500 flex-shrink-0">{exp.date}</span>
+                  </div>
+                  <p className="text-[16px] text-gray-500 dark:text-gray-500 mt-0.5">{exp.org}</p>
+                  <ul className="mt-2 space-y-1">
+                    {exp.bullets.map((b, j) => (
+                      <li key={j} className="text-[16px] text-gray-600 dark:text-gray-400 leading-relaxed flex gap-2">
+                        <span className="text-gray-400 flex-shrink-0 mt-0.5">–</span>
+                        <span>{b}</span>
+                      </li>
+                    ))}
+                  </ul>
                 </div>
-                <p className="text-[16px] text-gray-500 dark:text-gray-500 mt-0.5">{exp.org}</p>
-                <ul className="mt-2 space-y-1">
-                  {exp.bullets.map((b, j) => (
-                    <li key={j} className="text-[16px] text-gray-600 dark:text-gray-400 leading-relaxed flex gap-2">
-                      <span className="text-gray-400 flex-shrink-0 mt-0.5">–</span>
-                      <span>{b}</span>
-                    </li>
-                  ))}
-                </ul>
               </div>
             </div>
           ))}
@@ -218,25 +238,6 @@ export default function Home() {
           <Link href="/experiences" className="text-[16px] text-[#2196F3] hover:underline">
             View full experience →
           </Link>
-        </div>
-      </section>
-
-      {/* ── Tech Stack ── */}
-      <section>
-        <SectionLabel>Tech Stack</SectionLabel>
-        <div className="space-y-3">
-          {techStack.map(({ category, skills }) => (
-            <div key={category} className="flex flex-wrap items-baseline gap-x-4 gap-y-2">
-              <span className="text-[16px] text-gray-600 dark:text-gray-400 w-32 flex-shrink-0">
-                {category}
-              </span>
-              <div className="flex flex-wrap gap-2">
-                {skills.map((skill) => (
-                  <ColoredSkillTag key={skill}>{skill}</ColoredSkillTag>
-                ))}
-              </div>
-            </div>
-          ))}
         </div>
       </section>
 

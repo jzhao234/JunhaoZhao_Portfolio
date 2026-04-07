@@ -83,8 +83,8 @@ export default function ExperienceCard() {
     <div className="max-w-5xl mx-auto px-6 py-8">
 
       {/* Section heading */}
-      <div className="flex items-center gap-4 mb-6">
-        <h1 className="text-xs font-semibold uppercase tracking-widest text-gray-500 dark:text-gray-400 whitespace-nowrap">
+      <div className="flex items-center gap-3 mb-8">
+        <h1 className="text-[18px] font-semibold text-gray-900 dark:text-white whitespace-nowrap">
           Experiences
         </h1>
         <div className="flex-1 h-px bg-gray-200 dark:bg-white/10" />
@@ -92,8 +92,8 @@ export default function ExperienceCard() {
 
       {/* Filter row */}
       {allSkills.length > 0 && (
-        <div className="flex flex-wrap items-center gap-2 mb-10">
-          <span className="text-xs text-gray-400 dark:text-gray-500 flex-shrink-0">
+        <div className="flex flex-wrap items-center gap-2 mb-8">
+          <span className="text-[14px] text-gray-400 dark:text-gray-500 flex-shrink-0">
             Filter:
           </span>
           {allSkills.map((skill) => {
@@ -104,7 +104,7 @@ export default function ExperienceCard() {
               <button
                 key={skill}
                 onClick={() => toggleSkill(skill)}
-                className={`px-2.5 py-0.5 text-xs rounded-full transition-colors cursor-pointer ${
+                className={`px-2.5 py-0.5 text-[14px] rounded-full transition-colors cursor-pointer ${
                   isSelected
                     ? `${colors.bg} ${colors.text} font-medium`
                     : "bg-gray-100 dark:bg-white/10 text-gray-500 dark:text-gray-400 hover:bg-gray-200 dark:hover:bg-white/15"
@@ -117,7 +117,7 @@ export default function ExperienceCard() {
           {selectedSkills.length > 0 && (
             <button
               onClick={() => setSelectedSkills([])}
-              className="px-2.5 py-0.5 text-xs rounded-full text-gray-400 dark:text-gray-500 hover:text-gray-600 dark:hover:text-gray-300 transition-colors cursor-pointer"
+              className="px-2.5 py-0.5 text-[14px] rounded-full text-gray-400 dark:text-gray-500 hover:text-gray-600 dark:hover:text-gray-300 transition-colors cursor-pointer"
             >
               Clear
             </button>
@@ -132,13 +132,13 @@ export default function ExperienceCard() {
 
         <div className="flex flex-col gap-6">
           {displayOrder.map((exp, idx) => (
-            <div key={idx} className="relative flex gap-5">
+            <div key={idx} className="relative flex gap-5 group">
               {/* Dot — aligned to title baseline */}
               <div className="flex-shrink-0 w-[18px] flex justify-center pt-[3px] relative z-10">
-                <div className="w-2.5 h-2.5 rounded-full bg-[#2196F3] ring-2 ring-white dark:ring-[#151516]" />
+                <div className="w-2.5 h-2.5 rounded-full bg-[#2196F3] ring-2 ring-white dark:ring-[#151516] transition-transform duration-200 group-hover:scale-[1.4]" />
               </div>
               {/* Content */}
-              <div className="flex-1 min-w-0">
+              <div className="flex-1 min-w-0 rounded-xl px-3 py-2 -mx-3 -my-2 transition-colors duration-200 group-hover:bg-gray-50 dark:group-hover:bg-white/[0.03]">
                 <ExperienceItem {...exp} selectedSkills={selectedSkills} />
               </div>
             </div>

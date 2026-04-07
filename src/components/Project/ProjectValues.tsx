@@ -1,8 +1,11 @@
 function SectionLabel({ children }: { children: string }) {
   return (
-    <h2 className="text-sm font-semibold text-gray-800 dark:text-gray-200 mb-3">
-      {children}
-    </h2>
+    <div className="flex items-center gap-3 mb-3">
+      <h2 className="text-[16px] font-semibold text-gray-800 dark:text-gray-200 whitespace-nowrap">
+        {children}
+      </h2>
+      <div className="flex-1 h-px bg-gray-200 dark:bg-white/10" />
+    </div>
   );
 }
 
@@ -10,7 +13,7 @@ function DashList({ items }: { items: string[] }) {
   return (
     <ul className="space-y-1.5">
       {items.map((item, i) => (
-        <li key={i} className="flex gap-2 text-sm text-gray-600 dark:text-gray-400 leading-relaxed">
+        <li key={i} className="flex gap-2 text-[16px] text-gray-600 dark:text-gray-400 leading-relaxed">
           <span className="text-gray-400 flex-shrink-0 mt-0.5">–</span>
           <span>{item}</span>
         </li>
@@ -25,7 +28,7 @@ export function Overview({ overview }: OverviewProp) {
   return (
     <div>
       <SectionLabel>Overview</SectionLabel>
-      <p className="text-sm text-gray-600 dark:text-gray-400 leading-relaxed whitespace-pre-line">{overview}</p>
+      <p className="text-[16px] text-gray-600 dark:text-gray-400 leading-relaxed whitespace-pre-line">{overview}</p>
     </div>
   );
 }
@@ -36,7 +39,7 @@ export function Problem({ problem }: ProblemProp) {
   return (
     <div>
       <SectionLabel>Problem</SectionLabel>
-      <p className="text-sm text-gray-600 dark:text-gray-400 leading-relaxed whitespace-pre-line">{problem}</p>
+      <p className="text-[16px] text-gray-600 dark:text-gray-400 leading-relaxed whitespace-pre-line">{problem}</p>
     </div>
   );
 }
@@ -47,7 +50,7 @@ export function Solution({ solution }: SolutionProp) {
   return (
     <div>
       <SectionLabel>Solution</SectionLabel>
-      <p className="text-sm text-gray-600 dark:text-gray-400 leading-relaxed whitespace-pre-line">{solution}</p>
+      <p className="text-[16px] text-gray-600 dark:text-gray-400 leading-relaxed whitespace-pre-line">{solution}</p>
     </div>
   );
 }

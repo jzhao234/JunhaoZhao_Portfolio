@@ -39,7 +39,7 @@ export default async function SelectedProjectPage({ params }: SelectedProjectPro
       {/* Back link */}
       <Link
         href="/projects"
-        className="inline-flex items-center gap-1 text-xs text-gray-400 dark:text-gray-500 hover:text-[#2196F3] transition-colors mb-6"
+        className="inline-flex items-center gap-1 text-[14px] text-gray-400 dark:text-gray-500 hover:text-[#2196F3] transition-colors mb-6"
       >
         ← Projects
       </Link>
