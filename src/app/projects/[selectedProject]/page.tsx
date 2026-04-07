@@ -1,7 +1,7 @@
 import { notFound } from "next/navigation";
 import type { Metadata } from "next";
 import Link from "next/link";
-import { projects } from "../../../components/Data/Projects";
+import { projects } from "../../../data/projects";
 import { DemoLink, GithubLink } from "../../../components/Utilities/AvailableLink";
 import ImageGallery from "../../../components/Utilities/ImageGallery";
 import { Overview, Problem, Solution, Architecture, Challenges, Improvements, Features } from "../../../components/Project/ProjectValues";
@@ -67,7 +67,7 @@ export default async function SelectedProjectPage({ params }: SelectedProjectPro
           <Overview overview={project.overview} />
           <Problem problem={project.problem} />
           <Solution solution={project.solution} />
-          <Architecture architecture={project.architechture} />
+          <Architecture architecture={project.architecture} />
           <Challenges challenges={project.challenges} />
           <Improvements improvements={project.improvements} />
         </div>

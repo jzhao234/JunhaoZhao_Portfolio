@@ -4,14 +4,17 @@ import { ReactNode } from "react";
 export type ProjectTypes = {
   id: string,
   slug: string,
+  importance?: number,
+  featured?: boolean,
   images?: string[],
   name:  string;
+  cardDescription?: string;
   description?: string;
   features?: string[],
   overview?: string;
   problem?: string;
   solution?: string;
-  architechture?: string[]; 
+  architecture?: string[];
   challenges?: string[];
   improvements?: string[];
   skills: string[];
@@ -26,15 +29,19 @@ export const projects: ProjectTypes[] = [
       slug: "junhao-portfolio",
       images: ["/projects/Junhao_Portfolio.png"],
       name: "Junhao's Portfolio",
+      cardDescription: "This portfolio — built with Next.js, TypeScript, and Tailwind CSS. Designed for clarity and recruiter readability. Deployed on Vercel.",
       skills: ["Next.js", "TypeScript", "Tailwind CSS"],
       githubLink: "https://github.com/jzhao234/JunhaoZhao_Portfolio",
       demoLink: "https://JunhaoZhao.com",
     },
     {
-      id: "DrugSynergy", 
+      id: "DrugSynergy",
+      importance: 1,
+      featured: true,
       slug: "drug-synergy-finder",
       images: ["/projects/Drug_Synergy_Finder.png"],
       name: "Drug Synergy Finder",
+      cardDescription: "Full-stack research platform for analyzing drug synergy in cancer treatment. A Python/FastAPI backend processes uploaded dose-response datasets and computes synergy scores; a Next.js frontend visualizes results with interactive D3.js and Plotly charts.",
       features: [
         "Upload CSV or XLSX dose-response datasets",
         "Parse and preprocess experimental drug response data",
@@ -54,7 +61,7 @@ export const projects: ProjectTypes[] = [
         By combining traditional synergy models with new analytical approaches and interactive visualization tools, the platform helps researchers interpret complex experimental data and identify promising drug combinations more efficiently.`,
       problem:`Combination therapies are widely used in areas such as cancer treatment because multiple drugs can target different biological pathways at once. However, evaluating whether drugs work better together, worse together, or simply independently can be difficult. Experimental datasets are often large, irregular, and not easy to interpret through spreadsheets or static scripts alone. Researchers need a more intuitive way to process dose-response data, calculate synergy metrics, and visually explore interaction patterns across drug combinations.`,
       solution:`To address this, I built a web-based platform that accepts uploaded dose-response datasets and processes them through a FastAPI and Python backend. The backend handles data parsing, dose-response curve fitting, and synergy score calculations using models such as Bliss Independence, while also supporting our custom SAPE algorithm for additional analysis. The frontend, built with Next.js and Tailwind CSS, presents the results through interactive visualizations using D3.js and Plotly, allowing users to explore heatmaps, matrices, and dose-response relationships directly in the browser.`,
-      architechture:[
+      architecture:[
         "Next.js frontend for the user interface and file upload workflow",
         "FastAPI backend for API endpoints and analysis requests",
         "Python processing layer for dataset parsing and computational logic", 
@@ -80,9 +87,12 @@ export const projects: ProjectTypes[] = [
     },
     {
       id: "Baketsu",
+      importance: 2,
+      featured: true,
       slug: "baketsu-cloud-storage",
       images: ["/projects/home page.png"],
       name: "Baketsu",
+      cardDescription: "Cloud file storage platform with JWT authentication, bcrypt password hashing, AWS S3 integration, and a SQLite database tracking per-user file metadata and folder structure.",
       skills: ["Next.js", "Python", "FastAPI", "Tailwind CSS", "SQLite", "Bcrypt", "AWS Amazon S3"],
       githubLink: "https://github.com/jzhao234/Baketsu-CloudStorage",
     }

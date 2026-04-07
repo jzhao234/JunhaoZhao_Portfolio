@@ -1,55 +1,31 @@
 import { ReactNode } from "react";
 import Image from "next/image";
 import Link from "next/link";
-import { projects } from "../components/Data/Projects";
+import { projects } from "../data/projects";
+import { experiences } from "../data/experiences";
+import { skills, categoryLabels, categoryOrder } from "../data/skills";
 import skillCategory from "../utils/skillCategory";
+import highlightSkillsInText from "../components/Utilities/HighlightSkillsInText";
 import SkillCategoryColor from "../utils/SkillCategoryColor";
 
-const featuredExperiences = [
-  {
-    title: "Undergraduate Researcher",
-    org: "Fox Chase Cancer Center / Temple University",
-    date: "May 2025 – Present",
-    bullets: [
-      "Built a full-stack drug synergy analysis platform using Next.js and FastAPI for cancer treatment research",
-      "Contributed algorithmic improvements to custom synergy scoring models using experimental dose-response data",
-      "Presented technical findings in weekly lab meetings and journal discussions",
-    ],
-  },
-  {
-    title: "STEM Leadership Fellow",
-    org: "Temple University",
-    date: "Sep 2024 – May 2025",
-    bullets: [
-      "Assisted students in mastering the Jupyter Lab environment and programming in Python",
-      "Hosted office hours, providing tailored support to students and addressing individual learning needs",
-      "Collaborated with faculty to develop and implement effective teaching strategies",
-    ],
-  },
-];
-
-const techStack = [
-  { category: "Languages", skills: ["Python", "TypeScript", "JavaScript", "Java", "C"] },
-  { category: "Frontend", skills: ["React", "Next.js", "Tailwind CSS", "D3.js", "Plotly"] },
-  { category: "Backend", skills: ["FastAPI", "Flask"] },
-  { category: "Database & Cloud", skills: ["SQL", "SQLite", "AWS S3"] },
-];
-
-const projectDescriptions: Record<string, string> = {
-  DrugSynergy:
-    "Full-stack research platform for analyzing drug synergy in cancer treatment. A Python/FastAPI backend processes uploaded dose-response datasets and computes synergy scores; a Next.js frontend visualizes results with interactive D3.js and Plotly charts.",
-  Baketsu:
-    "Cloud file storage platform with JWT authentication, bcrypt password hashing, AWS S3 integration, and a SQLite database tracking per-user file metadata and folder structure.",
-  JunhaoPortfolio:
-    "This portfolio — built with Next.js, TypeScript, and Tailwind CSS. Designed for clarity and recruiter readability. Deployed on Vercel.",
-};
-
-const orderedProjectIds = ["DrugSynergy", "Baketsu"];
+const techStack = categoryOrder.map((key) => ({
+  category: categoryLabels[key],
+  skills: [...skills.filter((s) => s.category === key)].sort((a, b) => {
+    if (a.importance !== undefined && b.importance !== undefined) return a.importance - b.importance;
+    if (a.importance !== undefined) return -1;
+    if (b.importance !== undefined) return 1;
+    return 0;
+  }).map((s) => s.name),
+})).filter(({ skills }) => skills.length > 0);
 
 export default function Home() {
-  const orderedProjects = orderedProjectIds
-    .map((id) => projects.find((p) => p.id === id))
-    .filter((p): p is (typeof projects)[number] => p !== undefined);
+  const featuredProjects = [...projects]
+    .filter((p) => p.featured)
+    .sort((a, b) => (a.importance ?? 0) - (b.importance ?? 0));
+
+  const featuredExperiences = [...experiences]
+    .filter((e) => e.featured)
+    .sort((a, b) => (a.importance ?? 0) - (b.importance ?? 0));
 
   return (
     <div className="max-w-5xl mx-auto px-6 py-8 space-y-12">
@@ -126,7 +102,7 @@ export default function Home() {
       <section>
         <SectionLabel>Featured Projects</SectionLabel>
         <div className="grid grid-cols-1 sm:grid-cols-2 gap-5">
-          {orderedProjects.map((project) => (
+          {featuredProjects.map((project) => (
             <div
               key={project.id}
               className="group relative flex flex-col border border-gray-200 dark:border-white/10 rounded-xl overflow-hidden transition-all duration-200 hover:border-[#2196F3]/50 dark:hover:border-[#2196F3]/50 hover:shadow-lg dark:hover:shadow-[0_4px_24px_rgba(33,150,243,0.08)]"
@@ -152,7 +128,7 @@ export default function Home() {
                 <h3 className="text-[18px] font-bold text-gray-900 dark:text-white">{project.name}</h3>
                 <div className="mt-2 overflow-hidden" style={{ height: 104 }}>
                   <p className="text-[16px] text-gray-600 dark:text-gray-400 group-hover:text-gray-800 dark:group-hover:text-gray-200 leading-relaxed line-clamp-4 transition-colors">
-                    {projectDescriptions[project.id]}
+                    {highlightSkillsInText(project.cardDescription)}
                   </p>
                 </div>
                 <div
@@ -232,7 +208,7 @@ export default function Home() {
                             <circle cx="2" cy="2" r="2" />
                           </svg>
                         </span>
-                        <span>{b}</span>
+                        <span>{highlightSkillsInText(b)}</span>
                       </li>
                     ))}
                   </ul>

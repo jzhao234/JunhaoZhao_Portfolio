@@ -1,38 +1,31 @@
 "use client";
 
-import { ReactNode } from "react";
 import Link from "next/link";
-
 import skillCategory from "../../utils/skillCategory";
 import SkillCategoryColor from "../../utils/SkillCategoryColor";
+import highlightSkillsInText from "../Utilities/HighlightSkillsInText";
 
 type ExperienceItemProps = {
-  logo: ReactNode;
   title: string;
+  org?: string;
   location: string;
   date: string;
-  description1?: string;
-  description2?: string;
-  description3?: string;
-  description4?: string;
+  bullets: string[];
   skills?: string[];
-  sections?: string[];
   link?: string;
   selectedSkills?: string[];
 }
 
 export default function ExperienceItem({
-  title, location, date,
-  description1, description2, description3, description4,
-  skills, sections, link, selectedSkills,
+  title, org, location, date, bullets, skills, link, selectedSkills,
 }: ExperienceItemProps) {
 
   const matchCount = (skills || []).filter((s) => selectedSkills?.includes(s)).length;
   const isDimmed = selectedSkills && selectedSkills.length > 0 && matchCount === 0;
 
   function skillBubbles() {
-    if (!skills || skills.length === 0 || !sections) return null;
-    const combined = skills.map((skill, i) => ({
+    if (!skills || skills.length === 0) return null;
+    const combined = skills.map((skill) => ({
       skill,
       isHighlighted: selectedSkills?.includes(skill),
     }));
@@ -67,6 +60,7 @@ export default function ExperienceItem({
         <h3 className="font-semibold text-[16px]">{title}</h3>
         <span className="text-[14px] text-gray-400 dark:text-gray-500 flex-shrink-0 whitespace-nowrap">{date}</span>
       </div>
+      {org && <p className="text-[14px] text-gray-500 dark:text-gray-500 mt-0.5">{org}</p>}
       <p className="text-[14px] text-gray-500 dark:text-gray-500 mt-0.5">{location}</p>
       {link && (
         <Link href={link} className="inline-flex items-center gap-1 text-[14px] text-[#2196F3] hover:underline mt-1">
@@ -77,18 +71,16 @@ export default function ExperienceItem({
         </Link>
       )}
       <ul className="mt-2 space-y-1">
-        {[description1, description2, description3, description4]
-          .filter(Boolean)
-          .map((desc, i) => (
-            <li key={i} className="text-[16px] text-gray-600 dark:text-gray-400 leading-relaxed flex gap-2.5 items-start">
-              <span className="flex-shrink-0 mt-[10px]">
-                <svg width="4" height="4" viewBox="0 0 4 4" fill="currentColor" className="text-gray-400" aria-hidden="true">
-                  <circle cx="2" cy="2" r="2" />
-                </svg>
-              </span>
-              <span>{desc}</span>
-            </li>
-          ))}
+        {bullets.map((bullet, i) => (
+          <li key={i} className="text-[16px] text-gray-600 dark:text-gray-400 leading-relaxed flex gap-2.5 items-start">
+            <span className="flex-shrink-0 mt-[10px]">
+              <svg width="4" height="4" viewBox="0 0 4 4" fill="currentColor" className="text-gray-400" aria-hidden="true">
+                <circle cx="2" cy="2" r="2" />
+              </svg>
+            </span>
+            <span>{highlightSkillsInText(bullet)}</span>
+          </li>
+        ))}
       </ul>
       {skills && skills.length > 0 && (
         <div className="flex flex-wrap gap-1.5 mt-3">

@@ -1,5 +1,3 @@
-"use client";
-
 import React from "react";
 import skillCategory from "../../utils/skillCategory";
 import SkillCategoryColor from "../../utils/SkillCategoryColor";

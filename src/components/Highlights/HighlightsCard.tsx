@@ -1,7 +1,7 @@
 "use client";
 
 import ProjectItem from "../Project/ProjectItem";
-import { projects } from "../Data/Projects";
+import { projects } from "../../data/projects";
 import Image from "next/image";
 
 export default function Highlights(){

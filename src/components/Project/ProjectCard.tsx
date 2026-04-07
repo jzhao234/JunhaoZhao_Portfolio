@@ -3,27 +3,20 @@
 import { ReactNode, useState } from "react";
 import Image from "next/image";
 import Link from "next/link";
-import { projects } from "../Data/Projects";
+import { projects } from "../../data/projects";
 import skillCategory from "../../utils/skillCategory";
 import SkillCategoryColor from "../../utils/SkillCategoryColor";
-
-const projectDescriptions: Record<string, string> = {
-  DrugSynergy:
-    "Full-stack research platform for analyzing drug synergy in cancer treatment. A Python/FastAPI backend processes uploaded dose-response datasets and computes synergy scores; a Next.js frontend visualizes results with interactive D3.js and Plotly charts.",
-  Baketsu:
-    "Cloud file storage platform with JWT authentication, bcrypt password hashing, AWS S3 integration, and a SQLite database tracking per-user file metadata and folder structure.",
-  JunhaoPortfolio:
-    "This portfolio — built with Next.js, TypeScript, and Tailwind CSS. Designed for clarity and recruiter readability. Deployed on Vercel.",
-};
-
-const displayOrder = ["DrugSynergy", "Baketsu", "JunhaoPortfolio"];
+import highlightSkillsInText from "../Utilities/HighlightSkillsInText";
 
 export default function ProjectCard() {
   const [selectedSkills, setSelectedSkills] = useState<string[]>([]);
 
-  const baseProjects = displayOrder
-    .map((id) => projects.find((p) => p.id === id))
-    .filter((p): p is (typeof projects)[number] => p !== undefined);
+  const baseProjects = [...projects].sort((a, b) => {
+    if (a.importance !== undefined && b.importance !== undefined) return a.importance - b.importance;
+    if (a.importance !== undefined) return -1;
+    if (b.importance !== undefined) return 1;
+    return 0;
+  });
 
   const allSkills = Array.from(
     new Set(baseProjects.flatMap((p) => p.skills))
@@ -127,7 +120,7 @@ export default function ProjectCard() {
                 <h2 className="text-[18px] font-bold">{project.name}</h2>
 
                 {/* Description — clamped to 5 lines, ... glows on hover */}
-                <ClampedDescription text={projectDescriptions[project.id] ?? ""} />
+                <ClampedDescription text={project.cardDescription ?? ""} />
 
                 {/* Skill pills — immediately after description, clamped to 2 rows */}
                 <ClampedPills
@@ -219,7 +212,7 @@ function ClampedDescription({ text }: { text: string }) {
   return (
     <div className="mt-2 overflow-hidden" style={{ height: 130 }}>
       <p className="text-[16px] text-gray-600 dark:text-gray-400 group-hover:text-gray-800 dark:group-hover:text-gray-200 leading-relaxed line-clamp-5 transition-colors">
-        {text}
+        {highlightSkillsInText(text)}
       </p>
     </div>
   );

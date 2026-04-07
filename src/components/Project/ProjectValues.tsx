@@ -1,3 +1,5 @@
+import highlightSkillsInText from "../Utilities/HighlightSkillsInText";
+
 function SectionLabel({ children }: { children: string }) {
   return (
     <div className="flex items-center gap-3 mb-3">
@@ -19,7 +21,7 @@ function DashList({ items }: { items: string[] }) {
               <circle cx="2" cy="2" r="2" />
             </svg>
           </span>
-          <span>{item}</span>
+          <span>{highlightSkillsInText(item)}</span>
         </li>
       ))}
     </ul>
@@ -32,7 +34,7 @@ export function Overview({ overview }: OverviewProp) {
   return (
     <div>
       <SectionLabel>Overview</SectionLabel>
-      <p className="text-[16px] text-gray-600 dark:text-gray-400 leading-relaxed whitespace-pre-line">{overview}</p>
+      <p className="text-[16px] text-gray-600 dark:text-gray-400 leading-relaxed whitespace-pre-line">{highlightSkillsInText(overview)}</p>
     </div>
   );
 }
@@ -43,7 +45,7 @@ export function Problem({ problem }: ProblemProp) {
   return (
     <div>
       <SectionLabel>Problem</SectionLabel>
-      <p className="text-[16px] text-gray-600 dark:text-gray-400 leading-relaxed whitespace-pre-line">{problem}</p>
+      <p className="text-[16px] text-gray-600 dark:text-gray-400 leading-relaxed whitespace-pre-line">{highlightSkillsInText(problem)}</p>
     </div>
   );
 }
@@ -54,7 +56,7 @@ export function Solution({ solution }: SolutionProp) {
   return (
     <div>
       <SectionLabel>Solution</SectionLabel>
-      <p className="text-[16px] text-gray-600 dark:text-gray-400 leading-relaxed whitespace-pre-line">{solution}</p>
+      <p className="text-[16px] text-gray-600 dark:text-gray-400 leading-relaxed whitespace-pre-line">{highlightSkillsInText(solution)}</p>
     </div>
   );
 }
