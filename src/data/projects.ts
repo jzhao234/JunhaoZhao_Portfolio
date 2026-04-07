@@ -27,7 +27,7 @@ export const projects: ProjectTypes[] = [
     {
       id: "JunhaoPortfolio",
       slug: "junhao-portfolio",
-      images: ["/projects/portfolio/homepage.png"],
+      images: ["/projects/portfolio/homePage.png"],
       name: "Junhao's Portfolio",
       cardDescription: "This portfolio — built with Next.js, TypeScript, and Tailwind CSS. Designed for clarity and recruiter readability. Deployed on Vercel.",
       skills: ["Next.js", "TypeScript", "Tailwind CSS"],
@@ -39,7 +39,7 @@ export const projects: ProjectTypes[] = [
       importance: 1,
       featured: true,
       slug: "drug-synergy-finder",
-      images: ["/projects/drugSynergy/homepage.png", "/projects/drugSynergy/curveFittings.png", "/projects/drugSynergy/SAPEScores.png", "/projects/drugSynergy/responseMatrix.png"],
+      images: ["/projects/drugSynergy/homePage.png", "/projects/drugSynergy/curveFittings.png", "/projects/drugSynergy/SAPEScores.png", "/projects/drugSynergy/responseMatrix.png"],
       name: "Drug Synergy Finder",
       cardDescription: "Full-stack research platform for analyzing drug synergy in cancer treatment. A Python/FastAPI backend processes uploaded dose-response datasets and computes synergy scores; a Next.js frontend visualizes results with interactive D3.js and Plotly charts.",
       features: [
@@ -90,7 +90,7 @@ export const projects: ProjectTypes[] = [
       importance: 2,
       featured: true,
       slug: "baketsu-cloud-storage",
-      images: ["/projects/home page.png"],
+      images: ["/projects/baketsu/homePage.png", "/projects/baketsu/dashboard.png", "/projects/baketsu/filesPage.png", "/projects/baketsu/filePreview.png"],
       name: "Baketsu",
       cardDescription: "Cloud file storage platform with JWT authentication, bcrypt password hashing, AWS S3 integration, and a SQLite database tracking per-user file metadata and folder structure.",
       skills: ["Next.js", "Python", "FastAPI", "Tailwind CSS", "SQLite", "Bcrypt", "AWS Amazon S3"],
