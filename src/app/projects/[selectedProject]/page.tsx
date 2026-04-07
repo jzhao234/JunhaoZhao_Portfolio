@@ -39,9 +39,12 @@ export default async function SelectedProjectPage({ params }: SelectedProjectPro
       {/* Back link */}
       <Link
         href="/projects"
-        className="inline-flex items-center gap-1 text-[14px] text-gray-400 dark:text-gray-500 hover:text-[#2196F3] transition-colors mb-6"
+        className="inline-flex items-center gap-1 text-[15px] text-[#2196F3] hover:underline transition-colors mb-6"
       >
-        ← Projects
+        <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2.5" strokeLinecap="round" strokeLinejoin="round" aria-hidden="true">
+          <polyline points="15 18 9 12 15 6" />
+        </svg>
+        Projects
       </Link>
 
       {/* Title + actions */}

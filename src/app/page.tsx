@@ -68,7 +68,7 @@ export default function Home() {
           <p className="mt-3 text-base sm:text-lg text-gray-600 dark:text-gray-300 leading-relaxed max-w-lg">
             Computer Science student at Temple University building full-stack web applications, most recently a drug synergy analysis platform for oncology research at Fox Chase Cancer Center.
           </p>
-          <div className="mt-3 flex items-center gap-2 text-sm text-gray-500 dark:text-gray-400">
+          <div className="mt-3 flex items-center gap-2 text-[15px] text-gray-500 dark:text-gray-400">
             <span className="w-2 h-2 rounded-full bg-green-400 dark:bg-green-500 flex-shrink-0" />
             Open to SWE internships and full-time roles
           </div>
@@ -77,26 +77,26 @@ export default function Home() {
               href="https://www.linkedin.com/in/junhao-zhao/"
               target="_blank"
               rel="noopener noreferrer"
-              className="inline-flex items-center gap-2 px-4 py-2 rounded-lg bg-[#2196F3] text-white text-sm font-medium hover:bg-[#1976D2] transition-colors"
+              className="group inline-flex items-center gap-2 px-4 py-2 rounded-lg border border-gray-300 dark:border-white/20 text-sm font-medium hover:border-[#2196F3] hover:text-[#2196F3] transition-colors"
             >
-              <LinkedInIcon />
+              <span className="transition-transform duration-200 group-hover:scale-150"><LinkedInIcon /></span>
               LinkedIn
             </a>
             <a
               href="https://github.com/jzhao234"
               target="_blank"
               rel="noopener noreferrer"
-              className="inline-flex items-center gap-2 px-4 py-2 rounded-lg border border-gray-300 dark:border-white/20 text-sm font-medium hover:border-[#2196F3] hover:text-[#2196F3] transition-colors"
+              className="group inline-flex items-center gap-2 px-4 py-2 rounded-lg border border-gray-300 dark:border-white/20 text-sm font-medium hover:border-[#2196F3] hover:text-[#2196F3] transition-colors"
             >
-              <GitHubIcon />
+              <span className="transition-transform duration-200 group-hover:scale-150"><GitHubIcon /></span>
               GitHub
             </a>
             <a
               href="/files/resume.pdf"
               download="ZhaoJunhaoResume.pdf"
-              className="inline-flex items-center gap-2 px-4 py-2 rounded-lg border border-gray-300 dark:border-white/20 text-sm font-medium hover:border-[#2196F3] hover:text-[#2196F3] transition-colors"
+              className="group inline-flex items-center gap-2 px-4 py-2 rounded-lg border border-gray-300 dark:border-white/20 text-sm font-medium hover:border-[#2196F3] hover:text-[#2196F3] transition-colors"
             >
-              <ResumeIcon />
+              <span className="transition-transform duration-200 group-hover:scale-150"><ResumeIcon /></span>
               Resume
             </a>
           </div>
@@ -194,8 +194,11 @@ export default function Home() {
           ))}
         </div>
         <div className="mt-6">
-          <Link href="/projects" className="text-[16px] text-[#2196F3] hover:underline">
-            View all projects →
+          <Link href="/projects" className="inline-flex items-center gap-1 text-[16px] text-[#2196F3] hover:underline">
+            View all projects
+            <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2.5" strokeLinecap="round" strokeLinejoin="round" aria-hidden="true">
+              <polyline points="9 18 15 12 9 6" />
+            </svg>
           </Link>
         </div>
       </section>
@@ -239,8 +242,11 @@ export default function Home() {
           ))}
         </div>
         <div className="mt-6">
-          <Link href="/experiences" className="text-[16px] text-[#2196F3] hover:underline">
-            View full experience →
+          <Link href="/experiences" className="inline-flex items-center gap-1 text-[16px] text-[#2196F3] hover:underline">
+            View full experience
+            <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2.5" strokeLinecap="round" strokeLinejoin="round" aria-hidden="true">
+              <polyline points="9 18 15 12 9 6" />
+            </svg>
           </Link>
         </div>
       </section>
@@ -286,8 +292,8 @@ export default function Home() {
 
       {/* ── CTA ── */}
       <section className="border-t border-gray-200 dark:border-white/10 pt-12 pb-4 text-center">
-        <div className="inline-flex items-center gap-2 mb-4 text-sm text-gray-500 dark:text-gray-400">
-          <span className="w-2 h-2 rounded-full bg-green-400 dark:bg-green-500" />
+        <div className="inline-flex items-center gap-2 mb-4 text-[15px] text-gray-500 dark:text-gray-400">
+          <span className="w-2 h-2 rounded-full bg-green-400 dark:bg-green-500 flex-shrink-0" />
           Available for summer 2026 internships and full-time roles
         </div>
         <h2 className="text-2xl font-bold text-gray-900 dark:text-white">Open to software engineering opportunities</h2>
@@ -299,26 +305,26 @@ export default function Home() {
             href="https://www.linkedin.com/in/junhao-zhao/"
             target="_blank"
             rel="noopener noreferrer"
-            className="inline-flex items-center gap-2 px-5 py-2 rounded-lg bg-[#2196F3] text-white text-sm font-medium hover:bg-[#1976D2] transition-colors"
+            className="group inline-flex items-center gap-2 px-5 py-2 rounded-lg border border-gray-300 dark:border-white/20 text-sm font-medium hover:border-[#2196F3] hover:text-[#2196F3] transition-colors"
           >
-            <LinkedInIcon />
+            <span className="transition-transform duration-200 group-hover:scale-150"><LinkedInIcon /></span>
             LinkedIn
           </a>
           <a
             href="https://github.com/jzhao234"
             target="_blank"
             rel="noopener noreferrer"
-            className="inline-flex items-center gap-2 px-5 py-2 rounded-lg border border-gray-300 dark:border-white/20 text-sm font-medium hover:border-[#2196F3] hover:text-[#2196F3] transition-colors"
+            className="group inline-flex items-center gap-2 px-5 py-2 rounded-lg border border-gray-300 dark:border-white/20 text-sm font-medium hover:border-[#2196F3] hover:text-[#2196F3] transition-colors"
           >
-            <GitHubIcon />
+            <span className="transition-transform duration-200 group-hover:scale-150"><GitHubIcon /></span>
             GitHub
           </a>
           <a
             href="/files/resume.pdf"
             download="ZhaoJunhaoResume.pdf"
-            className="inline-flex items-center gap-2 px-5 py-2 rounded-lg border border-gray-300 dark:border-white/20 text-sm font-medium hover:border-[#2196F3] hover:text-[#2196F3] transition-colors"
+            className="group inline-flex items-center gap-2 px-5 py-2 rounded-lg border border-gray-300 dark:border-white/20 text-sm font-medium hover:border-[#2196F3] hover:text-[#2196F3] transition-colors"
           >
-            <ResumeIcon />
+            <span className="transition-transform duration-200 group-hover:scale-150"><ResumeIcon /></span>
             Download Resume
           </a>
         </div>
