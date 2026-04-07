@@ -27,7 +27,7 @@ export const projects: ProjectTypes[] = [
     {
       id: "JunhaoPortfolio",
       slug: "junhao-portfolio",
-      images: ["/projects/Junhao_Portfolio.png"],
+      images: ["/projects/portfolio/homepage.png"],
       name: "Junhao's Portfolio",
       cardDescription: "This portfolio — built with Next.js, TypeScript, and Tailwind CSS. Designed for clarity and recruiter readability. Deployed on Vercel.",
       skills: ["Next.js", "TypeScript", "Tailwind CSS"],
@@ -39,7 +39,7 @@ export const projects: ProjectTypes[] = [
       importance: 1,
       featured: true,
       slug: "drug-synergy-finder",
-      images: ["/projects/Drug_Synergy_Finder.png"],
+      images: ["/projects/drugSynergy/homepage.png", "/projects/drugSynergy/curveFittings.png", "/projects/drugSynergy/SAPEScores.png", "/projects/drugSynergy/responseMatrix.png"],
       name: "Drug Synergy Finder",
       cardDescription: "Full-stack research platform for analyzing drug synergy in cancer treatment. A Python/FastAPI backend processes uploaded dose-response datasets and computes synergy scores; a Next.js frontend visualizes results with interactive D3.js and Plotly charts.",
       features: [
