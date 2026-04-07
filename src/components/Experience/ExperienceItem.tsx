@@ -77,8 +77,12 @@ export default function ExperienceItem({
         {[description1, description2, description3, description4]
           .filter(Boolean)
           .map((desc, i) => (
-            <li key={i} className="text-[16px] text-gray-600 dark:text-gray-400 leading-relaxed flex gap-2">
-              <span className="text-gray-400 flex-shrink-0 mt-0.5">–</span>
+            <li key={i} className="text-[16px] text-gray-600 dark:text-gray-400 leading-relaxed flex gap-2.5 items-start">
+              <span className="flex-shrink-0 mt-[10px]">
+                <svg width="4" height="4" viewBox="0 0 4 4" fill="currentColor" className="text-gray-400" aria-hidden="true">
+                  <circle cx="2" cy="2" r="2" />
+                </svg>
+              </span>
               <span>{desc}</span>
             </li>
           ))}

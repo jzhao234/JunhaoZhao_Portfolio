@@ -75,7 +75,7 @@ export default async function SelectedProjectPage({ params }: SelectedProjectPro
           {/* Skills */}
           {project.skills.length > 0 && (
             <div>
-              <h2 className="text-xs font-semibold uppercase tracking-widest text-gray-500 dark:text-gray-300 mb-3">
+              <h2 className="text-[16px] font-semibold text-gray-800 dark:text-gray-200 mb-3">
                 Skills
               </h2>
               <div className="flex flex-wrap gap-1.5">

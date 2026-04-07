@@ -13,8 +13,12 @@ function DashList({ items }: { items: string[] }) {
   return (
     <ul className="space-y-1.5">
       {items.map((item, i) => (
-        <li key={i} className="flex gap-2 text-[16px] text-gray-600 dark:text-gray-400 leading-relaxed">
-          <span className="text-gray-400 flex-shrink-0 mt-0.5">–</span>
+        <li key={i} className="flex gap-2.5 items-start text-[16px] text-gray-600 dark:text-gray-400 leading-relaxed">
+          <span className="flex-shrink-0 mt-[10px]">
+            <svg width="4" height="4" viewBox="0 0 4 4" fill="currentColor" className="text-gray-400" aria-hidden="true">
+              <circle cx="2" cy="2" r="2" />
+            </svg>
+          </span>
           <span>{item}</span>
         </li>
       ))}
@@ -93,7 +97,7 @@ export function Features({ features }: FeaturesProp) {
   if (!features || features.length === 0) return null;
   return (
     <div>
-      <h2 className="text-xs font-semibold uppercase tracking-widest text-gray-500 dark:text-gray-300 mb-3">
+      <h2 className="text-[16px] font-semibold text-gray-800 dark:text-gray-200 mb-3">
         Key Features
       </h2>
       <DashList items={features} />

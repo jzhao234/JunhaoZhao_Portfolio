@@ -223,8 +223,12 @@ export default function Home() {
                   <p className="text-[16px] text-gray-500 dark:text-gray-500 mt-0.5">{exp.org}</p>
                   <ul className="mt-2 space-y-1">
                     {exp.bullets.map((b, j) => (
-                      <li key={j} className="text-[16px] text-gray-600 dark:text-gray-400 leading-relaxed flex gap-2">
-                        <span className="text-gray-400 flex-shrink-0 mt-0.5">–</span>
+                      <li key={j} className="text-[16px] text-gray-600 dark:text-gray-400 leading-relaxed flex gap-2.5 items-start">
+                        <span className="flex-shrink-0 mt-[10px]">
+                          <svg width="4" height="4" viewBox="0 0 4 4" fill="currentColor" className="text-gray-400" aria-hidden="true">
+                            <circle cx="2" cy="2" r="2" />
+                          </svg>
+                        </span>
                         <span>{b}</span>
                       </li>
                     ))}
@@ -265,10 +269,16 @@ export default function Home() {
             </div>
           </div>
           <div className="flex items-start gap-4">
-            <div className="w-10 h-10 flex-shrink-0" />
+            <Image
+              src="/logo/CentralHS.gif"
+              alt="Central High School"
+              width={40}
+              height={40}
+              className="flex-shrink-0 mt-0.5 rounded"
+            />
             <div>
-              <p className="text-[16px] text-gray-600 dark:text-gray-400">Central High School</p>
-              <p className="text-[16px] text-gray-400 dark:text-gray-500">Philadelphia, PA · 2018 – 2022</p>
+              <h3 className="text-[18px] font-semibold text-gray-900 dark:text-white">Central High School</h3>
+              <p className="text-[16px] text-gray-600 dark:text-gray-400">Philadelphia, PA · 2018 – 2022</p>
             </div>
           </div>
         </div>
