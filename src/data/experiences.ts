@@ -14,6 +14,23 @@ export type ExperienceType = {
 
 export const experiences: ExperienceType[] = [
   {
+    id: "soraAscentFounder",
+    logo: { src: "/logo/soraAscent.png", alt: "Sora Ascent" },
+    title: "Founder",
+    org: "Sora Ascent",
+    location: "Philadelphia, PA",
+    date: "Mar 2026 – Present",
+    bullets: [
+      "Started a local web design service and packaged offerings into clear tiers to reduce sales friction and keep scope, pricing, and deliverables consistent.",
+      "Performed outbound outreach to source leads and managed end-to-end delivery from discovery and copy to design, build, deployment, and iteration.",
+      "Closed and delivered a paid client website for Osaka Hibachi Express (osakahibachiexpress.com), shipping a mobile-first site with strong Lighthouse results.",
+    ],
+    skills: ["Business Development", "Client Communication", "Product Thinking", "Copywriting", "UI/UX", "Delivery"],
+    link: "/projects/sora-ascent",
+    importance: 2,
+    featured: false,
+  },
+  {
     id: "researcher",
     logo: { src: "/logo/Temple-Logo-T-Header.svg", alt: "Temple" },
     title: "Undergraduate Researcher",
@@ -31,6 +48,21 @@ export const experiences: ExperienceType[] = [
     featured: true,
   },
   {
+    id: "itd-gbs-intern",
+    logo: { src: "/logo/itd-gbs.png", alt: "ITD-GBS" },
+    title: "Software Engineering Intern",
+    org: "ITD-GBS",
+    location: "Tokyo, Japan",
+    date: "Aug 2025 – Dec 2025",
+    bullets: [
+      "Implemented frontend updates in Vue 3 + Vite, including bug fixes, UI adjustments, and missing language support for the cookie banner.",
+      "Collaborated in a startup engineering environment with weekly sprint planning and review cycles, shipping incremental product updates.",
+    ],
+    skills: ["Vue 3", "Vite", "JavaScript", "Frontend Development", "Agile/Sprints"],
+    importance: 2,
+    featured: true,
+  },
+  {
     id: "stem-fellow",
     logo: { src: "/logo/Temple-Logo-T-Header.svg", alt: "Temple" },
     title: "STEM Leadership Fellow",
@@ -43,7 +75,7 @@ export const experiences: ExperienceType[] = [
       "Collaborated with faculty to develop and implement effective teaching strategies.",
     ],
     importance: 2,
-    featured: true,
+    featured: false,
   },
   {
     id: "lab-consultant",
