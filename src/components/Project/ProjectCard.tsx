@@ -99,7 +99,7 @@ export default function ProjectCard() {
           return (
             <div
               key={project.id}
-              className={`group relative flex flex-col border border-gray-200 dark:border-white/10 border-t-2 border-t-[#2196F3] rounded-xl overflow-hidden transition-all duration-200 hover:border-[#2196F3]/50 dark:hover:border-[#2196F3]/50 hover:shadow-lg dark:hover:shadow-[0_4px_24px_rgba(33,150,243,0.08)] ${
+              className={`group relative flex flex-col border border-gray-200 dark:border-white/10 rounded-xl overflow-hidden transition-all duration-200 hover:border-[#2196F3]/50 dark:hover:border-[#2196F3]/50 hover:shadow-lg dark:hover:shadow-[0_4px_24px_rgba(33,150,243,0.08)] ${
                 isDimmed ? "opacity-40" : "opacity-100"
               }`}
             >

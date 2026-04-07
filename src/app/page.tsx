@@ -111,7 +111,7 @@ export default function Home() {
           {orderedProjects.map((project) => (
             <div
               key={project.id}
-              className="group relative flex flex-col border border-gray-200 dark:border-white/10 border-t-2 border-t-[#2196F3] rounded-xl overflow-hidden transition-all duration-200 hover:border-[#2196F3]/50 dark:hover:border-[#2196F3]/50 hover:shadow-lg dark:hover:shadow-[0_4px_24px_rgba(33,150,243,0.08)]"
+              className="group relative flex flex-col border border-gray-200 dark:border-white/10 rounded-xl overflow-hidden transition-all duration-200 hover:border-[#2196F3]/50 dark:hover:border-[#2196F3]/50 hover:shadow-lg dark:hover:shadow-[0_4px_24px_rgba(33,150,243,0.08)]"
             >
               <Link
                 href={`/projects/${project.slug}`}
@@ -119,27 +119,27 @@ export default function Home() {
                 aria-label={`View ${project.name} details`}
               />
               {project.images?.[0] && (
-                <div className="bg-gray-50 dark:bg-white/5 p-4">
-                  <Image
-                    src={project.images[0]}
-                    alt={project.name}
-                    width={0}
-                    height={0}
-                    sizes="100vw"
-                    className="w-full h-auto rounded transition-transform duration-300 group-hover:scale-[1.03]"
-                  />
+                <div className="bg-gray-50 dark:bg-white/5 p-4 flex-shrink-0">
+                  <div className="relative h-64 rounded overflow-hidden">
+                    <Image
+                      src={project.images[0]}
+                      alt={project.name}
+                      fill
+                      className="object-contain transition-transform duration-300 group-hover:scale-[1.03]"
+                    />
+                  </div>
                 </div>
               )}
               <div className="p-5 flex flex-col flex-1">
-                <h3 className="text-base font-bold text-gray-900 dark:text-white">{project.name}</h3>
-                <div className="mt-2 h-[7.1rem] overflow-hidden">
-                  <p className="text-sm text-gray-600 dark:text-gray-400 group-hover:text-gray-800 dark:group-hover:text-gray-200 leading-relaxed line-clamp-5 transition-colors">
+                <h3 className="text-[18px] font-bold text-gray-900 dark:text-white">{project.name}</h3>
+                <div className="mt-2 overflow-hidden" style={{ height: 104 }}>
+                  <p className="text-[16px] text-gray-600 dark:text-gray-400 group-hover:text-gray-800 dark:group-hover:text-gray-200 leading-relaxed line-clamp-4 transition-colors">
                     {projectDescriptions[project.id]}
                   </p>
                 </div>
                 <div
                   className="flex flex-wrap items-start gap-1.5 overflow-hidden mt-3"
-                  style={{ height: 46 }}
+                  style={{ height: 58 }}
                 >
                   {(project.cardSkills ?? project.skills).map((s, i) => (
                     <ColoredSkillTag key={i}>{s}</ColoredSkillTag>
@@ -152,7 +152,7 @@ export default function Home() {
                         href={project.demoLink}
                         target="_blank"
                         rel="noopener noreferrer"
-                        className="inline-flex items-center gap-1.5 px-3 py-1.5 text-xs font-medium rounded-md bg-[#2196F3] text-white hover:bg-[#1976D2] transition-colors"
+                        className="inline-flex items-center gap-1.5 px-3 py-1.5 text-[14px] font-medium rounded-md bg-[#2196F3] text-white hover:bg-[#1976D2] transition-colors"
                       >
                         <ExternalLinkIcon />
                         Live Demo
@@ -163,7 +163,7 @@ export default function Home() {
                         href={project.githubLink}
                         target="_blank"
                         rel="noopener noreferrer"
-                        className="inline-flex items-center gap-1.5 px-3 py-1.5 text-xs font-medium rounded-md border border-gray-200 dark:border-white/15 text-gray-500 dark:text-gray-400 hover:border-[#2196F3] hover:text-[#2196F3] transition-colors"
+                        className="inline-flex items-center gap-1.5 px-3 py-1.5 text-[14px] font-medium rounded-md border border-gray-200 dark:border-white/15 text-gray-500 dark:text-gray-400 hover:border-[#2196F3] hover:text-[#2196F3] transition-colors"
                       >
                         <GitHubIcon />
                         GitHub
@@ -176,7 +176,7 @@ export default function Home() {
           ))}
         </div>
         <div className="mt-6">
-          <Link href="/projects" className="text-sm text-[#2196F3] hover:underline">
+          <Link href="/projects" className="text-[16px] text-[#2196F3] hover:underline">
             View all projects →
           </Link>
         </div>
@@ -198,13 +198,13 @@ export default function Home() {
               {/* Content */}
               <div className={`flex-1 ${i < featuredExperiences.length - 1 ? "pb-8" : ""}`}>
                 <div className="flex flex-col sm:flex-row sm:items-baseline sm:justify-between gap-1">
-                  <h3 className="text-base font-semibold text-gray-900 dark:text-white">{exp.title}</h3>
-                  <span className="text-sm text-gray-400 dark:text-gray-500 flex-shrink-0">{exp.date}</span>
+                  <h3 className="text-[18px] font-semibold text-gray-900 dark:text-white">{exp.title}</h3>
+                  <span className="text-[16px] text-gray-400 dark:text-gray-500 flex-shrink-0">{exp.date}</span>
                 </div>
-                <p className="text-sm text-gray-500 dark:text-gray-500 mt-0.5">{exp.org}</p>
+                <p className="text-[16px] text-gray-500 dark:text-gray-500 mt-0.5">{exp.org}</p>
                 <ul className="mt-2 space-y-1">
                   {exp.bullets.map((b, j) => (
-                    <li key={j} className="text-sm text-gray-600 dark:text-gray-400 leading-relaxed flex gap-2">
+                    <li key={j} className="text-[16px] text-gray-600 dark:text-gray-400 leading-relaxed flex gap-2">
                       <span className="text-gray-400 flex-shrink-0 mt-0.5">–</span>
                       <span>{b}</span>
                     </li>
@@ -215,7 +215,7 @@ export default function Home() {
           ))}
         </div>
         <div className="mt-6">
-          <Link href="/experiences" className="text-sm text-[#2196F3] hover:underline">
+          <Link href="/experiences" className="text-[16px] text-[#2196F3] hover:underline">
             View full experience →
           </Link>
         </div>
@@ -226,8 +226,8 @@ export default function Home() {
         <SectionLabel>Tech Stack</SectionLabel>
         <div className="space-y-3">
           {techStack.map(({ category, skills }) => (
-            <div key={category} className="flex flex-wrap items-start gap-x-4 gap-y-2">
-              <span className="text-xs text-gray-400 dark:text-gray-500 w-32 flex-shrink-0 pt-1">
+            <div key={category} className="flex flex-wrap items-baseline gap-x-4 gap-y-2">
+              <span className="text-[16px] text-gray-600 dark:text-gray-400 w-32 flex-shrink-0">
                 {category}
               </span>
               <div className="flex flex-wrap gap-2">
@@ -253,11 +253,11 @@ export default function Home() {
               className="flex-shrink-0 mt-0.5"
             />
             <div>
-              <h3 className="text-base font-semibold text-gray-900 dark:text-white">Temple University</h3>
-              <p className="text-sm text-gray-600 dark:text-gray-400">
+              <h3 className="text-[18px] font-semibold text-gray-900 dark:text-white">Temple University</h3>
+              <p className="text-[16px] text-gray-600 dark:text-gray-400">
                 B.S. Computer Science · Philadelphia, PA · 2022 – Present
               </p>
-              <p className="mt-1 text-xs text-gray-400 dark:text-gray-500 leading-relaxed max-w-lg">
+              <p className="mt-1 text-[14px] text-gray-400 dark:text-gray-500 leading-relaxed max-w-lg">
                 Relevant coursework: Data Structures & Algorithms, Systems Programming, Software Design,
                 Information Visualization, UX Design, Computational Probability & Statistics
               </p>
@@ -266,8 +266,8 @@ export default function Home() {
           <div className="flex items-start gap-4">
             <div className="w-10 h-10 flex-shrink-0" />
             <div>
-              <p className="text-sm text-gray-600 dark:text-gray-400">Central High School</p>
-              <p className="text-sm text-gray-400 dark:text-gray-500">Philadelphia, PA · 2018 – 2022</p>
+              <p className="text-[16px] text-gray-600 dark:text-gray-400">Central High School</p>
+              <p className="text-[16px] text-gray-400 dark:text-gray-500">Philadelphia, PA · 2018 – 2022</p>
             </div>
           </div>
         </div>
@@ -320,7 +320,7 @@ export default function Home() {
 function SectionLabel({ children }: { children: ReactNode }) {
   return (
     <div className="flex items-center gap-3 mb-8">
-      <h2 className="text-base font-semibold text-gray-900 dark:text-white whitespace-nowrap">
+      <h2 className="text-[18px] font-semibold text-gray-900 dark:text-white whitespace-nowrap">
         {children}
       </h2>
       <div className="flex-1 h-px bg-gray-200 dark:bg-white/10" />
@@ -371,7 +371,7 @@ function ColoredSkillTag({ children }: { children: ReactNode }) {
   const category = skillCategory(String(children));
   const colors = SkillCategoryColor(category);
   return (
-    <span className={`px-2.5 py-0.5 text-xs rounded-full ${colors.bg} ${colors.text}`}>
+    <span className={`px-2.5 py-0.5 text-[14px] rounded-full ${colors.bg} ${colors.text}`}>
       {children}
     </span>
   );
