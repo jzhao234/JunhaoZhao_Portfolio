@@ -144,10 +144,7 @@ export const projects: ProjectTypes[] = [
       featured: false,
       slug: "osaka-hibachi-express",
       images: [
-        "/projects/osakaHibachi/home.png",
-        "/projects/osakaHibachi/menu.png",
-        "/projects/osakaHibachi/location.png",
-        "/projects/osakaHibachi/mobile.png",
+        "/projects/osakaExpress/homePage.png",
       ],
       name: "Osaka Hibachi Express",
       cardDescription:
@@ -202,10 +199,9 @@ export const projects: ProjectTypes[] = [
       featured: false,
       slug: "sora-ascent",
       images: [
-        "/projects/soraAscent/home.png",
-        "/projects/soraAscent/services.png",
-        "/projects/soraAscent/pricing.png",
-        "/projects/soraAscent/contact.png",
+        "/projects/soraAscent/homePage.png",
+        "/projects/soraAscent/process.png",
+        "/projects/soraAscent/aboutMe.png"
       ],
       name: "Sora Ascent",
       cardDescription:
