@@ -9,13 +9,13 @@ export default function DarkModeToggle() {
   const isDark = theme === "dark";
 
   return (
-    <label className="relative flex items-center justify-between w-16 h-8 px-2 bg-gray-300 dark:bg-gray-700 rounded-full cursor-pointer">
+    <label className="relative flex items-center justify-between w-14 h-7 px-1.5 bg-gray-300 dark:bg-gray-700 rounded-full cursor-pointer">
       {/* Light mode icon */}
       <Image
         src="/home/lightmode.svg"
         alt="Light mode"
-        width={20}
-        height={20}
+        width={16}
+        height={16}
       />
       {/* Hidden checkbox (control) */}
       <input
@@ -29,11 +29,11 @@ export default function DarkModeToggle() {
       <Image
         src="/home/darkmode.svg"
         alt="Dark mode"
-        width={20}
-        height={20}
+        width={16}
+        height={16}
       />
       {/* Toggle circle */}
-      <span className="absolute top-1 left-1 w-6 h-6 bg-white dark:bg-black rounded-full shadow-md transform transition-transform duration-300 peer-checked:translate-x-8" />
+      <span className="absolute top-1 left-1 w-5 h-5 bg-white dark:bg-black rounded-full shadow-md transform transition-transform duration-300 peer-checked:translate-x-7" />
     </label>
   );
 }

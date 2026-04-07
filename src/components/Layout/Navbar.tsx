@@ -12,24 +12,35 @@ export default function Navbar() {
     <nav className="sticky top-0 z-50 bg-white dark:bg-[#151516] text-black dark:text-white border-b border-gray-200 dark:border-white/10">
       <div className="max-w-5xl mx-auto px-6 flex items-center justify-between py-3">
 
+        {/* Left: name + links */}
+        <div className="hidden md:flex items-baseline gap-6">
+          <Link
+            href="/"
+            className="text-[22px] font-bold hover:text-[#2196F3] transition-colors mr-2"
+          >
+            Junhao
+          </Link>
+          <Link href="/" className="text-[15px] font-semibold hover:text-[#2196F3] transition-colors">
+            Home
+          </Link>
+          <Link href="/projects" className="text-[15px] font-semibold hover:text-[#2196F3] transition-colors">
+            Projects
+          </Link>
+          <Link href="/experiences" className="text-[15px] font-semibold hover:text-[#2196F3] transition-colors">
+            Experiences
+          </Link>
+        </div>
+
+        {/* Name only on mobile */}
         <Link
           href="/"
-          className="text-xl font-bold hover:text-[#2196F3] transition-colors"
+          className="md:hidden text-[22px] font-bold hover:text-[#2196F3] transition-colors"
         >
           Junhao
         </Link>
 
-        {/* Desktop */}
-        <div className="hidden md:flex items-center gap-6">
-          <Link href="/" className="text-sm font-medium hover:text-[#2196F3] transition-colors">
-            Home
-          </Link>
-          <Link href="/projects" className="text-sm font-medium hover:text-[#2196F3] transition-colors">
-            Projects
-          </Link>
-          <Link href="/experiences" className="text-sm font-medium hover:text-[#2196F3] transition-colors">
-            Experiences
-          </Link>
+        {/* Right: toggle (desktop) */}
+        <div className="hidden md:flex items-center">
           <DarkModeToggle />
         </div>
 
@@ -51,13 +62,13 @@ export default function Navbar() {
       {isOpen && (
         <div className="md:hidden border-t border-gray-200 dark:border-white/10">
           <div className="max-w-5xl mx-auto px-6 py-4 flex flex-col gap-4">
-            <Link href="/" onClick={() => setIsOpen(false)} className="text-sm font-medium hover:text-[#2196F3] transition-colors">
+            <Link href="/" onClick={() => setIsOpen(false)} className="text-[15px] font-semibold hover:text-[#2196F3] transition-colors">
               Home
             </Link>
-            <Link href="/projects" onClick={() => setIsOpen(false)} className="text-sm font-medium hover:text-[#2196F3] transition-colors">
+            <Link href="/projects" onClick={() => setIsOpen(false)} className="text-[15px] font-semibold hover:text-[#2196F3] transition-colors">
               Projects
             </Link>
-            <Link href="/experiences" onClick={() => setIsOpen(false)} className="text-sm font-medium hover:text-[#2196F3] transition-colors">
+            <Link href="/experiences" onClick={() => setIsOpen(false)} className="text-[15px] font-semibold hover:text-[#2196F3] transition-colors">
               Experiences
             </Link>
             <DarkModeToggle />

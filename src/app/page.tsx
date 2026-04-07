@@ -120,14 +120,14 @@ export default function Home() {
               />
               {project.images?.[0] && (
                 <div className="bg-gray-50 dark:bg-white/5 p-4">
-                  <div className="relative h-44 rounded overflow-hidden">
-                    <Image
-                      src={project.images[0]}
-                      alt={project.name}
-                      fill
-                      className="object-cover transition-transform duration-300 group-hover:scale-[1.03]"
-                    />
-                  </div>
+                  <Image
+                    src={project.images[0]}
+                    alt={project.name}
+                    width={0}
+                    height={0}
+                    sizes="100vw"
+                    className="w-full h-auto rounded transition-transform duration-300 group-hover:scale-[1.03]"
+                  />
                 </div>
               )}
               <div className="p-5 flex flex-col flex-1">
@@ -266,7 +266,7 @@ export default function Home() {
           <div className="flex items-start gap-4">
             <div className="w-10 h-10 flex-shrink-0" />
             <div>
-              <p className="text-sm font-medium text-gray-400 dark:text-gray-500">Central High School</p>
+              <p className="text-sm text-gray-600 dark:text-gray-400">Central High School</p>
               <p className="text-sm text-gray-400 dark:text-gray-500">Philadelphia, PA · 2018 – 2022</p>
             </div>
           </div>
