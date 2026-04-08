@@ -187,7 +187,7 @@ export default function Home() {
             <div key={i} className="flex gap-5 group">
               {/* Timeline column */}
               <div className="flex flex-col items-center flex-shrink-0 pt-1.5">
-                <div className="w-2.5 h-2.5 rounded-full border-2 border-gray-300 dark:border-white/25 bg-white dark:bg-[#151516] transition-transform duration-200 group-hover:scale-[1.4]" />
+                <div className="w-2.5 h-2.5 rounded-full border-2 border-[#2196F3] bg-white dark:bg-[#151516] transition-transform duration-200 group-hover:scale-[1.5]" />
                 {i < featuredExperiences.length - 1 && (
                   <div className="w-px flex-1 mt-1.5 bg-gray-200 dark:bg-white/10" />
                 )}

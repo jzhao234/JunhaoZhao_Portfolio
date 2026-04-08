@@ -78,7 +78,7 @@ export default function ExperienceCard() {
           {displayExperiences.map((exp) => (
             <div key={exp.id} className="relative flex gap-5 group">
               <div className="flex-shrink-0 w-[18px] flex justify-center pt-[3px] relative z-10">
-                <div className="w-2.5 h-2.5 rounded-full bg-[#2196F3] ring-2 ring-white dark:ring-[#151516] transition-transform duration-200 group-hover:scale-[1.4]" />
+                <div className="w-2.5 h-2.5 rounded-full border-2 border-[#2196F3] bg-white dark:bg-[#151516] transition-transform duration-200 group-hover:scale-[1.5]" />
               </div>
               <div className="flex-1 min-w-0 rounded-xl px-3 py-2 -mx-3 -my-2 transition-colors duration-200 group-hover:bg-gray-50 dark:group-hover:bg-white/[0.03]">
                 <ExperienceItem {...exp} selectedSkills={selectedSkills} />
