@@ -6,10 +6,7 @@ const osakaHibachi: ProjectTypes = {
   featured: false,
   slug: "osaka-hibachi-express",
   images: [
-    "/projects/osakaHibachi/home.png",
-    "/projects/osakaHibachi/menu.png",
-    "/projects/osakaHibachi/location.png",
-    "/projects/osakaHibachi/mobile.png",
+    "/projects/osakaExpress/homePage.png",
   ],
   name: "Osaka Hibachi Express",
   cardDescription:

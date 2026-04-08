@@ -6,10 +6,9 @@ const soraAscent: ProjectTypes = {
   featured: false,
   slug: "sora-ascent",
   images: [
-    "/projects/soraAscent/home.png",
-    "/projects/soraAscent/services.png",
-    "/projects/soraAscent/pricing.png",
-    "/projects/soraAscent/contact.png",
+    "/projects/soraAscent/homePage.png",
+    "/projects/soraAscent/process.png",
+    "/projects/soraAscent/aboutMe.png"
   ],
   name: "Sora Ascent",
   cardDescription:
