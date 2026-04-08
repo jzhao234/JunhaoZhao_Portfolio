@@ -1,0 +1,21 @@
+export type ProjectTypes = {
+  id: string;
+  slug: string;
+  importance?: number;
+  featured?: boolean;
+  images?: string[];
+  name: string;
+  cardDescription?: string;
+  description?: string;
+  features?: string[];
+  overview?: string;
+  problem?: string;
+  solution?: string;
+  architecture?: string[];
+  challenges?: string[];
+  improvements?: string[];
+  skills: string[];
+  cardSkills?: string[];
+  githubLink?: string;
+  demoLink?: string;
+};

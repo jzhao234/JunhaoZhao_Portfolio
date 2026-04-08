@@ -2,6 +2,7 @@
 
 import { useState, useEffect, useCallback } from "react";
 import Image from "next/image";
+import { imageAlt } from "../../utils/imageAlt";
 
 export default function ImageGallery({ images }: { images: string[] }) {
   const [selectedImage, setSelectedImage] = useState(0);
@@ -33,7 +34,7 @@ export default function ImageGallery({ images }: { images: string[] }) {
         >
           <Image
             src={images[selectedImage]}
-            alt="selected project image"
+            alt={imageAlt(images[selectedImage])}
             fill
             className="object-contain"
           />
@@ -58,7 +59,7 @@ export default function ImageGallery({ images }: { images: string[] }) {
               >
                 <Image
                   src={src}
-                  alt="project image"
+                  alt={imageAlt(src)}
                   fill
                   className="object-cover object-top"
                 />
@@ -77,7 +78,7 @@ export default function ImageGallery({ images }: { images: string[] }) {
           <div className="relative w-full h-full max-w-5xl max-h-[90vh] mx-4">
             <Image
               src={images[selectedImage]}
-              alt="zoomed project image"
+              alt={imageAlt(images[selectedImage])}
               fill
               className="object-contain"
               sizes="100vw"

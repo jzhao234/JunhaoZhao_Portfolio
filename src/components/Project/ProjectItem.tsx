@@ -4,6 +4,7 @@ import Link from "next/link";
 import {useState, useRef, useEffect, ReactNode} from "react";
 
 import SkillsItem from "../Skills/SkillsItem";
+import { imageAlt } from "../../utils/imageAlt";
 import skillCategory from "../../utils/skillCategory";
 import highlightSkillsInText from "../Utilities/HighlightSkillsInText";
 import { DemoLink, GithubLink } from "../Utilities/AvailableLink";
@@ -54,7 +55,7 @@ export default function ProjectItem({id, slug, images, name, skills, githubLink,
                     <h2 className = "py-1 font-bold text-center">{name}</h2>
                     <Image
                         src={images[0]}
-                        alt="screenshot"
+                        alt={imageAlt(images[0])}
                         width={300}
                         height={100}
                     />
