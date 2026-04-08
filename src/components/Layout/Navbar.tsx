@@ -1,7 +1,6 @@
 "use client";
 import Link from "next/link";
 import { useState, useEffect } from "react";
-import Image from "next/image";
 
 import DarkModeToggle from "../Utilities/DarkModeToggle";
 
@@ -63,9 +62,16 @@ export default function Navbar() {
           aria-label="Toggle menu"
         >
           {isOpen ? (
-            <Image src="/icons/closeButton.svg" alt="Close menu" width={24} height={24} />
+            <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round" aria-hidden="true">
+              <line x1="18" y1="6" x2="6" y2="18" />
+              <line x1="6" y1="6" x2="18" y2="18" />
+            </svg>
           ) : (
-            <Image src="/icons/hamburgerMenu.svg" alt="Open menu" width={24} height={24} />
+            <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round" aria-hidden="true">
+              <line x1="3" y1="6" x2="21" y2="6" />
+              <line x1="3" y1="12" x2="21" y2="12" />
+              <line x1="3" y1="18" x2="21" y2="18" />
+            </svg>
           )}
         </button>
       </div>
@@ -73,17 +79,19 @@ export default function Navbar() {
       {/* Mobile dropdown */}
       {isOpen && (
         <div className="md:hidden border-t border-gray-200 dark:border-white/10">
-          <div className="max-w-5xl mx-auto px-6 py-4 flex flex-col gap-4">
-            <Link href="/" onClick={() => setIsOpen(false)} className="text-[15px] font-semibold hover:text-[#2196F3] transition-colors">
+          <div className="max-w-5xl mx-auto px-6 py-2 flex flex-col">
+            <Link href="/" onClick={() => setIsOpen(false)} className="min-h-[44px] flex items-center text-[15px] font-semibold hover:text-[#2196F3] transition-colors">
               Home
             </Link>
-            <Link href="/projects" onClick={() => setIsOpen(false)} className="text-[15px] font-semibold hover:text-[#2196F3] transition-colors">
+            <Link href="/projects" onClick={() => setIsOpen(false)} className="min-h-[44px] flex items-center text-[15px] font-semibold hover:text-[#2196F3] transition-colors">
               Projects
             </Link>
-            <Link href="/experiences" onClick={() => setIsOpen(false)} className="text-[15px] font-semibold hover:text-[#2196F3] transition-colors">
+            <Link href="/experiences" onClick={() => setIsOpen(false)} className="min-h-[44px] flex items-center text-[15px] font-semibold hover:text-[#2196F3] transition-colors">
               Experiences
             </Link>
-            <DarkModeToggle />
+            <div className="min-h-[44px] flex items-center">
+              <DarkModeToggle />
+            </div>
           </div>
         </div>
       )}

@@ -268,10 +268,6 @@ export default function Home() {
 
       {/* ── CTA ── */}
       <section className="border-t border-gray-200 dark:border-white/10 pt-12 pb-4 text-center">
-        <div className="inline-flex items-center gap-2 mb-4 text-[15px] text-gray-500 dark:text-gray-400">
-          <span className="w-2 h-2 rounded-full bg-green-400 dark:bg-green-500 flex-shrink-0" />
-          Available for summer 2026 internships and full-time roles
-        </div>
         <h2 className="text-2xl font-bold text-gray-900 dark:text-white">Open to software engineering opportunities</h2>
         <p className="mt-2 text-sm text-gray-500 dark:text-gray-500 max-w-sm mx-auto">
           Reach out on LinkedIn, view my projects on GitHub, or download my resume.
