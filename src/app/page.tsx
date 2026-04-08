@@ -84,8 +84,8 @@ export default function Home() {
         <SectionLabel>Tech Stack</SectionLabel>
         <div className="space-y-3">
           {techStack.map(({ category, skills }) => (
-            <div key={category} className="flex flex-wrap items-baseline gap-x-4 gap-y-2">
-              <span className="text-[16px] text-gray-600 dark:text-gray-400 w-32 flex-shrink-0">
+            <div key={category} className="flex flex-col sm:flex-row sm:items-baseline gap-y-1 sm:gap-x-4">
+              <span className="text-[16px] text-gray-600 dark:text-gray-400 sm:w-32 sm:flex-shrink-0">
                 {category}
               </span>
               <div className="flex flex-wrap gap-2">
