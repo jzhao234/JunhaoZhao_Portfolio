@@ -243,9 +243,8 @@ export default function Home() {
               <p className="text-[16px] text-gray-600 dark:text-gray-300">
                 B.S. Computer Science · Philadelphia, PA · 2022 – Present
               </p>
-              <p className="mt-1 text-[14px] text-gray-400 dark:text-gray-500 leading-relaxed max-w-lg">
-                Relevant coursework: Data Structures & Algorithms, Systems Programming, Software Design,
-                Information Visualization, UX Design, Computational Probability & Statistics
+              <p className="mt-1 text-[14px] text-gray-500 dark:text-gray-400 leading-relaxed max-w-lg">
+                Studied abroad at Temple University Japan Campus in Fall 2025
               </p>
             </div>
           </div>
