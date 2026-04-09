@@ -33,7 +33,7 @@ export const metadata: Metadata = {
     title: "Junhao's Portfolio | Software Engineer",
     description: "Projects, Experience, and Contact Info",
     url: "https://junhaozhao.com",
-    siteName: "Junhao Zhao Portfolio",
+    siteName: "Junhao's Personal Portfolio",
     type: "website",
     images: [{ url: "/og.png", width: 1200, height: 630, alt: "Junhao Zhao" }],
   },
