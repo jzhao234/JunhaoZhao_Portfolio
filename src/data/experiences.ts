@@ -14,23 +14,6 @@ export type ExperienceType = {
 
 export const experiences: ExperienceType[] = [
   {
-    id: "soraAscentFounder",
-    logo: { src: "/logo/soraAscent.png", alt: "Sora Ascent" },
-    title: "Founder",
-    org: "Sora Ascent",
-    location: "Philadelphia, PA",
-    date: "Mar 2026 – Present",
-    bullets: [
-      "Started a local web design service and packaged offerings into clear tiers to reduce sales friction and keep scope, pricing, and deliverables consistent.",
-      "Performed outbound outreach to source leads and managed end-to-end delivery from discovery and copy to design, build, deployment, and iteration.",
-      "Closed and delivered a paid client website for Osaka Hibachi Express (osakahibachiexpress.com), shipping a mobile-first site with strong Lighthouse results.",
-    ],
-    skills: ["Business Development", "Client Communication", "Product Thinking", "Copywriting", "UI/UX", "Delivery"],
-    link: "/projects/sora-ascent",
-    importance: 2,
-    featured: false,
-  },
-  {
     id: "researcher",
     logo: { src: "/logo/Temple-Logo-T-Header.svg", alt: "Temple" },
     title: "Undergraduate Researcher",
@@ -74,6 +57,23 @@ export const experiences: ExperienceType[] = [
       "Hosted office hours, providing tailored support to students and addressing individual learning needs.",
       "Collaborated with faculty to develop and implement effective teaching strategies.",
     ],
+    importance: 2,
+    featured: false,
+  },
+  {
+    id: "soraAscentFounder",
+    logo: { src: "/logo/soraAscent.png", alt: "Sora Ascent" },
+    title: "Founder",
+    org: "Sora Ascent",
+    location: "Philadelphia, PA",
+    date: "Mar 2026 – Present",
+    bullets: [
+      "Started a local web design service and packaged offerings into clear tiers to reduce sales friction and keep scope, pricing, and deliverables consistent.",
+      "Performed outbound outreach to source leads and managed end-to-end delivery from discovery and copy to design, build, deployment, and iteration.",
+      "Closed and delivered a paid client website for Osaka Hibachi Express (osakahibachiexpress.com), shipping a mobile-first site with strong Lighthouse results.",
+    ],
+    skills: ["Business Development", "Client Communication", "Product Thinking", "Copywriting", "UI/UX", "Delivery"],
+    link: "/projects/sora-ascent",
     importance: 2,
     featured: false,
   },
