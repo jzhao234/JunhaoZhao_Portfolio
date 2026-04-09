@@ -15,7 +15,7 @@ function DashList({ items }: { items: string[] }) {
   return (
     <ul className="space-y-1.5">
       {items.map((item, i) => (
-        <li key={i} className="flex gap-2.5 items-start text-[16px] text-gray-600 dark:text-gray-400 leading-relaxed">
+        <li key={i} className="flex gap-2.5 items-start text-[16px] text-gray-600 dark:text-gray-300 leading-relaxed">
           <span className="flex-shrink-0 mt-[10px]">
             <svg width="4" height="4" viewBox="0 0 4 4" fill="currentColor" className="text-gray-400" aria-hidden="true">
               <circle cx="2" cy="2" r="2" />
@@ -34,7 +34,7 @@ export function Overview({ overview }: OverviewProp) {
   return (
     <div>
       <SectionLabel>Overview</SectionLabel>
-      <p className="text-[16px] text-gray-600 dark:text-gray-400 leading-relaxed whitespace-pre-line">{highlightSkillsInText(overview)}</p>
+      <p className="text-[16px] text-gray-600 dark:text-gray-300 leading-relaxed whitespace-pre-line">{highlightSkillsInText(overview)}</p>
     </div>
   );
 }
@@ -45,7 +45,7 @@ export function Problem({ problem }: ProblemProp) {
   return (
     <div>
       <SectionLabel>Problem</SectionLabel>
-      <p className="text-[16px] text-gray-600 dark:text-gray-400 leading-relaxed whitespace-pre-line">{highlightSkillsInText(problem)}</p>
+      <p className="text-[16px] text-gray-600 dark:text-gray-300 leading-relaxed whitespace-pre-line">{highlightSkillsInText(problem)}</p>
     </div>
   );
 }
@@ -56,7 +56,7 @@ export function Solution({ solution }: SolutionProp) {
   return (
     <div>
       <SectionLabel>Solution</SectionLabel>
-      <p className="text-[16px] text-gray-600 dark:text-gray-400 leading-relaxed whitespace-pre-line">{highlightSkillsInText(solution)}</p>
+      <p className="text-[16px] text-gray-600 dark:text-gray-300 leading-relaxed whitespace-pre-line">{highlightSkillsInText(solution)}</p>
     </div>
   );
 }

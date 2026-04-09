@@ -35,18 +35,17 @@ export default function Home() {
         <Image
           src="/profile.jpg"
           alt="Junhao Zhao"
-          width={184}
-          height={184}
+          width={210}
+          height={210}
           className="rounded-2xl flex-shrink-0 border border-gray-200 dark:border-white/10"
         />
         <div>
           <h1 className="text-4xl sm:text-5xl font-bold tracking-tight">Junhao Zhao</h1>
           <p className="mt-3 text-base sm:text-lg text-gray-600 dark:text-gray-300 leading-relaxed max-w-lg">
-            Computer Science student at Temple University building full-stack web applications, most recently a drug synergy analysis platform for oncology research at Fox Chase Cancer Center.
-          </p>
+            Backend-leaning software engineer building APIs, data-intensive applications, and research tools. Most recently, I built software for drug synergy analysis at Fox Chase Cancer Center using Python, FastAPI, and scientific visualization.          </p>
           <div className="mt-3 flex items-center gap-2 text-[15px] text-gray-500 dark:text-gray-400">
             <span className="w-2 h-2 rounded-full bg-green-400 dark:bg-green-500 flex-shrink-0" />
-            Open to SWE internships and full-time roles
+            Seeking full-time backend and software engineering roles
           </div>
           <div className="flex flex-wrap gap-3 mt-5">
             <a
@@ -127,7 +126,7 @@ export default function Home() {
               <div className="p-5 flex flex-col flex-1">
                 <h3 className="text-[18px] font-bold text-gray-900 dark:text-white">{project.name}</h3>
                 <div className="mt-2 overflow-hidden" style={{ height: 104 }}>
-                  <p className="text-[16px] text-gray-600 dark:text-gray-400 group-hover:text-gray-800 dark:group-hover:text-gray-200 leading-relaxed line-clamp-4 transition-colors">
+                  <p className="text-[16px] text-gray-600 dark:text-gray-300 group-hover:text-gray-800 dark:group-hover:text-gray-100 leading-relaxed line-clamp-4 transition-colors">
                     {highlightSkillsInText(project.cardDescription)}
                   </p>
                 </div>
@@ -202,7 +201,7 @@ export default function Home() {
                   <p className="text-[16px] text-gray-500 dark:text-gray-500 mt-0.5">{exp.org}</p>
                   <ul className="mt-2 space-y-1">
                     {exp.bullets.map((b, j) => (
-                      <li key={j} className="text-[16px] text-gray-600 dark:text-gray-400 leading-relaxed flex gap-2.5 items-start">
+                      <li key={j} className="text-[16px] text-gray-600 dark:text-gray-300 leading-relaxed flex gap-2.5 items-start">
                         <span className="flex-shrink-0 mt-[10px]">
                           <svg width="4" height="4" viewBox="0 0 4 4" fill="currentColor" className="text-gray-400" aria-hidden="true">
                             <circle cx="2" cy="2" r="2" />
@@ -241,7 +240,7 @@ export default function Home() {
             />
             <div>
               <h3 className="text-[18px] font-semibold text-gray-900 dark:text-white">Temple University</h3>
-              <p className="text-[16px] text-gray-600 dark:text-gray-400">
+              <p className="text-[16px] text-gray-600 dark:text-gray-300">
                 B.S. Computer Science · Philadelphia, PA · 2022 – Present
               </p>
               <p className="mt-1 text-[14px] text-gray-400 dark:text-gray-500 leading-relaxed max-w-lg">
@@ -263,42 +262,6 @@ export default function Home() {
               <p className="text-[16px] text-gray-600 dark:text-gray-400">Philadelphia, PA · 2018 – 2022</p>
             </div>
           </div>
-        </div>
-      </section>
-
-      {/* ── CTA ── */}
-      <section className="border-t border-gray-200 dark:border-white/10 pt-12 pb-4 text-center">
-        <h2 className="text-2xl font-bold text-gray-900 dark:text-white">Open to software engineering opportunities</h2>
-        <p className="mt-2 text-sm text-gray-500 dark:text-gray-500 max-w-sm mx-auto">
-          Reach out on LinkedIn, view my projects on GitHub, or download my resume.
-        </p>
-        <div className="flex flex-wrap justify-center gap-4 mt-6">
-          <a
-            href="https://www.linkedin.com/in/junhao-zhao/"
-            target="_blank"
-            rel="noopener noreferrer"
-            className="group inline-flex items-center gap-2 px-5 py-2 rounded-lg border border-gray-300 dark:border-white/20 text-sm font-medium hover:border-[#2196F3] hover:text-[#2196F3] transition-colors"
-          >
-            <span className="transition-transform duration-200 group-hover:scale-150"><LinkedInIcon /></span>
-            LinkedIn
-          </a>
-          <a
-            href="https://github.com/jzhao234"
-            target="_blank"
-            rel="noopener noreferrer"
-            className="group inline-flex items-center gap-2 px-5 py-2 rounded-lg border border-gray-300 dark:border-white/20 text-sm font-medium hover:border-[#2196F3] hover:text-[#2196F3] transition-colors"
-          >
-            <span className="transition-transform duration-200 group-hover:scale-150"><GitHubIcon /></span>
-            GitHub
-          </a>
-          <a
-            href="/files/resume.pdf"
-            download="ZhaoJunhaoResume.pdf"
-            className="group inline-flex items-center gap-2 px-5 py-2 rounded-lg border border-gray-300 dark:border-white/20 text-sm font-medium hover:border-[#2196F3] hover:text-[#2196F3] transition-colors"
-          >
-            <span className="transition-transform duration-200 group-hover:scale-150"><ResumeIcon /></span>
-            Download Resume
-          </a>
         </div>
       </section>
 
