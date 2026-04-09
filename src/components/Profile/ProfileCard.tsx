@@ -33,7 +33,7 @@ export default function ProfileCard(){
                             <p> Github </p>
                         </div>
                     </a>
-                    <a href="/files/resume.pdf" download="ZhaoJunhaoResume.pdf" className="blueBorder rounded-2xl hover:text-[#1E90FF] mt-2 p-1 px-3 text-black bg-white dark:text-white dark:bg-[#131213]">
+                    <a href="/files/Junhao_Zhao_Resume.pdf" download="ZhaoJunhaoResume.pdf" className="blueBorder rounded-2xl hover:text-[#1E90FF] mt-2 p-1 px-3 text-black bg-white dark:text-white dark:bg-[#131213]">
                         <div className = "flex items-center">
                             <svg xmlns="http://www.w3.org/2000/svg" height="24px" viewBox="0 -960 960 960" width="24px" fill="currentColor" className = "mr-2 p-2 bg-white dark:bg-[#171718] rounded-xl fill-current text-[#1E90FF] h-8 w-8">
                                 <path d="M480-320 280-520l56-58 104 104v-326h80v326l104-104 56 58-200 200ZM240-160q-33 0-56.5-23.5T160-240v-120h80v120h480v-120h80v120q0 33-23.5 56.5T720-160H240Z"/>

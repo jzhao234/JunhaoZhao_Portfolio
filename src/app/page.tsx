@@ -67,7 +67,7 @@ export default function Home() {
               GitHub
             </a>
             <a
-              href="/files/resume.pdf"
+              href="/files/Junhao_Zhao_Resume.pdf"
               download="ZhaoJunhaoResume.pdf"
               className="group inline-flex items-center gap-2 px-4 py-2 rounded-lg border border-gray-300 dark:border-white/20 text-sm font-medium hover:border-[#2196F3] hover:text-[#2196F3] transition-colors"
             >

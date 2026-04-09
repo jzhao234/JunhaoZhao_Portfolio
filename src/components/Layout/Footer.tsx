@@ -23,7 +23,7 @@ export default function Footer() {
             GitHub
           </a>
           <a
-            href="/files/resume.pdf"
+            href="/files/Junhao_Zhao_Resume.pdf"
             download="ZhaoJunhaoResume.pdf"
             className="text-xs text-gray-400 dark:text-gray-500 hover:text-[#2196F3] dark:hover:text-[#2196F3] transition-colors"
           >
