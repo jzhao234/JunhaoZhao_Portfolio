@@ -258,8 +258,12 @@ export default function Home() {
               className="flex-shrink-0 mt-0.5 rounded"
             />
             <div>
-              <h3 className="text-[18px] font-semibold text-gray-900 dark:text-white">Central High School</h3>
-              <p className="text-[16px] text-gray-600 dark:text-gray-400">Philadelphia, PA · 2018 – 2022</p>
+              <h3 className="text-[16px] font-medium text-gray-800 dark:text-gray-200">
+                Central High School
+              </h3>
+              <p className="text-[14px] text-gray-500 dark:text-gray-400">
+                Philadelphia, PA
+              </p>
             </div>
           </div>
         </div>
