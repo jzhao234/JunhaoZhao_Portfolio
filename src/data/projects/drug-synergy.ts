@@ -4,14 +4,14 @@ const drugSynergy: ProjectTypes = {
   id: "DrugSynergy",
   importance: 1,
   featured: true,
-  slug: "drug-synergy-finder",
+  slug: "drug-synergy-analyzer",
   images: [
     "/projects/drugSynergy/homePage.png",
     "/projects/drugSynergy/curveFittings.png",
     "/projects/drugSynergy/SAPEScores.png",
     "/projects/drugSynergy/responseMatrix.png",
   ],
-  name: "Drug Synergy Finder",
+  name: "Drug Synergy Analyzer",
   cardDescription:
     "Full-stack research platform for analyzing drug synergy in cancer treatment. A Python/FastAPI backend processes uploaded dose-response datasets and computes synergy scores; a Next.js frontend visualizes results with interactive D3.js and Plotly charts.",
   features: [
