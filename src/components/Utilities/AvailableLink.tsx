@@ -13,7 +13,7 @@ export function GithubLink({ githubLink }: GithubLinkProp) {
       href={githubLink}
       target="_blank"
       rel="noopener noreferrer"
-      className="inline-flex items-center gap-1.5 px-3 py-1.5 text-xs font-medium rounded-md border border-gray-200 dark:border-white/15 text-gray-500 dark:text-gray-400 hover:border-[#2196F3] hover:text-[#2196F3] transition-colors"
+      className="inline-flex items-center gap-1.5 px-3 py-1.5 text-xs font-medium rounded-md border border-line text-muted hover:border-accent hover:text-accent transition-colors"
     >
       <GitHubIcon />
       GitHub
@@ -28,7 +28,7 @@ export function DemoLink({ demoLink }: DemoLinkProp) {
       href={demoLink}
       target="_blank"
       rel="noopener noreferrer"
-      className="inline-flex items-center gap-1.5 px-3 py-1.5 text-xs font-medium rounded-md bg-[#2196F3] text-white hover:bg-[#1976D2] transition-colors"
+      className="inline-flex items-center gap-1.5 px-3 py-1.5 text-xs font-medium rounded-md bg-accent text-white hover:bg-accent-hover transition-colors"
     >
       <ExternalLinkIcon />
       Live Demo

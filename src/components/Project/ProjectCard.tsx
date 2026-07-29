@@ -40,17 +40,17 @@ export default function ProjectCard() {
   return (
     <div className="max-w-5xl mx-auto px-6 py-8">
 
-      {/* Section heading */}
-      <div className="flex items-center gap-3 mb-8">
-        <h1 className="text-[18px] font-semibold text-gray-900 dark:text-white whitespace-nowrap">
+      {/* Page header */}
+      <div className="mb-8">
+        <h1 className="font-display text-3xl font-bold tracking-tight text-content">
           Projects
         </h1>
-        <div className="flex-1 h-px bg-gray-200 dark:bg-white/10" />
+        <div className="signal-rule mt-4" aria-hidden="true" />
       </div>
 
       {/* Filter row */}
       <div className="flex flex-wrap items-center gap-2 mb-8">
-        <span className="text-[14px] text-gray-400 dark:text-gray-500 flex-shrink-0">
+        <span className="font-mono text-[12px] uppercase tracking-[0.14em] text-subtle flex-shrink-0">
           Filter:
         </span>
         {allSkills.map((skill) => {
@@ -63,8 +63,8 @@ export default function ProjectCard() {
               onClick={() => toggleSkill(skill)}
               className={`px-2.5 py-0.5 text-[14px] rounded-full transition-colors cursor-pointer ${
                 isSelected
-                  ? `${colors.bg} ${colors.text} font-medium`
-                  : "bg-gray-100 dark:bg-white/10 text-gray-500 dark:text-gray-400 hover:bg-gray-200 dark:hover:bg-white/15"
+                  ? `${colors.bg} ${colors.text} border border-transparent font-medium`
+                  : "border border-line text-subtle hover:text-content hover:border-line-strong"
               }`}
             >
               {skill}
@@ -74,7 +74,7 @@ export default function ProjectCard() {
         {selectedSkills.length > 0 && (
           <button
             onClick={() => setSelectedSkills([])}
-            className="px-2.5 py-0.5 text-[14px] rounded-full text-gray-400 dark:text-gray-500 hover:text-gray-600 dark:hover:text-gray-300 transition-colors cursor-pointer"
+            className="px-2.5 py-0.5 text-[14px] rounded-full text-subtle hover:text-content transition-colors cursor-pointer"
           >
             Clear
           </button>
@@ -92,7 +92,7 @@ export default function ProjectCard() {
           return (
             <div
               key={project.id}
-              className={`group relative flex flex-col border border-gray-200 dark:border-white/10 rounded-xl overflow-hidden transition-all duration-200 hover:border-[#2196F3]/50 dark:hover:border-[#2196F3]/50 hover:shadow-lg dark:hover:shadow-[0_4px_24px_rgba(33,150,243,0.08)] ${
+              className={`group relative flex flex-col border border-line rounded-xl overflow-hidden transition-all duration-200 hover:border-accent/50 dark:hover:border-accent/50  ${
                 isDimmed ? "opacity-40" : "opacity-100"
               }`}
             >
@@ -104,7 +104,7 @@ export default function ProjectCard() {
               />
 
               {project.images?.[0] && (
-                <div className="bg-gray-50 dark:bg-white/5 p-4 flex-shrink-0">
+                <div className="bg-raised p-4 flex-shrink-0">
                   <div className="relative h-40 rounded overflow-hidden">
                     <Image
                       src={project.images[0]}
@@ -117,7 +117,7 @@ export default function ProjectCard() {
               )}
 
               <div className="p-5 flex flex-col flex-1">
-                <h2 className="text-[18px] font-bold">{project.name}</h2>
+                <h2 className="font-display text-[18px] font-bold text-content">{project.name}</h2>
 
                 {/* Description — clamped to 5 lines, ... glows on hover */}
                 <ClampedDescription text={project.cardDescription ?? ""} />
@@ -131,13 +131,13 @@ export default function ProjectCard() {
 
                 {/* Buttons — pushed to bottom */}
                 {(project.githubLink || project.demoLink) && (
-                  <div className="relative z-20 flex gap-2 mt-4 pt-3 border-t border-gray-100 dark:border-white/5">
+                  <div className="relative z-20 flex gap-2 mt-4 pt-3 border-t border-line">
                     {project.demoLink && (
                       <a
                         href={project.demoLink}
                         target="_blank"
                         rel="noopener noreferrer"
-                        className="inline-flex items-center gap-1.5 px-3 py-1.5 text-[14px] font-medium rounded-md bg-[#2196F3] text-white hover:bg-[#1976D2] transition-colors"
+                        className="inline-flex items-center gap-1.5 px-3 py-1.5 text-[14px] font-medium rounded-md bg-accent text-white hover:bg-accent-hover transition-colors"
                       >
                         <ExternalLinkIcon />
                         Live Demo
@@ -148,7 +148,7 @@ export default function ProjectCard() {
                         href={project.githubLink}
                         target="_blank"
                         rel="noopener noreferrer"
-                        className="inline-flex items-center gap-1.5 px-3 py-1.5 text-[14px] font-medium rounded-md border border-gray-200 dark:border-white/15 text-gray-500 dark:text-gray-400 hover:border-[#2196F3] hover:text-[#2196F3] transition-colors"
+                        className="inline-flex items-center gap-1.5 px-3 py-1.5 text-[14px] font-medium rounded-md border border-line text-muted hover:border-accent hover:text-accent transition-colors"
                       >
                         <GitHubIcon />
                         GitHub
@@ -165,10 +165,6 @@ export default function ProjectCard() {
   );
 }
 
-// Pill height: text-[14px] (~20px line-height) + py-0.5 (4px padding) = 24px
-// gap-1.5 = 6px between rows → 2 rows = 54px + a few px buffer = 58px
-const TWO_ROW_HEIGHT = 58;
-
 function ClampedPills({
   skills,
   cardSkills,
@@ -183,8 +179,7 @@ function ClampedPills({
 
   return (
     <div
-      className="flex flex-wrap items-start gap-1.5 mt-3"
-      style={{ height: TWO_ROW_HEIGHT, overflow: 'clip' }}
+      className="flex flex-wrap items-start gap-1.5 mt-3 min-h-[3.5rem]"
     >
       {pillsToRender.map((skill, i) => {
         const category = skillCategory(skill);
@@ -207,11 +202,10 @@ function ClampedPills({
   );
 }
 
-// text-[16px] leading-relaxed = 16px * 1.625 = 26px per line; 5 lines = 130px
 function ClampedDescription({ text }: { text: string }) {
   return (
-    <div className="mt-2 overflow-hidden" style={{ height: 130 }}>
-      <p className="text-[16px] text-gray-600 dark:text-gray-400 group-hover:text-gray-800 dark:group-hover:text-gray-200 leading-relaxed line-clamp-5 transition-colors">
+    <div className="mt-2 min-h-[8rem]">
+      <p className="text-[16px] text-muted group-hover:text-content leading-relaxed line-clamp-5 transition-colors">
         {highlightSkillsInText(text)}
       </p>
     </div>

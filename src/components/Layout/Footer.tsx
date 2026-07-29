@@ -1,31 +1,31 @@
+const footerLinks = [
+  { href: "https://www.linkedin.com/in/junhao-zhao/", label: "LinkedIn" },
+  { href: "https://github.com/jzhao234", label: "GitHub" },
+];
+
 export default function Footer() {
   return (
-    <footer className="bg-white dark:bg-[#151516] border-t border-gray-200 dark:border-white/10 mt-auto">
-      <div className="max-w-5xl mx-auto px-6 py-5 flex flex-col sm:flex-row items-center justify-between gap-3">
-        <p className="text-xs text-gray-400 dark:text-gray-500">
-          &copy; 2026 Junhao Zhao
-        </p>
+    <footer className="mt-auto">
+      {/* Signature motif: the page's closing edge */}
+      <div className="signal-rule-reverse" aria-hidden="true" />
+      <div className="max-w-5xl mx-auto px-6 py-6 flex flex-col sm:flex-row items-center justify-between gap-3">
+        <p className="font-mono text-[12px] text-subtle">&copy; 2026 Junhao Zhao</p>
         <nav className="flex items-center gap-5" aria-label="Footer links">
-          <a
-            href="https://www.linkedin.com/in/junhao-zhao/"
-            target="_blank"
-            rel="noopener noreferrer"
-            className="text-xs text-gray-400 dark:text-gray-500 hover:text-[#2196F3] dark:hover:text-[#2196F3] transition-colors"
-          >
-            LinkedIn
-          </a>
-          <a
-            href="https://github.com/jzhao234"
-            target="_blank"
-            rel="noopener noreferrer"
-            className="text-xs text-gray-400 dark:text-gray-500 hover:text-[#2196F3] dark:hover:text-[#2196F3] transition-colors"
-          >
-            GitHub
-          </a>
+          {footerLinks.map(({ href, label }) => (
+            <a
+              key={href}
+              href={href}
+              target="_blank"
+              rel="noopener noreferrer"
+              className="text-[13px] text-subtle hover:text-accent transition-colors cursor-pointer"
+            >
+              {label}
+            </a>
+          ))}
           <a
             href="/files/Junhao_Zhao_Resume.pdf"
             download="ZhaoJunhaoResume.pdf"
-            className="text-xs text-gray-400 dark:text-gray-500 hover:text-[#2196F3] dark:hover:text-[#2196F3] transition-colors"
+            className="text-[13px] text-subtle hover:text-accent transition-colors cursor-pointer"
           >
             Resume
           </a>

@@ -1,6 +1,10 @@
 # Portfolio Design & Content Reference
 
 Internal spec for keeping the site consistent as it evolves.
+
+> For **adding a project or experience**, read
+> [ADDING-CONTENT.md](./ADDING-CONTENT.md) as well — it covers the data
+> files, the skills registry, and the rule against inventing facts.
 Source of truth: `src/app/page.tsx` (homepage).
 
 ---
@@ -39,35 +43,56 @@ The aesthetic is: working engineer's GitHub README, not a Dribbble showcase.
 2. **Recruiter scanability.** Assume 20 seconds of attention. The most important info must be visible without scrolling or clicking.
 3. **Restraint.** Every element earns its place. When in doubt, remove it.
 4. **Consistency.** Repeating the same card, spacing, and color patterns makes the site feel finished.
-5. **No dashboard feel.** This is not a SaaS product. Filter controls, toggle menus, and accordion UX belong in apps, not portfolios.
+5. **No dashboard feel.** This is not a SaaS product. Inline filtering is fine and is used on `/projects` and `/experiences` — but it must stay a quiet, always-visible row. Toggle panels, hamburger-driven filter menus, and sort dropdowns are what create the dashboard feel; those stay out.
 6. **Dark-first.** Dark mode is the default experience. Light mode should also look good but is secondary.
 
 ---
 
 ## Visual System
 
-### Colors
+**Updated 2026-07-27 — "cool technical dark" redesign.**
 
-| Token | Value | Use |
-|---|---|---|
-| Accent | `#2196F3` | Buttons, top borders, links, highlights |
-| Accent hover | `#1976D2` | Hover state for filled blue buttons |
-| Accent tint | `#2196F3` at 10% opacity | Skill tags, badge backgrounds, tint surfaces |
-| Border default | `border-gray-200 dark:border-white/10` | Card edges, dividers |
-| Border accent | `border-t-2 border-t-[#2196F3]` | Top accent on featured cards |
-| Text primary | default (inherits) | Headings, body |
-| Text secondary | `text-gray-600 dark:text-gray-400` | Descriptions, body copy |
-| Text muted | `text-gray-400 dark:text-gray-500` | Dates, labels, supporting text |
-| Background card | `bg-gray-50 dark:bg-white/5` | Image wells, card insets |
-| Status green | `bg-green-400 dark:bg-green-500` | Availability dot |
+All color and font values live as tokens in `src/app/globals.css`. Components
+reference tokens only — never a raw hex value. Changing the site's look means
+changing that token block plus the two font imports in `layout.tsx`, nothing else.
 
-**Do not use `#1E90FF`.** The old pages use it. Unify everything to `#2196F3`.
+### Tokens
 
-### Dark mode backgrounds
+| Token | Tailwind class | Dark (default) | Light | Use |
+|---|---|---|---|---|
+| canvas | `bg-canvas` | `#0A0F16` | `#FBFCFD` | page background |
+| surface | `bg-surface` | `#111926` | `#FFFFFF` | cards, raised panels |
+| raised | `bg-raised` | `#16202F` | `#F4F7FA` | image wells, insets |
+| line | `border-line` | `#1F2C3D` | `#E2E8F0` | hairlines, card edges |
+| line-strong | `border-line-strong` | `#2B3B50` | `#CBD5E1` | emphasized borders, bullets |
+| content | `text-content` | `#E9EEF5` | `#0D1521` | headings, primary text |
+| muted | `text-muted` | `#94A5BA` | `#4B5B6E` | body copy, descriptions |
+| subtle | `text-subtle` | `#64748B` | `#64748B` | dates, labels, metadata |
+| accent | `text-accent` / `bg-accent` | `#4D9CFF` | `#1B6DE0` | links, active nav, primary CTA |
+| accent-hover | `bg-accent-hover` | `#7DB6FF` | `#1552B0` | accent hover |
+| accent-contrast | `text-accent-contrast` | `#06111F` | `#FFFFFF` | text on a filled accent button |
+| positive | `bg-positive` | `#34D399` | `#059669` | availability dot |
 
-- Page background: handled by layout/body (no explicit bg class needed on content containers)
-- Navbar/footer: `dark:bg-[#151516]`
-- Card surfaces: `dark:bg-white/5` or `dark:bg-[#131213]` (prefer `dark:bg-white/5` going forward)
+Each accent is contrast-checked against its own canvas at 4.5:1 or better.
+
+Skill-tag category colors live in `src/utils/SkillCategoryColor.ts` and carry
+their own light/dark pair (`-700` in light, `-400` in dark) for the same reason.
+
+**Do not** reintroduce `#2196F3`, `#1E90FF`, `#1976D2`, `#151516`, or bare
+`gray-*` utilities. They were retired in this redesign.
+
+### Theme strategy
+
+Dark is the designed default; light is the override applied when `<html>` does
+not carry `.dark`. An inline script in `layout.tsx` applies the stored theme
+before first paint, so light never flashes on load.
+
+### Signature motif — the signal rule
+
+A hairline that ignites at the accent and decays into nothing (`.signal-rule`,
+plus `.signal-rule-reverse` for the mirrored direction). It appears in exactly
+three places: beside a section label, under the sticky navbar, and above the
+footer. It loses its meaning if it decorates anything else.
 
 ---
 
@@ -97,19 +122,24 @@ Long text blocks (descriptions, bios, coursework) cap at `max-w-lg` to keep line
 
 ## Typography
 
+- **Display / headings:** Space Grotesk (`font-display`), weight 700.
+- **Body:** Plus Jakarta Sans (`font-sans`) — the default on `body`.
+- **Mono:** Geist Mono (`font-mono`) — section labels, dates, category labels,
+  the availability line, the footer copyright. Mono is the instrument-panel
+  voice: metadata only, never body copy.
+- Loaded via `next/font/google` in `layout.tsx` — never a CSS `@import`.
+
 | Element | Classes |
 |---|---|
-| Page H1 (hero name) | `text-4xl sm:text-5xl font-bold tracking-tight` |
-| Section heading | `text-xs font-semibold uppercase tracking-widest text-gray-500 dark:text-gray-400` |
-| Card title (project, experience) | `font-bold` or `font-semibold` |
-| Body / description | `text-sm text-gray-600 dark:text-gray-400 leading-relaxed` |
-| Supporting / muted | `text-sm text-gray-400 dark:text-gray-500` |
-| Micro label / tag | `text-xs` |
-| Tech stack line under bio | `text-xs text-gray-400 dark:text-gray-500 tracking-wide` |
+| Hero H1 | `font-display text-4xl sm:text-5xl font-bold tracking-tight` |
+| Subpage H1 | `font-display text-3xl font-bold tracking-tight` |
+| Section label | `font-mono text-[12px] font-medium uppercase tracking-[0.18em] text-subtle` |
+| Card / entry title | `font-display text-[18px] font-bold text-content` |
+| Body / description | `text-[15px] text-muted leading-relaxed` |
+| Meta (dates, labels) | `font-mono text-[12px] text-subtle` |
 
-- Use system font stack (Next.js default). No custom fonts unless there is a strong reason.
-- Avoid `font-thin` or `font-light` — it reads poorly in dark mode on most screens.
-- No decorative italic or all-caps body text.
+- Avoid `font-thin` / `font-light` — they read poorly on the dark canvas.
+- No decorative italic. All-caps is reserved for mono labels only.
 
 ---
 
@@ -121,10 +151,10 @@ Every major section uses the `SectionLabel` component:
 function SectionLabel({ children }: { children: ReactNode }) {
   return (
     <div className="flex items-center gap-4 mb-8">
-      <h2 className="text-xs font-semibold uppercase tracking-widest text-gray-500 dark:text-gray-400 whitespace-nowrap">
+      <h2 className="text-xs font-semibold uppercase tracking-widest text-muted whitespace-nowrap">
         {children}
       </h2>
-      <div className="flex-1 h-px bg-gray-200 dark:bg-white/10" />
+      <div className="flex-1 h-px bg-line" />
     </div>
   );
 }
@@ -142,13 +172,13 @@ function SectionLabel({ children }: { children: ReactNode }) {
 ### Standard card
 
 ```
-border border-gray-200 dark:border-white/10 rounded-xl overflow-hidden
+border border-line rounded-xl overflow-hidden
 ```
 
 ### Featured card (project cards on homepage)
 
 ```
-border border-gray-200 dark:border-white/10 border-t-2 border-t-[#2196F3] rounded-xl overflow-hidden
+border border-line border-t-2 border-t-accent rounded-xl overflow-hidden
 ```
 
 The blue top border signals importance without adding loud badges or labels.
@@ -156,7 +186,7 @@ The blue top border signals importance without adding loud badges or labels.
 ### Image well inside card
 
 ```
-bg-gray-50 dark:bg-white/5 p-4
+bg-raised p-4
 ```
 
 ### Card rules
@@ -194,7 +224,7 @@ For clickable cards (project cards, experience items that link somewhere):
 ### Primary (filled)
 
 ```
-px-4 py-2 rounded-lg bg-[#2196F3] text-white text-sm font-medium hover:bg-[#1976D2] transition-colors
+px-4 py-2 rounded-lg bg-accent text-white text-sm font-medium hover:bg-accent-hover transition-colors
 ```
 
 Use for the main action in a section (e.g., LinkedIn in hero, LinkedIn in CTA).
@@ -202,7 +232,7 @@ Use for the main action in a section (e.g., LinkedIn in hero, LinkedIn in CTA).
 ### Secondary (ghost border)
 
 ```
-px-4 py-2 rounded-lg border border-gray-300 dark:border-white/20 text-sm font-medium hover:border-[#2196F3] hover:text-[#2196F3] transition-colors
+px-4 py-2 rounded-lg border border-line text-sm font-medium hover:border-accent hover:text-accent transition-colors
 ```
 
 Use for supporting actions (GitHub, Resume).
@@ -210,7 +240,7 @@ Use for supporting actions (GitHub, Resume).
 ### Compact utility (inside cards)
 
 ```
-px-3 py-1 text-xs font-medium rounded-md border border-gray-200 dark:border-white/15 text-gray-500 dark:text-gray-400 hover:border-[#2196F3] hover:text-[#2196F3] transition-colors
+px-3 py-1 text-xs font-medium rounded-md border border-line text-muted hover:border-accent hover:text-accent transition-colors
 ```
 
 For GitHub / Live Demo links inside project cards.
@@ -218,7 +248,7 @@ For GitHub / Live Demo links inside project cards.
 ### Compact accent (demo variant)
 
 ```
-px-3 py-1 text-xs font-medium rounded-md bg-[#2196F3]/10 text-[#2196F3] hover:bg-[#2196F3]/20 transition-colors
+px-3 py-1 text-xs font-medium rounded-md bg-accent/10 text-accent hover:bg-accent/20 transition-colors
 ```
 
 Use for Live Demo only — it draws slightly more attention than the GitHub button.
@@ -236,7 +266,7 @@ Use for Live Demo only — it draws slightly more attention than the GitHub butt
 ```tsx
 function SkillTag({ children }: { children: ReactNode }) {
   return (
-    <span className="px-2.5 py-0.5 text-xs rounded-full bg-gray-100 dark:bg-white/10 text-gray-600 dark:text-gray-300">
+    <span className="px-2.5 py-0.5 text-xs rounded-full bg-raised text-muted">
       {children}
     </span>
   );
@@ -247,16 +277,36 @@ function SkillTag({ children }: { children: ReactNode }) {
 
 - Use `SkillTag` for all skill/tech labels on homepage.
 - On project cards, cap at 5 skills: `project.skills.slice(0, 5)`.
-- Do not use pills as navigation. Do not use pills as filter controls on primary pages.
-- Do not highlight or color-code individual skill pills on the homepage — the muted style is intentional.
+- Do not use pills as navigation. Filter pills are allowed on `/projects` and `/experiences`, but never on the homepage — see Filter Row Pattern.
+- Skill pills are category-colored via `SkillCategoryColor`, which carries a light/dark pair per category. Keep them quiet in weight: they support the card, never dominate it.
 - Pills should support, not dominate. If the pills are the most visible thing on a card, reduce them.
+
+---
+
+## Filter Row Pattern
+
+Used on `/projects` and `/experiences` only — never the homepage.
+
+- Sits directly beneath the page header, above the content grid.
+- Always visible. No toggle, no panel, no hamburger, no sort dropdown.
+- Label: `font-mono text-[12px] uppercase tracking-[0.14em] text-subtle`, reading `Filter:`.
+- Unselected pill: `border border-line text-subtle hover:text-content hover:border-line-strong`.
+- Selected pill: the skill'scategory color (`colors.bg` + `colors.text`) plus
+  `border border-transparent font-medium`. The transparent border is required —
+  without it the pill loses 1px on toggle and the row reflows.
+- Selecting does not hide anything. It re-sorts matches to the front and dims
+  non-matches to `opacity-40`, so the full set stays browsable.
+- A `Clear` text button appears only while a filter is active.
+
+Rationale: filtering earns its place on pages that list everything, and dimming
+rather than hiding keeps it from feeling like a database query.
 
 ---
 
 ## Section-Level "View All" Links
 
 ```
-<Link href="/projects" className="text-sm text-[#2196F3] hover:underline">
+<Link href="/projects" className="text-sm text-accent hover:underline">
   View all projects →
 </Link>
 ```
@@ -285,8 +335,8 @@ function SkillTag({ children }: { children: ReactNode }) {
 
 - Page container: `max-w-5xl mx-auto px-6 py-8` (align with homepage)
 - Section structure should follow `SectionLabel` pattern
-- Replace `blueBorder` class usage with explicit `border border-gray-200 dark:border-white/10 rounded-xl`
-- Replace `#1E90FF` with `#2196F3` throughout
+- Replace `blueBorder` class usage with explicit `border border-line rounded-xl`
+- Use the accent token (`text-accent` / `bg-accent`) throughout
 - Skills sidebar: use `SkillTag` not `SkillsItem` (which has old styling)
 - Image gallery: keep, it's a useful proof of work
 - GitHub / Demo links: compact utility button style, top of page near title
@@ -295,14 +345,11 @@ function SkillTag({ children }: { children: ReactNode }) {
 
 ## Projects Page Rules
 
-The current `/projects` page (`ProjectCard.tsx`) uses a filter/sort panel with a hamburger toggle. This creates a dashboard feel that is inappropriate for a portfolio.
-
-**Direction for future refactor:**
-- Remove or significantly downsize the filter UI
-- Use a simple `grid-cols-1 sm:grid-cols-2 lg:grid-cols-3` layout
-- Cards should match homepage card style: bordered, `rounded-xl`, blue top border
-- If filtering is kept at all, use a compact row of plain text filter buttons, not a toggle panel
-- No hamburger menu on the projects page — that pattern is for navigation, not filter controls
+- Page header: `font-display text-3xl font-bold tracking-tight` + `.signal-rule` beneath.
+- Filter row directly under the header — see Filter Row Pattern. Keep it.
+- Grid: `grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-5`.
+- Cards match the homepage card pattern: `bg-surface border border-line rounded-xl`, hover to `border-accent/50`.
+- No hamburger menu and no sort dropdown on this page — navigation patterns only.
 
 ---
 
@@ -310,7 +357,7 @@ The current `/projects` page (`ProjectCard.tsx`) uses a filter/sort panel with a
 
 - Show 2 most relevant entries only on homepage
 - Format: title + date row, org below, bullets with `–` prefix
-- Date right-aligned, muted (`text-gray-400 dark:text-gray-500`)
+- Date right-aligned, muted (`text-subtle`)
 - Bullets: `text-sm`, one line each if possible, impact-focused
 - "View full experience →" link below
 
@@ -318,15 +365,12 @@ The current `/projects` page (`ProjectCard.tsx`) uses a filter/sort panel with a
 
 ## Experience Page Rules
 
-The current `/experiences` page uses an accordion-expand pattern with a sort filter. This is overly complex for a portfolio.
-
-**Direction for future refactor:**
-- Drop the sort/filter panel entirely — recruiters don't filter experience
-- Use a flat chronological list, no accordion
+- Page header and filter row match `/projects` exactly — see Filter Row Pattern. Keep the filter.
+- Prefer a flat list: bullets should be visible by default, not hidden behind an accordion.
 - Show all bullets for every entry (recruiters read résumés linearly)
 - Logo + title + date + location + bullets, consistent with homepage experience style
 - Replace `ExperienceItem` accordion pattern with a simple static component
-- Replace `#1E90FF` with `#2196F3`
+- Use the accent token (`text-accent` / `bg-accent`)
 
 ---
 
@@ -334,7 +378,7 @@ The current `/experiences` page uses an accordion-expand pattern with a sort fil
 
 - Temple University: logo + degree + location + years + relevant coursework
 - Central High School: same `flex items-start gap-4` layout with a `w-10 h-10` spacer div (no logo), muted text only
-- High school stays visually quieter: `text-gray-400 dark:text-gray-500` for both name and location/years
+- High school stays visually quieter: `text-subtle` for both name and location/years
 - No extra details for high school (no activities, clubs, honors) — one line each is enough
 - Do not add an education page unless there is a strong reason. The homepage section is sufficient.
 
@@ -343,10 +387,10 @@ The current `/experiences` page uses an accordion-expand pattern with a sort fil
 ## Hero Section Rules
 
 - Profile photo: `width={160} height={160}`, `rounded-2xl`
-- Photo border: `border border-gray-200 dark:border-white/10`
+- Photo border: `border border-line`
 - Name: `text-4xl sm:text-5xl font-bold tracking-tight`
 - Tagline: 2–3 sentences max. CS student → what I build → most recent significant project. No buzzwords.
-- Tech stack line: `text-xs text-gray-400` with `·` separator. Supporting detail, not the headline.
+- Tech stack labels: `font-mono text-[12px] uppercase tracking-[0.1em] text-subtle`. Supporting detail, not the headline.
 - Availability dot: `w-2 h-2 rounded-full bg-green-400`, followed by one short availability line
 - Buttons: LinkedIn (filled blue), GitHub (ghost), Resume (ghost) — always in that order
 - Do not use pill badges ("Open to work", "Available") — the green dot + text is enough
@@ -421,7 +465,7 @@ Located at the bottom of the homepage, separated by a top border.
 
 ## Interaction Rules
 
-- Hover states: border color or text color change to `#2196F3`, `transition-colors`
+- Hover states: border or text color change to `accent`, `transition-colors`
 - No scale transforms on hover (avoid `hover:scale-*` — it looks cheap on card grids)
 - No entrance animations, scroll animations, or typing effects
 - No particle backgrounds, gradient blobs, or moving hero elements
@@ -439,7 +483,7 @@ Located at the bottom of the homepage, separated by a top border.
 - Centering everything with `justify-center` on a text-heavy page
 
 **UI anti-patterns**
-- Filter/sort controls on pages that don't need them
+- Filter/sort controls on the homepage, or any filter hidden behind a toggle panel
 - Accordion/expand patterns for content that should be visible by default
 - Hamburger menus for anything other than primary navigation
 - Tooltip-only affordances ("More Details" tooltip on hover only)
@@ -447,10 +491,10 @@ Located at the bottom of the homepage, separated by a top border.
 - Three or more equally loud CTAs in a row
 
 **Visual anti-patterns**
-- Overusing blue outlines (`border-[#2196F3]`) — it loses meaning when everywhere
+- Overusing blue outlines (`border-accent`) — it loses meaning when everywhere
 - Flooding cards with skill pills (cap at 5)
 - `font-thin` in dark mode (illegible on many screens)
-- Mixing `#1E90FF` and `#2196F3` — unify to `#2196F3`
+- Hardcoding any hex instead of using a token
 
 **Copy anti-patterns**
 - Buzzword-heavy bullet points
@@ -478,14 +522,10 @@ Do not add more sections without removing something. The page is close to the ri
 
 ### Projects (`src/app/projects/page.tsx` + `ProjectCard.tsx` + `ProjectItem.tsx`)
 
-Current state: diverged. Uses `#1E90FF`, fixed-width cards, filter/sort dashboard.
+Current state: done. On tokens, `max-w-5xl` container, display-font page header with signal rule, quiet filter row, homepage card pattern.
 
 Needs:
-- Replace `max-w-[95vw]` container with `max-w-5xl mx-auto px-6 py-8`
-- Remove or simplify filter UI
-- Replace `ProjectItem` card with homepage card pattern
-- Unify accent color to `#2196F3`
-- `SectionLabel` for "Projects" heading
+- Nothing outstanding. `ProjectItem.tsx` is dead code and should be deleted.
 
 ### Project Detail (`src/app/projects/[selectedProject]/page.tsx`)
 
@@ -494,20 +534,18 @@ Current state: partially functional, older styling.
 Needs:
 - Container alignment: `max-w-5xl mx-auto px-6 py-8`
 - Replace `blueBorder` with explicit border classes
-- Replace `#1E90FF` with `#2196F3`
+- Use the accent token (`text-accent` / `bg-accent`)
 - `SectionLabel` for subsections (Overview, Skills, etc.)
 - Consider flattening the two-column layout to a single column on smaller screens
 
 ### Experience (`src/app/experiences/page.tsx` + `ExperienceCard.tsx` + `ExperienceItem.tsx`)
 
-Current state: diverged. Filter/sort panel, accordion UX, `#1E90FF`.
+Current state: on tokens, `max-w-5xl` container, display-font page header with signal rule, quiet filter row.
 
 Needs:
-- Remove filter/sort panel entirely
-- Replace accordion with flat list
-- Match homepage experience item style
-- Replace `#1E90FF` with `#2196F3`
-- Container: `max-w-5xl mx-auto px-6 py-8`
+- Nothing outstanding. `ExperienceItem` is already a flat list with all bullets
+  visible; the accordion described in older revisions of this document no longer
+  exists in the code.
 
 ### Education
 

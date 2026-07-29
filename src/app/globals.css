@@ -1,40 +1,118 @@
 @import "tailwindcss";
 @custom-variant dark (&:where(.dark, .dark *));
 
+/* ─────────────────────────────────────────────────────────────
+   BRAND TOKENS
+
+   Dark is the designed default; light is the override applied
+   when the root element does not carry `.dark`.
+
+   Components reference tokens only — never a raw hex value.
+   Changing the look means changing this block and the two font
+   imports in layout.tsx. Nothing else.
+   ───────────────────────────────────────────────────────────── */
+
 :root {
-  --background: #ffffff;
-  --foreground: #171717;
+  --canvas: #0a0f16;
+  --surface: #111926;
+  --raised: #16202f;
+  --line: #1f2c3d;
+  --line-strong: #2b3b50;
+  --content: #e9eef5;
+  --muted: #94a5ba;
+  --subtle: #64748b;
+  --accent: #4d9cff;
+  --accent-hover: #7db6ff;
+  --accent-tint: rgb(77 156 255 / 0.12);
+  --accent-contrast: #06111f;
+  --positive: #34d399;
+}
+
+:root:not(.dark) {
+  --canvas: #fbfcfd;
+  --surface: #ffffff;
+  --raised: #f4f7fa;
+  --line: #e2e8f0;
+  --line-strong: #cbd5e1;
+  --content: #0d1521;
+  --muted: #4b5b6e;
+  --subtle: #64748b;
+  --accent: #1b6de0;
+  --accent-hover: #1552b0;
+  --accent-tint: rgb(27 109 224 / 0.09);
+  --accent-contrast: #ffffff;
+  --positive: #059669;
 }
 
 @theme inline {
-  --color-background: var(--background);
-  --color-foreground: var(--foreground);
-  --font-sans: var(--font-geist-sans);
+  --color-canvas: var(--canvas);
+  --color-surface: var(--surface);
+  --color-raised: var(--raised);
+  --color-line: var(--line);
+  --color-line-strong: var(--line-strong);
+  --color-content: var(--content);
+  --color-muted: var(--muted);
+  --color-subtle: var(--subtle);
+  --color-accent: var(--accent);
+  --color-accent-hover: var(--accent-hover);
+  --color-accent-tint: var(--accent-tint);
+  --color-accent-contrast: var(--accent-contrast);
+  --color-positive: var(--positive);
+
+  --font-display: var(--font-space-grotesk);
+  --font-sans: var(--font-jakarta);
   --font-mono: var(--font-geist-mono);
 }
 
-@media (prefers-color-scheme: dark) {
-  :root {
-    --background: #0a0a0a;
-    --foreground: #ededed;
-  }
-}
-
-@layer components {
-  .card {
-    @apply border-2 border-[#1E90FF]/20 rounded-xl m-3 sm:m-10 p-5;
-  }
-  .blueBorder {
-    @apply border-2 border-[#1E90FF]/20
-  }
-}
-
 body {
-  background: var(--background);
-  color: var(--foreground);
-  font-family: Arial, Helvetica, sans-serif;
+  background: var(--canvas);
+  color: var(--content);
+  font-family: var(--font-jakarta), system-ui, sans-serif;
 }
 
-.luckiest {
-  font-family: var(--font-luckiest);
+/* ─────────────────────────────────────────────────────────────
+   SIGNATURE MOTIF — the signal rule
+
+   A hairline that ignites at the accent and decays into nothing.
+   Reserved for three places only: beside a section label, above
+   the footer, and under the sticky navbar. It stops meaning
+   anything if it decorates everything.
+   ───────────────────────────────────────────────────────────── */
+
+.signal-rule {
+  height: 1px;
+  background: linear-gradient(
+    90deg,
+    var(--accent) 0%,
+    color-mix(in srgb, var(--accent) 35%, transparent) 8%,
+    var(--line) 32%,
+    transparent 100%
+  );
+}
+
+.signal-rule-reverse {
+  height: 1px;
+  background: linear-gradient(
+    270deg,
+    var(--accent) 0%,
+    color-mix(in srgb, var(--accent) 35%, transparent) 8%,
+    var(--line) 32%,
+    transparent 100%
+  );
+}
+
+/* Keyboard focus is always visible, on any surface. */
+:where(a, button, input, textarea, select, [tabindex]):focus-visible {
+  outline: 2px solid var(--accent);
+  outline-offset: 2px;
+  border-radius: 4px;
+}
+
+@media (prefers-reduced-motion: reduce) {
+  *,
+  *::before,
+  *::after {
+    animation-duration: 0.01ms !important;
+    transition-duration: 0.01ms !important;
+  }
 }

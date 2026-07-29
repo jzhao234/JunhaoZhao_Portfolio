@@ -3,10 +3,10 @@ import highlightSkillsInText from "../Utilities/HighlightSkillsInText";
 function SectionLabel({ children }: { children: string }) {
   return (
     <div className="flex items-center gap-3 mb-3">
-      <h2 className="text-[16px] font-semibold text-gray-800 dark:text-gray-200 whitespace-nowrap">
+      <h2 className="font-display text-[17px] font-bold text-content whitespace-nowrap">
         {children}
       </h2>
-      <div className="flex-1 h-px bg-gray-200 dark:bg-white/10" />
+      <div className="flex-1 h-px bg-line" />
     </div>
   );
 }
@@ -15,9 +15,9 @@ function DashList({ items }: { items: string[] }) {
   return (
     <ul className="space-y-1.5">
       {items.map((item, i) => (
-        <li key={i} className="flex gap-2.5 items-start text-[16px] text-gray-600 dark:text-gray-300 leading-relaxed">
+        <li key={i} className="flex gap-2.5 items-start text-[16px] text-muted leading-relaxed">
           <span className="flex-shrink-0 mt-[10px]">
-            <svg width="4" height="4" viewBox="0 0 4 4" fill="currentColor" className="text-gray-400" aria-hidden="true">
+            <svg width="4" height="4" viewBox="0 0 4 4" fill="currentColor" className="text-subtle" aria-hidden="true">
               <circle cx="2" cy="2" r="2" />
             </svg>
           </span>
@@ -34,7 +34,7 @@ export function Overview({ overview }: OverviewProp) {
   return (
     <div>
       <SectionLabel>Overview</SectionLabel>
-      <p className="text-[16px] text-gray-600 dark:text-gray-300 leading-relaxed whitespace-pre-line">{highlightSkillsInText(overview)}</p>
+      <p className="text-[16px] text-muted leading-relaxed whitespace-pre-line">{highlightSkillsInText(overview)}</p>
     </div>
   );
 }
@@ -45,7 +45,7 @@ export function Problem({ problem }: ProblemProp) {
   return (
     <div>
       <SectionLabel>Problem</SectionLabel>
-      <p className="text-[16px] text-gray-600 dark:text-gray-300 leading-relaxed whitespace-pre-line">{highlightSkillsInText(problem)}</p>
+      <p className="text-[16px] text-muted leading-relaxed whitespace-pre-line">{highlightSkillsInText(problem)}</p>
     </div>
   );
 }
@@ -56,7 +56,7 @@ export function Solution({ solution }: SolutionProp) {
   return (
     <div>
       <SectionLabel>Solution</SectionLabel>
-      <p className="text-[16px] text-gray-600 dark:text-gray-300 leading-relaxed whitespace-pre-line">{highlightSkillsInText(solution)}</p>
+      <p className="text-[16px] text-muted leading-relaxed whitespace-pre-line">{highlightSkillsInText(solution)}</p>
     </div>
   );
 }
@@ -99,7 +99,7 @@ export function Features({ features }: FeaturesProp) {
   if (!features || features.length === 0) return null;
   return (
     <div>
-      <h2 className="text-[16px] font-semibold text-gray-800 dark:text-gray-200 mb-3">
+      <h2 className="font-display text-[17px] font-bold text-content mb-3">
         Key Features
       </h2>
       <DashList items={features} />

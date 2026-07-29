@@ -29,7 +29,7 @@ export default function ImageGallery({ images }: { images: string[] }) {
         {/* Main image */}
         <button
           onClick={() => setZoomed(true)}
-          className="group border border-gray-200 dark:border-white/10 rounded-xl overflow-hidden bg-gray-50 dark:bg-white/5 relative w-full aspect-[16/9] cursor-zoom-in"
+          className="group border border-line rounded-xl overflow-hidden bg-raised relative w-full aspect-[16/9] cursor-zoom-in"
           aria-label="Zoom image"
         >
           <Image
@@ -51,10 +51,10 @@ export default function ImageGallery({ images }: { images: string[] }) {
               <button
                 key={i}
                 onClick={() => setSelectedImage(i)}
-                className={`flex-shrink-0 border rounded-md overflow-hidden transition-colors bg-gray-50 dark:bg-white/5 relative w-32 h-16 ${
+                className={`flex-shrink-0 border rounded-md overflow-hidden transition-colors bg-raised relative w-32 h-16 ${
                   selectedImage === i
-                    ? "border-[#2196F3]"
-                    : "border-gray-200 dark:border-white/10 hover:border-gray-400 dark:hover:border-white/20"
+                    ? "border-accent"
+                    : "border-line hover:border-line-strong"
                 }`}
               >
                 <Image

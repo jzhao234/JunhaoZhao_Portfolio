@@ -39,7 +39,7 @@ export default async function SelectedProjectPage({ params }: SelectedProjectPro
       {/* Back link */}
       <Link
         href="/projects"
-        className="inline-flex items-center gap-1 text-[15px] text-[#2196F3] hover:underline transition-colors mb-6"
+        className="inline-flex items-center gap-1 text-[15px] text-accent hover:underline transition-colors mb-6"
       >
         <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2.5" strokeLinecap="round" strokeLinejoin="round" aria-hidden="true">
           <polyline points="15 18 9 12 15 6" />
@@ -49,7 +49,7 @@ export default async function SelectedProjectPage({ params }: SelectedProjectPro
 
       {/* Title + actions */}
       <div className="flex flex-col sm:flex-row sm:items-center sm:justify-between gap-3 mb-6">
-        <h1 className="text-2xl font-bold tracking-tight text-gray-900 dark:text-white">{project.name}</h1>
+        <h1 className="font-display text-3xl font-bold tracking-tight text-content">{project.name}</h1>
         <div className="flex gap-2 flex-shrink-0">
           <DemoLink demoLink={project.demoLink} />
           <GithubLink githubLink={project.githubLink} />
@@ -78,7 +78,7 @@ export default async function SelectedProjectPage({ params }: SelectedProjectPro
           {/* Skills */}
           {project.skills.length > 0 && (
             <div>
-              <h2 className="text-[16px] font-semibold text-gray-800 dark:text-gray-200 mb-3">
+              <h2 className="font-display text-[17px] font-bold text-content mb-3">
                 Skills
               </h2>
               <div className="flex flex-wrap gap-1.5">

@@ -8,15 +8,19 @@ import skillCategory from "../utils/skillCategory";
 import highlightSkillsInText from "../components/Utilities/HighlightSkillsInText";
 import SkillCategoryColor from "../utils/SkillCategoryColor";
 
-const techStack = categoryOrder.map((key) => ({
-  category: categoryLabels[key],
-  skills: [...skills.filter((s) => s.category === key)].sort((a, b) => {
-    if (a.importance !== undefined && b.importance !== undefined) return a.importance - b.importance;
-    if (a.importance !== undefined) return -1;
-    if (b.importance !== undefined) return 1;
-    return 0;
-  }).map((s) => s.name),
-})).filter(({ skills }) => skills.length > 0);
+const techStack = categoryOrder
+  .map((key) => ({
+    category: categoryLabels[key],
+    skills: [...skills.filter((s) => s.category === key)]
+      .sort((a, b) => {
+        if (a.importance !== undefined && b.importance !== undefined) return a.importance - b.importance;
+        if (a.importance !== undefined) return -1;
+        if (b.importance !== undefined) return 1;
+        return 0;
+      })
+      .map((s) => s.name),
+  }))
+  .filter(({ skills }) => skills.length > 0);
 
 export default function Home() {
   const featuredProjects = [...projects]
@@ -28,7 +32,7 @@ export default function Home() {
     .sort((a, b) => (a.importance ?? 0) - (b.importance ?? 0));
 
   return (
-    <div className="max-w-5xl mx-auto px-6 py-8 space-y-12">
+    <div className="max-w-5xl mx-auto px-6 py-12 sm:py-16 space-y-16">
 
       {/* ── Hero ── */}
       <section className="flex flex-col sm:flex-row items-start gap-8">
@@ -37,43 +41,38 @@ export default function Home() {
           alt="Junhao Zhao"
           width={210}
           height={210}
-          className="rounded-2xl flex-shrink-0 border border-gray-200 dark:border-white/10"
+          priority
+          className="rounded-2xl flex-shrink-0 border border-line"
         />
         <div>
-          <h1 className="text-4xl sm:text-5xl font-bold tracking-tight">Junhao Zhao</h1>
-          <p className="mt-3 text-base sm:text-lg text-gray-600 dark:text-gray-300 leading-relaxed max-w-lg">
-            Backend-leaning software engineer building APIs, data-intensive applications, and research tools. Most recently, I built software for drug synergy analysis at Fox Chase Cancer Center using Python, FastAPI, and scientific visualization.          </p>
-          <div className="mt-3 flex items-center gap-2 text-[15px] text-gray-500 dark:text-gray-400">
-            <span className="w-2 h-2 rounded-full bg-green-400 dark:bg-green-500 flex-shrink-0" />
+          <h1 className="font-display text-4xl sm:text-5xl font-bold tracking-tight text-content">
+            Junhao Zhao
+          </h1>
+          <p className="mt-4 text-[17px] text-muted leading-relaxed max-w-xl">
+            Backend-leaning software engineer building APIs, data-intensive applications, and
+            research tools. Most recently, I built software for drug synergy analysis at Fox Chase
+            Cancer Center using Python, FastAPI, and scientific visualization.
+          </p>
+          <div className="mt-4 flex items-start gap-2.5 font-mono text-[13px] text-subtle">
+            <span className="relative flex h-2 w-2 flex-shrink-0 mt-[5px]">
+              <span className="absolute inline-flex h-full w-full rounded-full bg-positive opacity-60" />
+              <span className="relative inline-flex h-2 w-2 rounded-full bg-positive" />
+            </span>
             Seeking full-time backend and software engineering roles
           </div>
-          <div className="flex flex-wrap gap-3 mt-5">
-            <a
-              href="https://www.linkedin.com/in/junhao-zhao/"
-              target="_blank"
-              rel="noopener noreferrer"
-              className="group inline-flex items-center gap-2 px-4 py-2 rounded-lg border border-gray-300 dark:border-white/20 text-sm font-medium hover:border-[#2196F3] hover:text-[#2196F3] transition-colors"
-            >
-              <span className="transition-transform duration-200 group-hover:scale-150"><LinkedInIcon /></span>
+          <div className="flex flex-wrap gap-3 mt-6">
+            <GhostLink href="https://www.linkedin.com/in/junhao-zhao/" external>
+              <LinkedInIcon />
               LinkedIn
-            </a>
-            <a
-              href="https://github.com/jzhao234"
-              target="_blank"
-              rel="noopener noreferrer"
-              className="group inline-flex items-center gap-2 px-4 py-2 rounded-lg border border-gray-300 dark:border-white/20 text-sm font-medium hover:border-[#2196F3] hover:text-[#2196F3] transition-colors"
-            >
-              <span className="transition-transform duration-200 group-hover:scale-150"><GitHubIcon /></span>
+            </GhostLink>
+            <GhostLink href="https://github.com/jzhao234" external>
+              <GitHubIcon />
               GitHub
-            </a>
-            <a
-              href="/files/Junhao_Zhao_Resume.pdf"
-              download="ZhaoJunhaoResume.pdf"
-              className="group inline-flex items-center gap-2 px-4 py-2 rounded-lg border border-gray-300 dark:border-white/20 text-sm font-medium hover:border-[#2196F3] hover:text-[#2196F3] transition-colors"
-            >
-              <span className="transition-transform duration-200 group-hover:scale-150"><ResumeIcon /></span>
+            </GhostLink>
+            <GhostLink href="/files/Junhao_Zhao_Resume.pdf" download="ZhaoJunhaoResume.pdf">
+              <ResumeIcon />
               Resume
-            </a>
+            </GhostLink>
           </div>
         </div>
       </section>
@@ -81,10 +80,13 @@ export default function Home() {
       {/* ── Tech Stack ── */}
       <section>
         <SectionLabel>Tech Stack</SectionLabel>
-        <div className="space-y-3">
+        <div className="space-y-3.5">
           {techStack.map(({ category, skills }) => (
-            <div key={category} className="flex flex-col sm:flex-row sm:items-baseline gap-y-1 sm:gap-x-4">
-              <span className="text-[16px] text-gray-600 dark:text-gray-400 sm:w-32 sm:flex-shrink-0">
+            <div
+              key={category}
+              className="flex flex-col sm:flex-row sm:items-baseline gap-y-1.5 sm:gap-x-5"
+            >
+              <span className="font-mono text-[12px] uppercase tracking-[0.1em] text-subtle sm:w-36 sm:flex-shrink-0 sm:pt-0.5">
                 {category}
               </span>
               <div className="flex flex-wrap gap-2">
@@ -104,48 +106,49 @@ export default function Home() {
           {featuredProjects.map((project) => (
             <div
               key={project.id}
-              className="group relative flex flex-col border border-gray-200 dark:border-white/10 rounded-xl overflow-hidden transition-all duration-200 hover:border-[#2196F3]/50 dark:hover:border-[#2196F3]/50 hover:shadow-lg dark:hover:shadow-[0_4px_24px_rgba(33,150,243,0.08)]"
+              className="group relative flex flex-col bg-surface border border-line rounded-xl overflow-hidden transition-colors duration-200 hover:border-accent/50"
             >
               <Link
                 href={`/projects/${project.slug}`}
-                className="absolute inset-0 z-10"
+                className="absolute inset-0 z-10 cursor-pointer"
                 aria-label={`View ${project.name} details`}
               />
               {project.images?.[0] && (
-                <div className="bg-gray-50 dark:bg-white/5 p-4 flex-shrink-0">
-                  <div className="relative h-64 rounded overflow-hidden">
+                <div className="bg-raised p-4 flex-shrink-0 border-b border-line">
+                  <div className="relative h-64 rounded-lg overflow-hidden">
                     <Image
                       src={project.images[0]}
                       alt={project.name}
                       fill
-                      className="object-contain transition-transform duration-300 group-hover:scale-[1.03]"
+                      className="object-contain"
                     />
                   </div>
                 </div>
               )}
               <div className="p-5 flex flex-col flex-1">
-                <h3 className="text-[18px] font-bold text-gray-900 dark:text-white">{project.name}</h3>
-                <div className="mt-2 overflow-hidden" style={{ height: 104 }}>
-                  <p className="text-[16px] text-gray-600 dark:text-gray-300 group-hover:text-gray-800 dark:group-hover:text-gray-100 leading-relaxed line-clamp-4 transition-colors">
+                <h3 className="font-display text-[19px] font-bold text-content transition-colors group-hover:text-accent">
+                  {project.name}
+                </h3>
+                <div className="mt-2 min-h-[6.5rem]">
+                  <p className="text-[15px] text-muted leading-relaxed line-clamp-4">
                     {highlightSkillsInText(project.cardDescription)}
                   </p>
                 </div>
                 <div
-                  className="flex flex-wrap items-start gap-1.5 overflow-hidden mt-3"
-                  style={{ height: 58 }}
+                  className="flex flex-wrap items-start gap-1.5 mt-3 min-h-[3.5rem]"
                 >
                   {(project.cardSkills ?? project.skills).map((s, i) => (
                     <ColoredSkillTag key={i}>{s}</ColoredSkillTag>
                   ))}
                 </div>
                 {(project.githubLink || project.demoLink) && (
-                  <div className="relative z-20 flex gap-2 mt-4 pt-3 border-t border-gray-100 dark:border-white/5">
+                  <div className="relative z-20 flex gap-2 mt-4 pt-3.5 border-t border-line">
                     {project.demoLink && (
                       <a
                         href={project.demoLink}
                         target="_blank"
                         rel="noopener noreferrer"
-                        className="inline-flex items-center gap-1.5 px-3 py-1.5 text-[14px] font-medium rounded-md bg-[#2196F3] text-white hover:bg-[#1976D2] transition-colors"
+                        className="inline-flex items-center gap-1.5 px-3 py-1.5 text-[13px] font-medium rounded-md bg-accent text-accent-contrast hover:bg-accent-hover transition-colors cursor-pointer"
                       >
                         <ExternalLinkIcon />
                         Live Demo
@@ -156,7 +159,7 @@ export default function Home() {
                         href={project.githubLink}
                         target="_blank"
                         rel="noopener noreferrer"
-                        className="inline-flex items-center gap-1.5 px-3 py-1.5 text-[14px] font-medium rounded-md border border-gray-200 dark:border-white/15 text-gray-500 dark:text-gray-400 hover:border-[#2196F3] hover:text-[#2196F3] transition-colors"
+                        className="inline-flex items-center gap-1.5 px-3 py-1.5 text-[13px] font-medium rounded-md border border-line text-muted hover:border-accent hover:text-accent transition-colors cursor-pointer"
                       >
                         <GitHubIcon />
                         GitHub
@@ -168,14 +171,7 @@ export default function Home() {
             </div>
           ))}
         </div>
-        <div className="mt-6">
-          <Link href="/projects" className="inline-flex items-center gap-1 text-[16px] text-[#2196F3] hover:underline">
-            View all projects
-            <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2.5" strokeLinecap="round" strokeLinejoin="round" aria-hidden="true">
-              <polyline points="9 18 15 12 9 6" />
-            </svg>
-          </Link>
-        </div>
+        <ViewAllLink href="/projects">View all projects</ViewAllLink>
       </section>
 
       {/* ── Experience ── */}
@@ -185,28 +181,29 @@ export default function Home() {
           {featuredExperiences.map((exp, i) => (
             <div key={i} className="flex gap-5 group">
               {/* Timeline column */}
-              <div className="flex flex-col items-center flex-shrink-0 pt-1.5">
-                <div className="w-2.5 h-2.5 rounded-full border-2 border-[#2196F3] bg-white dark:bg-[#151516] transition-transform duration-200 group-hover:scale-[1.5]" />
+              <div className="flex flex-col items-center flex-shrink-0 pt-2">
+                <div className="w-2.5 h-2.5 rounded-full border-2 border-accent bg-canvas transition-colors duration-200 group-hover:bg-accent" />
                 {i < featuredExperiences.length - 1 && (
-                  <div className="w-px flex-1 mt-1.5 bg-gray-200 dark:bg-white/10" />
+                  <div className="w-px flex-1 mt-1.5 bg-line" />
                 )}
               </div>
               {/* Content */}
-              <div className={`flex-1 ${i < featuredExperiences.length - 1 ? "pb-8" : ""}`}>
-                <div className="rounded-xl px-3 py-2 -mx-3 -my-2 transition-colors duration-200 group-hover:bg-gray-50 dark:group-hover:bg-white/[0.03]">
+              <div className={`flex-1 ${i < featuredExperiences.length - 1 ? "pb-9" : ""}`}>
+                <div className="rounded-xl px-3.5 py-2.5 -mx-3.5 -my-2.5 transition-colors duration-200 group-hover:bg-surface">
                   <div className="flex flex-col sm:flex-row sm:items-baseline sm:justify-between gap-1">
-                    <h3 className="text-[18px] font-semibold text-gray-900 dark:text-white">{exp.title}</h3>
-                    <span className="text-[16px] text-gray-400 dark:text-gray-500 flex-shrink-0">{exp.date}</span>
+                    <h3 className="font-display text-[18px] font-bold text-content">{exp.title}</h3>
+                    <span className="font-mono text-[12px] text-subtle flex-shrink-0 tracking-tight">
+                      {exp.date}
+                    </span>
                   </div>
-                  <p className="text-[16px] text-gray-500 dark:text-gray-500 mt-0.5">{exp.org}</p>
-                  <ul className="mt-2 space-y-1">
+                  <p className="text-[15px] text-subtle mt-1">{exp.org}</p>
+                  <ul className="mt-2.5 space-y-1.5">
                     {exp.bullets.map((b, j) => (
-                      <li key={j} className="text-[16px] text-gray-600 dark:text-gray-300 leading-relaxed flex gap-2.5 items-start">
-                        <span className="flex-shrink-0 mt-[10px]">
-                          <svg width="4" height="4" viewBox="0 0 4 4" fill="currentColor" className="text-gray-400" aria-hidden="true">
-                            <circle cx="2" cy="2" r="2" />
-                          </svg>
-                        </span>
+                      <li
+                        key={j}
+                        className="text-[15px] text-muted leading-relaxed flex gap-2.5 items-start"
+                      >
+                        <span className="flex-shrink-0 mt-[9px] w-1 h-1 rounded-full bg-line-strong" />
                         <span>{highlightSkillsInText(b)}</span>
                       </li>
                     ))}
@@ -216,20 +213,13 @@ export default function Home() {
             </div>
           ))}
         </div>
-        <div className="mt-6">
-          <Link href="/experiences" className="inline-flex items-center gap-1 text-[16px] text-[#2196F3] hover:underline">
-            View full experience
-            <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2.5" strokeLinecap="round" strokeLinejoin="round" aria-hidden="true">
-              <polyline points="9 18 15 12 9 6" />
-            </svg>
-          </Link>
-        </div>
+        <ViewAllLink href="/experiences">View full experience</ViewAllLink>
       </section>
 
       {/* ── Education ── */}
       <section>
         <SectionLabel>Education</SectionLabel>
-        <div className="space-y-4">
+        <div className="space-y-5">
           <div className="flex items-start gap-4">
             <Image
               src="/logo/Temple-Logo-T-Header.svg"
@@ -239,11 +229,11 @@ export default function Home() {
               className="flex-shrink-0 mt-0.5"
             />
             <div>
-              <h3 className="text-[18px] font-semibold text-gray-900 dark:text-white">Temple University</h3>
-              <p className="text-[16px] text-gray-600 dark:text-gray-300">
+              <h3 className="font-display text-[18px] font-bold text-content">Temple University</h3>
+              <p className="text-[15px] text-muted mt-0.5">
                 B.S. Computer Science · Philadelphia, PA · 2022 – Present
               </p>
-              <p className="mt-1 text-[14px] text-gray-500 dark:text-gray-400 leading-relaxed max-w-lg">
+              <p className="mt-1 text-[14px] text-subtle leading-relaxed max-w-lg">
                 Studied abroad at Temple University Japan Campus in Fall 2025
               </p>
             </div>
@@ -257,12 +247,8 @@ export default function Home() {
               className="flex-shrink-0 mt-0.5 rounded"
             />
             <div>
-              <h3 className="text-[16px] font-medium text-gray-800 dark:text-gray-200">
-                Central High School
-              </h3>
-              <p className="text-[14px] text-gray-500 dark:text-gray-400">
-                Philadelphia, PA
-              </p>
+              <h3 className="text-[16px] font-semibold text-muted">Central High School</h3>
+              <p className="text-[14px] text-subtle">Philadelphia, PA</p>
             </div>
           </div>
         </div>
@@ -272,21 +258,73 @@ export default function Home() {
   );
 }
 
+/* ── Shared bits ────────────────────────────────────────────── */
+
 function SectionLabel({ children }: { children: ReactNode }) {
   return (
-    <div className="flex items-center gap-3 mb-8">
-      <h2 className="text-[18px] font-semibold text-gray-900 dark:text-white whitespace-nowrap">
+    <div className="flex items-center gap-4 mb-7">
+      <h2 className="font-mono text-[12px] font-medium uppercase tracking-[0.18em] text-subtle whitespace-nowrap">
         {children}
       </h2>
-      <div className="flex-1 h-px bg-gray-200 dark:bg-white/10" />
+      <div className="flex-1 signal-rule" aria-hidden="true" />
     </div>
   );
 }
 
+function ViewAllLink({ href, children }: { href: string; children: ReactNode }) {
+  return (
+    <div className="mt-7">
+      <Link
+        href={href}
+        className="group inline-flex items-center gap-1.5 text-[15px] font-medium text-accent hover:text-accent-hover transition-colors cursor-pointer"
+      >
+        {children}
+        <svg
+          width="15"
+          height="15"
+          viewBox="0 0 24 24"
+          fill="none"
+          stroke="currentColor"
+          strokeWidth="2.5"
+          strokeLinecap="round"
+          strokeLinejoin="round"
+          aria-hidden="true"
+          className="transition-transform duration-200 group-hover:translate-x-0.5"
+        >
+          <polyline points="9 18 15 12 9 6" />
+        </svg>
+      </Link>
+    </div>
+  );
+}
+
+function GhostLink({
+  href,
+  children,
+  external,
+  download,
+}: {
+  href: string;
+  children: ReactNode;
+  external?: boolean;
+  download?: string;
+}) {
+  return (
+    <a
+      href={href}
+      download={download}
+      target={external ? "_blank" : undefined}
+      rel={external ? "noopener noreferrer" : undefined}
+      className="inline-flex items-center gap-2 px-4 py-2 rounded-lg border border-line text-[14px] font-medium text-content hover:border-accent hover:text-accent transition-colors cursor-pointer"
+    >
+      {children}
+    </a>
+  );
+}
 
 function GitHubIcon() {
   return (
-    <svg viewBox="0 0 16 16" width="13" height="13" fill="currentColor" aria-hidden="true">
+    <svg viewBox="0 0 16 16" width="14" height="14" fill="currentColor" aria-hidden="true">
       <path d="M8 0C3.58 0 0 3.58 0 8c0 3.54 2.29 6.53 5.47 7.59.4.07.55-.17.55-.38 0-.19-.01-.82-.01-1.49-2.01.37-2.53-.49-2.69-.94-.09-.23-.48-.94-.82-1.13-.28-.15-.68-.52-.01-.53.63-.01 1.08.58 1.23.82.72 1.21 1.87.87 2.33.66.07-.52.28-.87.51-1.07-1.78-.2-3.64-.89-3.64-3.95 0-.87.31-1.59.82-2.15-.08-.2-.36-1.02.08-2.12 0 0 .67-.21 2.2.82.64-.18 1.32-.27 2-.27.68 0 1.36.09 2 .27 1.53-1.04 2.2-.82 2.2-.82.44 1.1.16 1.92.08 2.12.51.56.82 1.27.82 2.15 0 3.07-1.87 3.75-3.65 3.95.29.25.54.73.54 1.48 0 1.07-.01 1.93-.01 2.2 0 .21.15.46.55.38A8.013 8.013 0 0016 8c0-4.42-3.58-8-8-8z" />
     </svg>
   );
@@ -302,7 +340,17 @@ function LinkedInIcon() {
 
 function ResumeIcon() {
   return (
-    <svg viewBox="0 0 24 24" width="14" height="14" fill="none" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round" aria-hidden="true">
+    <svg
+      viewBox="0 0 24 24"
+      width="14"
+      height="14"
+      fill="none"
+      stroke="currentColor"
+      strokeWidth="2"
+      strokeLinecap="round"
+      strokeLinejoin="round"
+      aria-hidden="true"
+    >
       <path d="M14 2H6a2 2 0 0 0-2 2v16a2 2 0 0 0 2 2h12a2 2 0 0 0 2-2V8z" />
       <polyline points="14 2 14 8 20 8" />
       <line x1="16" y1="13" x2="8" y2="13" />
@@ -314,7 +362,17 @@ function ResumeIcon() {
 
 function ExternalLinkIcon() {
   return (
-    <svg viewBox="0 0 24 24" width="13" height="13" fill="none" stroke="currentColor" strokeWidth="2.5" strokeLinecap="round" strokeLinejoin="round" aria-hidden="true">
+    <svg
+      viewBox="0 0 24 24"
+      width="13"
+      height="13"
+      fill="none"
+      stroke="currentColor"
+      strokeWidth="2.5"
+      strokeLinecap="round"
+      strokeLinejoin="round"
+      aria-hidden="true"
+    >
       <path d="M18 13v6a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2V8a2 2 0 0 1 2-2h6" />
       <polyline points="15 3 21 3 21 9" />
       <line x1="10" y1="14" x2="21" y2="3" />
@@ -326,7 +384,7 @@ function ColoredSkillTag({ children }: { children: ReactNode }) {
   const category = skillCategory(String(children));
   const colors = SkillCategoryColor(category);
   return (
-    <span className={`px-2.5 py-0.5 text-[14px] rounded-full ${colors.bg} ${colors.text}`}>
+    <span className={`px-2.5 py-0.5 text-[13px] rounded-full ${colors.bg} ${colors.text}`}>
       {children}
     </span>
   );
