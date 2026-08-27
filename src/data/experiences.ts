@@ -1,6 +1,6 @@
 export type ExperienceType = {
   id: string;
-  logo: { src: string; alt: string };
+  logo?: { src: string; alt: string };
   title: string;
   org?: string;
   location: string;
@@ -13,6 +13,20 @@ export type ExperienceType = {
 };
 
 export const experiences: ExperienceType[] = [
+  {
+    id: "elcanotek",
+    title: "Junior Solutions Engineer",
+    org: "ElcanoTek",
+    location: "Philadelphia, PA",
+    date: "Jun 2026 – Present",
+    bullets: [
+      "Contribute across Fleet's Go and TypeScript codebase, shipping scheduler and agent-runtime reliability work, MCP tooling, security hardening, and chat and admin UX.",
+      "Build agent-driven workflows for programmatic advertising, including deal curation and deal-health monitoring across SSP and exchange platforms.",
+    ],
+    skills: ["Go", "TypeScript", "Next.js", "PostgreSQL", "MCP"],
+    importance: 1,
+    featured: true,
+  },
   {
     id: "researcher",
     logo: { src: "/logo/Temple-Logo-T-Header.svg", alt: "Temple" },
@@ -27,7 +41,7 @@ export const experiences: ExperienceType[] = [
     ],
     skills: ["Next.js", "TypeScript", "Python", "Plotly", "FastAPI"],
     link: "/projects/drug-synergy-finder",
-    importance: 1,
+    importance: 2,
     featured: true,
   },
   {
@@ -43,7 +57,7 @@ export const experiences: ExperienceType[] = [
     ],
     skills: ["Vue 3", "Vite", "JavaScript", "Frontend Development", "Agile/Sprints"],
     importance: 2,
-    featured: true,
+    featured: false,
   },
   {
     id: "stem-fellow",

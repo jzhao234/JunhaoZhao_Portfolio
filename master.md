@@ -11,9 +11,9 @@ Source of truth: `src/app/page.tsx` (homepage).
 
 ## Purpose
 
-This is a personal portfolio for Junhao Zhao, a CS student at Temple University applying to software engineering internships and full-time roles.
+This is a personal portfolio for Junhao Zhao, a Junior Solutions Engineer at ElcanoTek and Temple University computer science graduate beginning an M.S. in Artificial Intelligence in Fall 2026.
 
-Primary goal: get a recruiter to contact me or pass my resume to a hiring manager.
+Primary goal: establish professional credibility by showing current engineering work, selected projects, research, and clear ways to connect.
 
 The site should answer these questions quickly:
 1. Who is this person and what do they build?
@@ -71,7 +71,7 @@ changing that token block plus the two font imports in `layout.tsx`, nothing els
 | accent | `text-accent` / `bg-accent` | `#4D9CFF` | `#1B6DE0` | links, active nav, primary CTA |
 | accent-hover | `bg-accent-hover` | `#7DB6FF` | `#1552B0` | accent hover |
 | accent-contrast | `text-accent-contrast` | `#06111F` | `#FFFFFF` | text on a filled accent button |
-| positive | `bg-positive` | `#34D399` | `#059669` | availability dot |
+| positive | `bg-positive` | `#34D399` | `#059669` | positive status indicators |
 
 Each accent is contrast-checked against its own canvas at 4.5:1 or better.
 
@@ -125,7 +125,7 @@ Long text blocks (descriptions, bios, coursework) cap at `max-w-lg` to keep line
 - **Display / headings:** Space Grotesk (`font-display`), weight 700.
 - **Body:** Plus Jakarta Sans (`font-sans`) — the default on `body`.
 - **Mono:** Geist Mono (`font-mono`) — section labels, dates, category labels,
-  the availability line, the footer copyright. Mono is the instrument-panel
+  the hero metadata line, the footer copyright. Mono is the instrument-panel
   voice: metadata only, never body copy.
 - Loaded via `next/font/google` in `layout.tsx` — never a CSS `@import`.
 
@@ -389,25 +389,19 @@ rather than hiding keeps it from feeling like a database query.
 - Profile photo: `width={160} height={160}`, `rounded-2xl`
 - Photo border: `border border-line`
 - Name: `text-4xl sm:text-5xl font-bold tracking-tight`
-- Tagline: 2–3 sentences max. CS student → what I build → most recent significant project. No buzzwords.
+- Tagline: 2–3 sentences max. Current role → what I build → areas of technical focus. No buzzwords.
 - Tech stack labels: `font-mono text-[12px] uppercase tracking-[0.1em] text-subtle`. Supporting detail, not the headline.
-- Availability dot: `w-2 h-2 rounded-full bg-green-400`, followed by one short availability line
+- Metadata dot: `w-2 h-2 rounded-full bg-accent`, followed by one short location or education line
 - Buttons: LinkedIn (filled blue), GitHub (ghost), Resume (ghost) — always in that order
-- Do not use pill badges ("Open to work", "Available") — the green dot + text is enough
+- Do not use pill badges ("Open to work", "Available"); keep the line factual and understated
 
 ---
 
-## CTA Section Rules
+## Contact Link Rules
 
-Located at the bottom of the homepage, separated by a top border.
-
-- Green dot + short availability line above heading
-- Heading: direct, honest ("Open to software engineering opportunities")
-- Subtext: one sentence pointing to LinkedIn / GitHub / resume
-- Buttons: LinkedIn (filled), GitHub (ghost), Download Resume (ghost)
-- No "Let's work together" or partnership language
-- No "I'd love to chat about your project" freelance framing
-- Keep it short — this section exists to close the page, not repeat the hero
+- Keep LinkedIn, GitHub, and the résumé together in the hero.
+- Do not imply availability or an active job search unless that is currently true.
+- Keep the calls to action concise and professional.
 
 ---
 
@@ -415,7 +409,7 @@ Located at the bottom of the homepage, separated by a top border.
 
 ### Tone
 
-- Sound like a strong early-career SWE, not a senior engineer and not a student project fair.
+- Sound like a strong early-career engineer, not a senior engineer and not a student project fair.
 - Precise and technical, but not jargon-heavy.
 - No inflated verbs: "spearheaded", "architected", "championed", "drove alignment".
 - Use normal verbs: built, added, contributed, designed, improved, wrote.
@@ -442,12 +436,12 @@ Located at the bottom of the homepage, separated by a top border.
 - Include a technology or method name where natural.
 - Do not pad bullets with soft skills ("demonstrated strong communication").
 
-### Availability / status language
+### Employment / status language
 
-- ✓ "Open to SWE internships and full-time roles"
-- ✓ "Available for summer 2026 internships and full-time roles"
+- ✓ "Junior Solutions Engineer at ElcanoTek"
+- ✓ "Philadelphia, PA · Temple University CS, Class of 2026"
 - ✗ "Actively seeking opportunities to make an impact"
-- ✗ "Passionate about contributing to innovative teams"
+- ✗ Any availability claim that is not currently true
 
 ---
 

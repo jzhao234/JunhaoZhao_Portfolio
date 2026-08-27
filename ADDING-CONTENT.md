@@ -85,7 +85,7 @@ The type is declared at the top of that same file.
 ```ts
 {
   id: "unique-id",
-  logo: { src: "/logo/org.png", alt: "Org" },
+  logo: { src: "/logo/org.png", alt: "Org" }, // optional
   title: "Software Engineering Intern",
   org: "Company Name",
   location: "City, State",
@@ -98,7 +98,7 @@ The type is declared at the top of that same file.
 ```
 
 - `date` uses an en dash with spaces: `May 2025 – Present`, not a hyphen.
-- `logo.src` must point to a real file in `public/logo/`. Reuse
+- When provided, `logo.src` must point to a real file in `public/logo/`. Reuse
   `/logo/Temple-Logo-T-Header.svg` for anything Temple.
 - `link` is optional and points at a related project page, e.g.
   `/projects/drug-synergy-analyzer`.

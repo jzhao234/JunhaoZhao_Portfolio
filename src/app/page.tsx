@@ -49,16 +49,13 @@ export default function Home() {
             Junhao Zhao
           </h1>
           <p className="mt-4 text-[17px] text-muted leading-relaxed max-w-xl">
-            Backend-leaning software engineer building APIs, data-intensive applications, and
-            research tools. Most recently, I built software for drug synergy analysis at Fox Chase
-            Cancer Center using Python, FastAPI, and scientific visualization.
+            Junior Solutions Engineer at ElcanoTek building AI agents and developer tools for
+            programmatic advertising. I work across backend systems, MCP integrations, reliability,
+            and product experiences in Go and TypeScript.
           </p>
           <div className="mt-4 flex items-start gap-2.5 font-mono text-[13px] text-subtle">
-            <span className="relative flex h-2 w-2 flex-shrink-0 mt-[5px]">
-              <span className="absolute inline-flex h-full w-full rounded-full bg-positive opacity-60" />
-              <span className="relative inline-flex h-2 w-2 rounded-full bg-positive" />
-            </span>
-            Seeking full-time backend and software engineering roles
+            <span className="inline-flex h-2 w-2 flex-shrink-0 mt-[5px] rounded-full bg-accent" />
+            Philadelphia, PA · Temple University CS, Class of 2026
           </div>
           <div className="flex flex-wrap gap-3 mt-6">
             <GhostLink href="https://www.linkedin.com/in/junhao-zhao/" external>
@@ -231,7 +228,10 @@ export default function Home() {
             <div>
               <h3 className="font-display text-[18px] font-bold text-content">Temple University</h3>
               <p className="text-[15px] text-muted mt-0.5">
-                B.S. Computer Science · Philadelphia, PA · 2022 – Present
+                M.S. Artificial Intelligence · Beginning Fall 2026
+              </p>
+              <p className="text-[15px] text-muted mt-0.5">
+                B.S. Computer Science · Graduated May 2026
               </p>
               <p className="mt-1 text-[14px] text-subtle leading-relaxed max-w-lg">
                 Studied abroad at Temple University Japan Campus in Fall 2025

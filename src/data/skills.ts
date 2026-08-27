@@ -32,13 +32,14 @@ export const categoryOrder: SkillCategory[] = [
 
 export const skills: SkillType[] = [
   // Languages
-  { name: "Python", category: "Language", importance: 1 },
-  { name: "Java", category: "Language", importance: 2 },
-  { name: "C", category: "Language", importance: 3 },
-  { name: "TypeScript", category: "Language", importance: 4 },
-  { name: "SQL", category: "Language", importance: 5 },
-  { name: "JavaScript", category: "Language", importance: 6 },
-  { name: "HTML5", category: "Language", importance: 7 },
+  { name: "Go", category: "Language", importance: 1 },
+  { name: "TypeScript", category: "Language", importance: 2 },
+  { name: "Python", category: "Language", importance: 3 },
+  { name: "Java", category: "Language", importance: 4 },
+  { name: "C", category: "Language", importance: 5 },
+  { name: "SQL", category: "Language", importance: 6 },
+  { name: "JavaScript", category: "Language", importance: 7 },
+  { name: "HTML5", category: "Language", importance: 8 },
 
   // Backend
   { name: "FastAPI", category: "Backend", importance: 1 },
@@ -51,7 +52,8 @@ export const skills: SkillType[] = [
 
   // Cloud / Storage
   { name: "AWS Amazon S3", category: "DatabaseCloud", importance: 1 },
-  { name: "SQLite", category: "DatabaseCloud", importance: 2 },
+  { name: "PostgreSQL", category: "DatabaseCloud", importance: 2 },
+  { name: "SQLite", category: "DatabaseCloud", importance: 3 },
 
   // Frontend
   { name: "Next.js", category: "Frontend", importance: 1 },
@@ -60,5 +62,6 @@ export const skills: SkillType[] = [
   { name: "Vue 3", category: "Frontend", importance: 4 },
 
   // Others
-  { name: "Bcrypt", category: "Others", importance: 1 },
+  { name: "MCP", category: "Others", importance: 1 },
+  { name: "Bcrypt", category: "Others", importance: 2 },
 ];

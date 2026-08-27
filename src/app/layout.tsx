@@ -28,18 +28,24 @@ const geistMono = Geist_Mono({
 export const metadata: Metadata = {
   metadataBase: new URL("https://junhaozhao.com"),
   title: {
-    default: "Junhao Zhao | Software Engineer",
+    default: "Junhao Zhao | Junior Solutions Engineer",
     template: "%s | Junhao Zhao",
   },
   description:
-    "Backend-leaning software engineer building APIs, data-intensive applications, and research tools.",
+    "Junior Solutions Engineer at ElcanoTek building AI agents, developer tools, and data-intensive systems.",
   openGraph: {
-    title: "Junhao Zhao | Software Engineer",
-    description: "Projects, experience, and contact information.",
+    title: "Junhao Zhao | Junior Solutions Engineer",
+    description:
+      "Junior Solutions Engineer at ElcanoTek building AI agents, developer tools, and data-intensive systems.",
     url: "https://junhaozhao.com",
     siteName: "Junhao Zhao",
     type: "website",
-    images: [{ url: "/og.png", width: 1200, height: 630, alt: "Junhao Zhao" }],
+  },
+  twitter: {
+    card: "summary_large_image",
+    title: "Junhao Zhao | Junior Solutions Engineer",
+    description:
+      "Building AI agents, developer tools, and data-intensive systems at ElcanoTek.",
   },
   robots: {
     index: true,
@@ -54,7 +60,6 @@ export const metadata: Metadata = {
   },
 };
 
-// Only facts already stated on the page — no invented titles or affiliations.
 const personSchema = {
   "@context": "https://schema.org",
   "@type": "Person",
@@ -62,7 +67,17 @@ const personSchema = {
   url: "https://junhaozhao.com",
   image: "https://junhaozhao.com/profile.jpg",
   description:
-    "Backend-leaning software engineer building APIs, data-intensive applications, and research tools.",
+    "Junior Solutions Engineer at ElcanoTek building AI agents, developer tools, and data-intensive systems.",
+  jobTitle: "Junior Solutions Engineer",
+  worksFor: {
+    "@type": "Organization",
+    name: "ElcanoTek",
+    url: "https://elcanotek.com",
+  },
+  alumniOf: {
+    "@type": "CollegeOrUniversity",
+    name: "Temple University",
+  },
   sameAs: [
     "https://www.linkedin.com/in/junhao-zhao/",
     "https://github.com/jzhao234",

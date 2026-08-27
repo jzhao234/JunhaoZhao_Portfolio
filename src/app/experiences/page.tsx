@@ -4,7 +4,7 @@ import ExperienceCard from "../../components/Experience/ExperienceCard"
 
 export const metadata: Metadata = {
   title: "Experiences",
-  description: "Experience History: Fox Chase Cancer Center, Temple University, ITD-GBS",
+  description: "Experience at ElcanoTek, Fox Chase Cancer Center, Temple University, and ITD-GBS.",
 };
 
 export default function ExperiencePage() {
