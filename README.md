@@ -1,36 +1,93 @@
-This is a [Next.js](https://nextjs.org) project bootstrapped with [`create-next-app`](https://github.com/vercel/next.js/tree/canary/packages/create-next-app).
+# Junhao Zhao — Portfolio
 
-## Getting Started
+The source for [junhaozhao.com](https://junhaozhao.com), a recruiter-focused
+software engineering portfolio. The site presents selected projects,
+professional experience, technical skills, and contact links in a responsive,
+dark-first interface.
 
-First, run the development server:
+## What the site includes
 
-```bash
-npm run dev
-# or
-yarn dev
-# or
-pnpm dev
-# or
-bun dev
+- A scan-friendly homepage with featured projects, experience, education, and
+  a categorized technical stack.
+- Filterable project and experience pages backed by typed data files.
+- Dynamic project case studies with screenshots, architecture notes,
+  challenges, links, and technology tags.
+- A persistent light/dark theme that is applied before first paint.
+- Search metadata, Open Graph imagery, structured person data, `robots.txt`,
+  and a generated sitemap.
+- A downloadable resume plus direct GitHub and LinkedIn links.
+
+## Stack
+
+- Next.js 16 App Router
+- React 19
+- TypeScript
+- Tailwind CSS 4
+- ESLint
+
+## Project structure
+
+```text
+src/
+├── app/                 # Pages, dynamic routes, metadata, sitemap, robots
+├── components/          # Layout and reusable portfolio UI
+├── data/                # Typed project, experience, and skill content
+└── utils/               # Skill categorization and image/text helpers
+public/
+├── files/               # Downloadable resume
+├── logo/                # Organization and technology marks
+└── projects/            # Project screenshots grouped by project
 ```
 
-Open [http://localhost:3000](http://localhost:3000) with your browser to see the result.
+Project and experience content lives in `src/data/` rather than inside page
+components. This keeps the rendering system stable while making portfolio
+updates small and reviewable.
 
-You can start editing the page by modifying `app/page.js`. The page auto-updates as you edit the file.
+## Local development
 
-This project uses [`next/font`](https://nextjs.org/docs/app/building-your-application/optimizing/fonts) to automatically optimize and load [Geist](https://vercel.com/font), a new font family for Vercel.
+### Prerequisites
 
-## Learn More
+- Node.js 20.9 or newer
+- npm
 
-To learn more about Next.js, take a look at the following resources:
+### Setup
 
-- [Next.js Documentation](https://nextjs.org/docs) - learn about Next.js features and API.
-- [Learn Next.js](https://nextjs.org/learn) - an interactive Next.js tutorial.
+```bash
+git clone https://github.com/jzhao234/JunhaoZhao_Portfolio.git
+cd JunhaoZhao_Portfolio
+npm ci
+npm run dev
+```
 
-You can check out [the Next.js GitHub repository](https://github.com/vercel/next.js) - your feedback and contributions are welcome!
+Open [http://localhost:3000](http://localhost:3000).
 
-## Deploy on Vercel
+No environment variables are required for the current site.
 
-The easiest way to deploy your Next.js app is to use the [Vercel Platform](https://vercel.com/new?utm_medium=default-template&filter=next.js&utm_source=create-next-app&utm_campaign=create-next-app-readme) from the creators of Next.js.
+## Validation
 
-Check out our [Next.js deployment documentation](https://nextjs.org/docs/app/building-your-application/deploying) for more details.
+Run both checks before publishing content or implementation changes:
+
+```bash
+npm run lint
+npm run build
+```
+
+The production build verifies the TypeScript application and generates the
+static routes, sitemap, and robots file.
+
+## Updating portfolio content
+
+Read [ADDING-CONTENT.md](./ADDING-CONTENT.md) before adding or changing a
+project or experience. It documents the data shapes, image conventions, skill
+registry, homepage feature rules, and the requirement that recruiting claims
+remain factual.
+
+The visual system and component conventions are documented in
+[master.md](./master.md). Content updates should use those existing patterns
+instead of introducing one-off styling.
+
+## Production
+
+The canonical production URL is [junhaozhao.com](https://junhaozhao.com).
+Metadata, structured data, the sitemap, and `robots.txt` all use that domain;
+update them together if the canonical URL ever changes.
