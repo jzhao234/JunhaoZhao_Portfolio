@@ -9,7 +9,7 @@ const drugSynergy: ProjectTypes = {
     "/projects/drugSynergy/homePage.png",
     "/projects/drugSynergy/curveFittings.png",
     "/projects/drugSynergy/SAPEScores.png",
-    "/projects/drugSynergy/responseMatrix.png",
+    "/projects/drugSynergy/synergyMap.png",
   ],
   name: "Drug Synergy Analyzer",
   cardDescription:
