@@ -44,6 +44,7 @@ export const skills: SkillType[] = [
   // Backend
   { name: "FastAPI", category: "Backend", importance: 1 },
   { name: "Flask", category: "Backend", importance: 2 },
+  { name: "Node.js", category: "Backend", importance: 3 },
 
   // Data / Visualization
   { name: "SciPy", category: "DataVisualization", importance: 1 },
@@ -64,4 +65,5 @@ export const skills: SkillType[] = [
   // Others
   { name: "MCP", category: "Others", importance: 1 },
   { name: "Bcrypt", category: "Others", importance: 2 },
+  { name: "Vitest", category: "Others", importance: 3 },
 ];
