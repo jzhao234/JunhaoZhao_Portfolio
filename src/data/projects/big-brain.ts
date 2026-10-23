@@ -3,7 +3,7 @@ import type { ProjectTypes } from "./types";
 const bigBrain: ProjectTypes = {
   id: "BigBrain",
   importance: 2,
-  featured: false,
+  featured: true,
   slug: "big-brain",
   images: [
     "/projects/bigBrain/assistant.png",

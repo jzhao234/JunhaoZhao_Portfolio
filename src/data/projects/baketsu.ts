@@ -3,7 +3,7 @@ import type { ProjectTypes } from "./types";
 const baketsu: ProjectTypes = {
   id: "Baketsu",
   importance: 2,
-  featured: true,
+  featured: false,
   slug: "baketsu-cloud-storage",
   images: [
     "/projects/baketsu/homePage.png",
