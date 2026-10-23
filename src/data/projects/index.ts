@@ -6,4 +6,4 @@ import bigBrain from "./big-brain";
 import osakaHibachi from "./osaka-hibachi";
 import soraAscent from "./sora-ascent";
 
-export const projects = [drugSynergy, bigBrain, baketsu, osakaHibachi, soraAscent];
+export const projects = [bigBrain, drugSynergy, baketsu, osakaHibachi, soraAscent];

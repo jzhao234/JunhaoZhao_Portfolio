@@ -2,7 +2,7 @@ import type { ProjectTypes } from "./types";
 
 const drugSynergy: ProjectTypes = {
   id: "DrugSynergy",
-  importance: 1,
+  importance: 2,
   featured: true,
   slug: "drug-synergy-analyzer",
   images: [
